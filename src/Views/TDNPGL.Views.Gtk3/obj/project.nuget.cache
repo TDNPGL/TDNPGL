@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "4f3PyETh1HkdAGVlI1zU2VWwmOfZr2JdvpV5kMnmurLhLLT5GS+FhL6UWLOWjrAlcgrxxhjINQymHTb348P1Gg==",
+  "success": true,
+  "projectFilePath": "D:\\ZatritProjects\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\atksharp\\3.22.25.98\\atksharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\cairosharp\\3.22.25.98\\cairosharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\gdksharp\\3.22.25.98\\gdksharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\giosharp\\3.22.25.98\\giosharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\glibsharp\\3.22.25.98\\glibsharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\gtksharp\\3.22.25.98\\gtksharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\pangosharp\\3.22.25.98\\pangosharp.3.22.25.98.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.views.desktop.common\\2.80.1\\skiasharp.views.desktop.common.2.80.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.views.gtk3\\2.80.1\\skiasharp.views.gtk3.2.80.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

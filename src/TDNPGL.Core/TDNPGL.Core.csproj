@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;netstandard2.0;net472</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <RootNamespace>TDNPGL.Core</RootNamespace>
+    <Version>1.5.0.6</Version>
+    <PackageId>TDNPGL.Core.Lib</PackageId>
+    <Authors>Zatrit</Authors>
+    <Company>ZatritGames</Company>
+    <Product>TDNPGL</Product>
+    <AssemblyName>TDNPGL.Core</AssemblyName>
+    <AssemblyVersion>1.5.0.6</AssemblyVersion>
+    <FileVersion>1.5.0.6</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="1.68.3" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="1.68.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDNPGL.GlobalDepencies\TDNPGL.GlobalDepencies.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="start robocopy $(SolutionDir)Views\TDNPGL.Core\bin\$(ConfigurationName)\net472\ $(SolutionDir)TDNPGL.Engine\lib\ *.dll" />
+  </Target>
+
+</Project>

@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.80.1" />
+    <PackageReference Include="SkiaSharp.Views.Gtk2" Version="2.80.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="atk-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\atk-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gdk-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\gdk-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="glade-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\glade-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="glib-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\glib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gtk-dotnet">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\gtk-dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="gtk-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\gtk-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cairo">
+      <HintPath>..\..\..\..\GTKSharp\lib\Mono.Cairo\Mono.Cairo.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>..\..\..\..\GTKSharp\lib\Mono.Posix\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="pango-sharp">
+      <HintPath>..\..\..\..\GTKSharp\lib\gtk-sharp-2.0\pango-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="start robocopy $(SolutionDir)Views\TDNPGL.Views.Gtk2\bin\$(ConfigurationName)\net472\ $(SolutionDir)TDNPGL.Engine\lib\Gtk2\ *.dll" />
+  </Target>
+
+</Project>

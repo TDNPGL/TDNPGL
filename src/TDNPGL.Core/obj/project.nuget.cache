@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "STkYWAblojvUT8Td8iDzR5iuNizbtm9Zf2yYOGdCkeEU8z8RcgaQB1tYOt7TI1lZeusu/EizDP/6dSC5sBovag==",
+  "success": true,
+  "projectFilePath": "D:\\ZatritProjects\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}
