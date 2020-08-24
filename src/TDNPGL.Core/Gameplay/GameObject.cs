@@ -153,6 +153,18 @@ namespace TDNPGL.Core.Gameplay
                 script.OnCollideWith(state as GameObject),obj);
             }
         }
+        public virtual void OnMouseReleased(SkiaSharp.SKPoint point){
+            foreach (GameObjectScript script in Scripts)
+            {
+                ThreadPool.QueueUserWorkItem((object state) =>
+                script.OnMouseReleased((SKPoint)state),point);
+                if(AABB.IsPointOver(AABB,point))
+                ThreadPool.QueueUserWorkItem((object state) =>
+                script.OnMouseReleased((SKPoint)state),point);
+            }
+         }
+         public virtual void OnMouseReleasedOver(SkiaSharp.SKPoint point){
+         }
         internal void LoadScripts()
         {
             if (scripts != null)

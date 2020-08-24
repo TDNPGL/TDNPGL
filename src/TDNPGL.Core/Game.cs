@@ -86,7 +86,13 @@ namespace TDNPGL.Core
         }
         public static void MouseClick(int button,SKPoint point)
         {
-            Console.WriteLine("Screen touch in: " + point+" by button: "+button);
+            try{
+                foreach(GameObject obj in CurrentLevel.Objects){
+                    obj.OnMouseReleased(point);
+                }
+            }catch(Exception ex){
+                Console.WriteLine(ex);
+            }
         }
         #endregion
     }

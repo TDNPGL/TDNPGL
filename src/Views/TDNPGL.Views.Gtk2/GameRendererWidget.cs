@@ -70,7 +70,11 @@ namespace TDNPGL.Views.Gtk2
                 CurrentGameBitmap.Dispose();
             }
         }
-
+    
+        protected override bool OnButtonReleaseEvent(Gdk.EventButton evnt){
+            TDNPGL.Core.Game.MouseClick((int)evnt.Button,new SKPoint((float)evnt.X,(float)evnt.Y));
+            return base.OnButtonReleaseEvent(evnt);
+        }
         public void InitGame(Assembly assembly,string GameName)
         {
             TDNPGL.Core.Game.Init(this, assembly,GameName,true);

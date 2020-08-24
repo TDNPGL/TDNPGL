@@ -17,6 +17,9 @@ namespace TDNPGL.Core.Gameplay.LowLevel
 
             return true;
         }
+        public static bool IsPointOver(AABB a,SKPoint point){
+            return (point.X>a.min.X&&point.X<a.max.X)&&(point.Y>a.min.Y&&point.Y<a.max.Y);
+        }
         public SKRect ToRect()
         {
             return new SKRect(min.X, min.Y, max.X, max.Y);

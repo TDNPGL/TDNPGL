@@ -57,15 +57,15 @@ namespace TDNPGL.Views.WinForms
             this.VSync = true;
             this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs>(this.This_PaintSurface);
             this.SizeChanged += new System.EventHandler(this.skglControl1_SizeChanged);
-            this.MouseClick += GameRendererControl_MouseClick;
+            this.MouseUp += GameRendererControl_MouseReleased;
         }
 
-        private void GameRendererControl_MouseClick(object sender, MouseEventArgs e)
+        private void GameRendererControl_MouseReleased(object sender, MouseEventArgs e)
         {
             SKPoint point = new SKPoint(e.X, e.Y);
             MouseButtons[] buttons = { MouseButtons.Left, MouseButtons.Middle, MouseButtons.Right };
             int b = buttons.ToList().IndexOf(e.Button);
-            Game.MouseClick(b,point);
+            Game.MouseReleased(b,point);
         }
 
         private void GameRendererControl_SizeChanged(object sender, EventArgs e)

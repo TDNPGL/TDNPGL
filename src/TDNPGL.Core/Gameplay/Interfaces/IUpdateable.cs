@@ -11,5 +11,7 @@ namespace TDNPGL.Core.Gameplay.Interfaces
         public void OnTick();
         public void OnCreate();
         public void OnFirstTick();
+        public void OnMouseReleased(SkiaSharp.SKPoint point);
+        public void OnMouseReleasedOver(SkiaSharp.SKPoint point);
     }
 }
