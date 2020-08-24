@@ -1,49 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj": {}
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
       "version": "1.5.0.6",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+        "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
         "projectName": "TDNPGL.Core.Lib",
-        "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+        "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\obj\\",
+        "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net472",
-          "netcoreapp3.1",
           "netstandard2.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
-              }
-            }
-          },
-          "net472": {
-            "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
-              }
-            }
-          },
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
+              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
               }
             }
           }
@@ -55,47 +39,6 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "SkiaSharp.NativeAssets.Linux": {
-              "target": "Package",
-              "version": "[1.68.3, )"
-            },
-            "SkiaSharp.NativeAssets.Linux.NoDependencies": {
-              "target": "Package",
-              "version": "[1.68.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-        },
-        "net472": {
-          "dependencies": {
-            "SkiaSharp.NativeAssets.Linux": {
-              "target": "Package",
-              "version": "[1.68.3, )"
-            },
-            "SkiaSharp.NativeAssets.Linux.NoDependencies": {
-              "target": "Package",
-              "version": "[1.68.3, )"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-        },
         "netstandard2.0": {
           "dependencies": {
             "NETStandard.Library": {
@@ -127,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
+        "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
         "projectName": "TDNPGL.GlobalDepencies",
-        "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
+        "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\obj\\",
+        "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -188,30 +131,30 @@
         }
       }
     },
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj": {
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
+        "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
         "projectName": "TDNPGL.Views.Forms",
-        "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
+        "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\obj\\",
+        "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
               }
             }
           }
@@ -223,14 +166,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netstandard2.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            },
             "SkiaSharp.Views": {
               "target": "Package",
               "version": "[2.80.0, )"
@@ -238,6 +175,10 @@
             "SkiaSharp.Views.Forms": {
               "target": "Package",
               "version": "[2.80.0, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[0.0.0-4.2.2.0, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -254,6 +195,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }

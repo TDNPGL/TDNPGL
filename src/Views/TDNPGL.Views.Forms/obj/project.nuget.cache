@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "2lSmghTkoleegx/pzTF3Kb+TTwIo0fau1/6kLxtjhJ90gaysv7e3Gc5FyFyIMf5H0HOcKI4KGN2emGDxBDnsoA==",
+  "dgSpecHash": "x+9ROsxBKei40eOBc7Bk4kHNe7ffdQxUdMQ/n84/KXQY2kZJ6/p83gjCdVNCmBDaGo2xH7nqd0mAvbIAQJmLKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
+  "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Forms\\TDNPGL.Views.Forms.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Zatrit\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",
@@ -15,19 +13,40 @@
     "C:\\Users\\Zatrit\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.runtime\\4.0.0-beta-23019\\system.runtime.4.0.0-beta-23019.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\xamarin.forms\\4.6.0.772\\xamarin.forms.4.6.0.772.nupkg.sha512"
   ],
   "logs": [
     {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "TDNPGL.Views.Forms зависит от System.Runtime (>= 0.0.0-4.2.2.0), но System.Runtime 0.0.0-4.2.2.0 не найден. Использовано наилучшее приближенное соответствие System.Runtime 4.0.0-beta-23019.",
+      "libraryId": "System.Runtime",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.1"
+      ]
+    },
+    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"SkiaSharp.Views 2.80.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETStandard,Version=v2.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Пакет \"SkiaSharp.Views 2.80.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETStandard,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "SkiaSharp.Views",
       "targetGraphs": [
-        ".NETStandard,Version=v2.0"
+        ".NETStandard,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"System.Runtime 4.0.0-beta-23019\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETStandard,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "System.Runtime",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.1"
       ]
     }
   ]

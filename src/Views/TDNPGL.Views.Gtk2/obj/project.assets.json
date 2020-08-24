@@ -109,7 +109,7 @@
       },
       "TDNPGL.Core.Lib/1.5.0.6": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "SkiaSharp.NativeAssets.Linux": "1.68.3",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
@@ -294,7 +294,7 @@
       },
       "TDNPGL.Core.Lib/1.5.0.6": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.7.2",
+        "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "SkiaSharp.NativeAssets.Linux": "1.68.3",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
@@ -644,11 +644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
+      "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
       "projectName": "TDNPGL.Views.Gtk2",
-      "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
+      "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
       "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\obj\\",
+      "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
@@ -664,15 +664,15 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+            "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+              "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
             }
           }
         },
         "net472": {
           "projectReferences": {
-            "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+            "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+              "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
             }
           }
         }

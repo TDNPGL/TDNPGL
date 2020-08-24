@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QTIfOZLnc8rIScuWMuSuiWPcWBpV3ORqIQcdOwhY0PhgjjlSSqm9ailX+872dzWL4udGDlBn/+0754/mCjFqoA==",
+  "dgSpecHash": "8l56yRpDGpYF3kk14grrqcbfnW3K1jMCB0QsE++e/m7YBuh4d4UYAAA7b7ikCnXJsTH4af7WsjH1IeNClTBnhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
+  "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zatrit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
