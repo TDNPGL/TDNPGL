@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {}
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
       "version": "1.5.0.6",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+        "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
         "projectName": "TDNPGL.Core.Lib",
-        "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+        "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\obj\\",
+        "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -28,22 +28,22 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
+              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
               }
             }
           },
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
+              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
               }
             }
           },
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
+              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
               }
             }
           }
@@ -127,14 +127,14 @@
         }
       }
     },
-    "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
+    "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
+        "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
         "projectName": "TDNPGL.GlobalDepencies",
-        "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
+        "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\obj\\",
+        "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"

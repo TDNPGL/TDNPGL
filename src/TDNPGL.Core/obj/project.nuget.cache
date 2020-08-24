@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QSxZUuP1qtvH2H+wiTG/ZwZWpM02lKhhknJESD4EFNn8bneN/zV2W0bJjkwbaeDW0viJFyrubb5bFoX6khV9Gw==",
+  "dgSpecHash": "qJpaVhSJgMFGUIgwEQKG6S2XMvefObWIHy+bzTyPLCXPASpsCm0E70X4Z6gfxTUY07tqsFw+nkx7Tb+FJ12d6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
+  "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zatrit\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
