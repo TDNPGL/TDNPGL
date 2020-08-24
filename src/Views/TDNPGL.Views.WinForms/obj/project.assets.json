@@ -725,11 +725,11 @@
   "project": {
     "version": "1.5.0.6",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
+      "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
       "projectName": "TDNPGL.Views.WinForms.Lib",
-      "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
+      "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
       "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\obj\\",
+      "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
@@ -745,15 +745,15 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+            "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+              "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
             }
           }
         },
         "net472": {
           "projectReferences": {
-            "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+            "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+              "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
             }
           }
         }

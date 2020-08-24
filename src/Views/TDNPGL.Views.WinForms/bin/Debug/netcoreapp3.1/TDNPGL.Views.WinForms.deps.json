@@ -1,0 +1,230 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "TDNPGL.Views.WinForms/1.5.0.6": {
+        "dependencies": {
+          "SkiaSharp.Views.Desktop.Common": "2.80.0",
+          "SkiaSharp.Views.WindowsForms": "2.80.0",
+          "TDNPGL.Core.Lib": "1.5.0.6"
+        },
+        "runtime": {
+          "TDNPGL.Views.WinForms.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "OpenTK/3.0.1": {
+        "runtime": {
+          "lib/net20/OpenTK.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "OpenTK.GLControl/3.0.1": {
+        "dependencies": {
+          "OpenTK": "3.0.1"
+        },
+        "runtime": {
+          "lib/net20/OpenTK.GLControl.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "SkiaSharp/2.80.1": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.80.0.0",
+            "fileVersion": "2.80.1.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux/1.68.3": {
+        "dependencies": {
+          "SkiaSharp": "2.80.1"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/1.68.3": {
+        "dependencies": {
+          "SkiaSharp": "2.80.1"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.Desktop.Common/2.80.0": {
+        "dependencies": {
+          "SkiaSharp": "2.80.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/SkiaSharp.Views.Desktop.Common.dll": {
+            "assemblyVersion": "2.80.0.0",
+            "fileVersion": "2.80.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.WindowsForms/2.80.0": {
+        "dependencies": {
+          "OpenTK": "3.0.1",
+          "OpenTK.GLControl": "3.0.1",
+          "SkiaSharp": "2.80.1",
+          "SkiaSharp.Views.Desktop.Common": "2.80.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/SkiaSharp.Views.WindowsForms.dll": {
+            "assemblyVersion": "2.80.0.0",
+            "fileVersion": "2.80.0.0"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
+      "TDNPGL.Core.Lib/1.5.0.6": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Linux": "1.68.3",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
+          "TDNPGL.GlobalDepencies": "1.0.0"
+        },
+        "runtime": {
+          "TDNPGL.Core.dll": {}
+        }
+      },
+      "TDNPGL.GlobalDepencies/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "SkiaSharp": "2.80.1"
+        },
+        "runtime": {
+          "TDNPGL.GlobalDepencies.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TDNPGL.Views.WinForms/1.5.0.6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "OpenTK/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X/jjhmvXvzzX+T4gTstdmeqMCcD51P+HD/cy1AZinFn1Rcu5KOrgQVZiD4Gm4pj2PjZ91dY8NEs2i9qjIDgJJA==",
+      "path": "opentk/3.0.1",
+      "hashPath": "opentk.3.0.1.nupkg.sha512"
+    },
+    "OpenTK.GLControl/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bDbxxCWkOvTJGaRlaKscZcP1cu1jDKbn+a6wMAsMzmGtrYZZbrVoc+SaMjSEOgavLEJQ8SHqLeXfZ0tlM1Jn4g==",
+      "path": "opentk.glcontrol/3.0.1",
+      "hashPath": "opentk.glcontrol.3.0.1.nupkg.sha512"
+    },
+    "SkiaSharp/2.80.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CiQwnDzG+1JNGzjAN9G/9n/lJgUVA/NPOFgSlEtu6c7qQ0O7P1tMjrXp/+PtWfX0xyyY9ABsFAZK2kW34U7r/A==",
+      "path": "skiasharp/2.80.1",
+      "hashPath": "skiasharp.2.80.1.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux/1.68.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oKyN0nTuq9wZVZPxocCF4ovKFPGnOQCsFE0ailmQ0spaYqAllxKCiyeksogJpGF7erOBZhfYewAYJahXtv1K4g==",
+      "path": "skiasharp.nativeassets.linux/1.68.3",
+      "hashPath": "skiasharp.nativeassets.linux.1.68.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/1.68.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fJeiAULF9KT6UuHDDt8B/CJx6hpVQXHuKVAZF9ClC6v2VohRyHGbAkFTUNpseBP0Qq1AexlkUfav/FK6/LMVGA==",
+      "path": "skiasharp.nativeassets.linux.nodependencies/1.68.3",
+      "hashPath": "skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Desktop.Common/2.80.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T/aa4y8rL2Zu/Hiq6k0efpnGYyNNzyIURftSaRSxZj+xJeepvUbdPBTmSrwM5Ohmi4Y6dHwBxOnqkLqvm2Ywyw==",
+      "path": "skiasharp.views.desktop.common/2.80.0",
+      "hashPath": "skiasharp.views.desktop.common.2.80.0.nupkg.sha512"
+    },
+    "SkiaSharp.Views.WindowsForms/2.80.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K2Mb4A8RpZHqHHsvUQ3rFtdOkF/NWlzPmIJC6uIeeOcxS8PrvcmV3Rgq8ChN0GGKbi+Vk/8aEbk/qwwKW2+1lg==",
+      "path": "skiasharp.views.windowsforms/2.80.0",
+      "hashPath": "skiasharp.views.windowsforms.2.80.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "TDNPGL.Core.Lib/1.5.0.6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TDNPGL.GlobalDepencies/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

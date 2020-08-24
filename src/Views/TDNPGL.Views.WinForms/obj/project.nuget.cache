@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6fKs7N70fsgPTcGYXryFNKxsnkh9xRlHk9/axKZY3EWPW2EJZW4DGb3joccIO73ALxBAk23uUNL5xe/g0um/ww==",
+  "dgSpecHash": "IqfQKvDSQlAfjcx3ft83lVHxl55Q6auCJMe20i8UXU/2S9quTYU9+dWJTdRH9xvccwnzd2uJUXLGm1sTT3ElFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
+  "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zatrit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\opentk\\3.0.1\\opentk.3.0.1.nupkg.sha512",
