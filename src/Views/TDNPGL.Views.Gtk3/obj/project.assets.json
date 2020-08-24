@@ -536,40 +536,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Zatrit\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ZatritProjects\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
+      "projectUniqueName": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
       "projectName": "TDNPGL.Views.Gtk3",
-      "projectPath": "D:\\ZatritProjects\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\ZatritProjects\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\obj\\",
+      "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
+      "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\ZatritProjects\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "D:\\ZatritProjects\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
+            "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
+              "projectPath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
             }
           }
         }
@@ -607,7 +598,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

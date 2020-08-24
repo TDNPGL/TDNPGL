@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "vN25R2MwYpj6MfkFhWhPCe1QB5r8u9oVuFVm6m2fVqLtxUhCqgvOEg5RkwVMHwsKk0QXN4XvDXv+3gN56OUApA==",
+  "dgSpecHash": "QTIfOZLnc8rIScuWMuSuiWPcWBpV3ORqIQcdOwhY0PhgjjlSSqm9ailX+872dzWL4udGDlBn/+0754/mCjFqoA==",
   "success": true,
-  "projectFilePath": "D:\\ZatritProjects\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
+  "projectFilePath": "C:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk2\\TDNPGL.Views.Gtk2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.views.desktop.common\\2.80.1\\skiasharp.views.desktop.common.2.80.1.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\skiasharp.views.gtk2\\2.80.1\\skiasharp.views.gtk2.2.80.1.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    "C:\\Users\\Zatrit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.desktop.common\\2.80.1\\skiasharp.views.desktop.common.2.80.1.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.gtk2\\2.80.1\\skiasharp.views.gtk2.2.80.1.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
   ],
   "logs": [
     {
