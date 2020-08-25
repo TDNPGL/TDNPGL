@@ -178,7 +178,7 @@
             },
             "System.Runtime": {
               "target": "Package",
-              "version": "[0.0.0-4.2.2.0, )"
+              "version": "[4.2.2, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

@@ -9,12 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Native\libsoundio-sharp.deps.json" />
-    <None Remove="Native\libsoundio.dylib" />
-    <None Remove="Native\libsoundio.so" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="SkiaSharp" Version="2.80.1" />
   </ItemGroup>

@@ -65,7 +65,7 @@ namespace TDNPGL.Views.WinForms
             SKPoint point = new SKPoint(e.X, e.Y);
             MouseButtons[] buttons = { MouseButtons.Left, MouseButtons.Middle, MouseButtons.Right };
             int b = buttons.ToList().IndexOf(e.Button);
-            Game.MouseReleased(b,point);
+            TDNPGL.Core.Game.MouseReleased(b,point);
         }
 
         private void GameRendererControl_SizeChanged(object sender, EventArgs e)

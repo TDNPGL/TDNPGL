@@ -84,7 +84,7 @@ namespace TDNPGL.Core
         public static void KeyPress(ConsoleKeyInfo key)
         {
         }
-        public static void MouseClick(int button,SKPoint point)
+        public static void MouseReleased(int button,SKPoint point)
         {
             try{
                 foreach(GameObject obj in CurrentLevel.Objects){

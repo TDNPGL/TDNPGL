@@ -49,7 +49,7 @@ namespace TDNPGL.Views.Gtk3
         {
             SKPoint point = new SKPoint((float)evnt.X, (float)evnt.Y);
             int b = (int)evnt.Button;
-            Game.MouseClick(b, point);
+            Game.MouseReleased(b, point);
             return base.OnButtonReleaseEvent(evnt);
         }
 

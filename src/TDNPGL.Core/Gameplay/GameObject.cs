@@ -160,7 +160,7 @@ namespace TDNPGL.Core.Gameplay
                 script.OnMouseReleased((SKPoint)state),point);
                 if(AABB.IsPointOver(AABB,point))
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnMouseReleased((SKPoint)state),point);
+                script.OnMouseReleasedOver((SKPoint)state),point);
             }
          }
          public virtual void OnMouseReleasedOver(SkiaSharp.SKPoint point){

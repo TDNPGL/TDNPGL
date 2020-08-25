@@ -37,7 +37,7 @@ namespace TDNPGL.Views.Forms
         }
 
         public void TouchEvent(object sender,SKTouchEventArgs args){
-            TDNPGL.Core.Game.MouseClick(((int)args.MouseButton)-1,args.Location);
+            TDNPGL.Core.Game.MouseReleased(((int)args.MouseButton)-1,args.Location);
         }
 
         public void DrawBitmap(SKBitmap bitmap)
