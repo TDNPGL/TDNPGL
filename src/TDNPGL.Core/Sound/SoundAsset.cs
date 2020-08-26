@@ -7,6 +7,7 @@ namespace TDNPGL.Core.Sound
     {
         public SoundAsset(byte[] bytes)
         {
+            throw new NotImplementedException();
         }
         public void Play()
         {
