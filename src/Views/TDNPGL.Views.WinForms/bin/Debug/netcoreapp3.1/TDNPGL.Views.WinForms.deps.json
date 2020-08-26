@@ -10,7 +10,7 @@
         "dependencies": {
           "SkiaSharp.Views.Desktop.Common": "2.80.0",
           "SkiaSharp.Views.WindowsForms": "2.80.0",
-          "TDNPGL.Core.Lib": "1.5.0.6"
+          "TDNPGL.Views.WinForms.Lib": "1.5.0.6"
         },
         "runtime": {
           "TDNPGL.Views.WinForms.dll": {}
@@ -126,16 +126,6 @@
         }
       },
       "System.Memory/4.5.3": {},
-      "TDNPGL.Core.Lib/1.5.0.6": {
-        "dependencies": {
-          "SkiaSharp.NativeAssets.Linux": "1.68.3",
-          "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
-          "TDNPGL.GlobalDepencies": "1.0.0"
-        },
-        "runtime": {
-          "TDNPGL.Core.dll": {}
-        }
-      },
       "TDNPGL.GlobalDepencies/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
@@ -143,6 +133,16 @@
         },
         "runtime": {
           "TDNPGL.GlobalDepencies.dll": {}
+        }
+      },
+      "TDNPGL.Views.WinForms.Lib/1.5.0.6": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Linux": "1.68.3",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
+          "TDNPGL.GlobalDepencies": "1.0.0"
+        },
+        "runtime": {
+          "TDNPGL.Core.dll": {}
         }
       }
     }
@@ -216,12 +216,12 @@
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
     },
-    "TDNPGL.Core.Lib/1.5.0.6": {
+    "TDNPGL.GlobalDepencies/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "TDNPGL.GlobalDepencies/1.0.0": {
+    "TDNPGL.Views.WinForms.Lib/1.5.0.6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

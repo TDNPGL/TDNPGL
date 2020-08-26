@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Iw30z75aqGUW4rdW4pF6mD4qVXrFoQFhUBnm1BU8F2mm2FpGwxzWC5zBSRb1hDeb5mHUbTnCpxDj377NbGxwyA==",
+  "dgSpecHash": "T2K85UFVY15QKqMmck+LypvihBeQC5cWGAGvvbyVqM/6CURE7Kmp8D04ifOeXVLBms0IlVxRzA+RLxIuf0iYnw==",
   "success": true,
   "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
   "expectedPackageFiles": [
@@ -12,10 +12,7 @@
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.desktop.common\\2.80.0\\skiasharp.views.desktop.common.2.80.0.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.windowsforms\\2.80.0\\skiasharp.views.windowsforms.2.80.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": [
     {

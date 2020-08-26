@@ -8,7 +8,7 @@
       "version": "1.5.0.6",
       "restore": {
         "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
-        "projectName": "TDNPGL.Core.Lib",
+        "projectName": "TDNPGL.Views.WinForms.Lib",
         "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
         "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
         "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\obj\\",
@@ -18,13 +18,13 @@
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netstandard2.1": {
             "projectReferences": {
               "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
                 "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
@@ -39,14 +39,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netstandard2.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            },
             "SkiaSharp.NativeAssets.Linux": {
               "target": "Package",
               "version": "[1.68.3, )"
@@ -66,6 +60,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
@@ -145,7 +144,6 @@
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net472",
           "netcoreapp3.1"
         ],
         "sources": {
@@ -153,13 +151,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {
-              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
-              }
-            }
-          },
-          "net472": {
             "projectReferences": {
               "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
                 "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
@@ -198,19 +189,6 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-        },
-        "net472": {
-          "dependencies": {
-            "SkiaSharp.Views.Desktop.Common": {
-              "target": "Package",
-              "version": "[2.80.1, )"
-            },
-            "SkiaSharp.Views.Gtk2": {
-              "target": "Package",
-              "version": "[2.80.1, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "by/7g43CGksEhCp4qCCXHZ4nStSBoLtvQkDsuLf6WOVlnfVFVmTZT0y8917vUdpB12o5VQLhWwgL7p4NxAQQOw==",
+  "dgSpecHash": "gRT7iRBf82qDl2XKWtgN3WecXR5MzAR3sGY4jV3qFTgull4xB/s5TMyY9mBPRZ47p9rLndvUW9Kqb6L78YZwRA==",
   "success": true,
   "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.Gtk3\\TDNPGL.Views.Gtk3.csproj",
   "expectedPackageFiles": [
@@ -17,10 +17,7 @@
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\1.68.3\\skiasharp.nativeassets.linux.nodependencies.1.68.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.desktop.common\\2.80.1\\skiasharp.views.desktop.common.2.80.1.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.views.gtk3\\2.80.1\\skiasharp.views.gtk3.2.80.1.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    "C:\\Users\\Zatrit\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

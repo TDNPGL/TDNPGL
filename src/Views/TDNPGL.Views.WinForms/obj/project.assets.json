@@ -134,21 +134,6 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "TDNPGL.Core.Lib/1.5.0.6": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "SkiaSharp.NativeAssets.Linux": "1.68.3",
-          "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
-          "TDNPGL.GlobalDepencies": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TDNPGL.Core.Lib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TDNPGL.Core.Lib.dll": {}
-        }
-      },
       "TDNPGL.GlobalDepencies/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -162,213 +147,20 @@
         "runtime": {
           "bin/placeholder/TDNPGL.GlobalDepencies.dll": {}
         }
-      }
-    },
-    ".NETFramework,Version=v4.7.2": {
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
       },
-      "OpenTK/3.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net20/OpenTK.dll": {}
-        },
-        "runtime": {
-          "lib/net20/OpenTK.dll": {}
-        }
-      },
-      "OpenTK.GLControl/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "OpenTK": "3.0.1"
-        },
-        "compile": {
-          "lib/net20/OpenTK.GLControl.dll": {}
-        },
-        "runtime": {
-          "lib/net20/OpenTK.GLControl.dll": {}
-        }
-      },
-      "SkiaSharp/2.80.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/net462/SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net462/SkiaSharp.dll": {}
-        },
-        "build": {
-          "buildTransitive/net462/SkiaSharp.targets": {}
-        },
-        "runtimeTargets": {
-          "runtimes/osx/native/libSkiaSharp.dylib": {
-            "assetType": "native",
-            "rid": "osx"
-          },
-          "runtimes/win-arm64/native/libSkiaSharp.dll": {
-            "assetType": "native",
-            "rid": "win-arm64"
-          },
-          "runtimes/win-x64/native/libSkiaSharp.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x86/native/libSkiaSharp.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
-          }
-        }
-      },
-      "SkiaSharp.NativeAssets.Linux/1.68.3": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.3"
-        },
-        "compile": {
-          "lib/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        },
-        "build": {
-          "buildTransitive/net45/SkiaSharp.NativeAssets.Linux.targets": {}
-        },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/libSkiaSharp.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          }
-        }
-      },
-      "SkiaSharp.NativeAssets.Linux.NoDependencies/1.68.3": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.3"
-        },
-        "compile": {
-          "lib/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        },
-        "build": {
-          "buildTransitive/net45/SkiaSharp.NativeAssets.Linux.NoDependencies.targets": {}
-        },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/libSkiaSharp.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          }
-        }
-      },
-      "SkiaSharp.Views.Desktop.Common/2.80.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "2.80.0"
-        },
-        "compile": {
-          "lib/net462/SkiaSharp.Views.Desktop.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net462/SkiaSharp.Views.Desktop.Common.dll": {}
-        }
-      },
-      "SkiaSharp.Views.WindowsForms/2.80.0": {
-        "type": "package",
-        "dependencies": {
-          "OpenTK": "3.0.1",
-          "OpenTK.GLControl": "3.0.1",
-          "SkiaSharp": "2.80.0",
-          "SkiaSharp.Views.Desktop.Common": "2.80.0"
-        },
-        "compile": {
-          "lib/net462/SkiaSharp.Views.WindowsForms.dll": {}
-        },
-        "runtime": {
-          "lib/net462/SkiaSharp.Views.WindowsForms.dll": {}
-        }
-      },
-      "System.Buffers/4.4.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Buffers.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Buffers.dll": {}
-        }
-      },
-      "System.Memory/4.5.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Buffers": "4.4.0",
-          "System.Numerics.Vectors": "4.4.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.Memory.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Memory.dll": {}
-        }
-      },
-      "System.Numerics.Vectors/4.4.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Numerics",
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net46/System.Numerics.Vectors.dll": {}
-        },
-        "runtime": {
-          "lib/net46/System.Numerics.Vectors.dll": {}
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        }
-      },
-      "TDNPGL.Core.Lib/1.5.0.6": {
+      "TDNPGL.Views.WinForms.Lib/1.5.0.6": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "SkiaSharp.NativeAssets.Linux": "1.68.3",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "1.68.3",
           "TDNPGL.GlobalDepencies": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/TDNPGL.Core.Lib.dll": {}
+          "bin/placeholder/TDNPGL.Views.WinForms.Lib.dll": {}
         },
         "runtime": {
-          "bin/placeholder/TDNPGL.Core.Lib.dll": {}
-        }
-      },
-      "TDNPGL.GlobalDepencies/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "SkiaSharp": "2.80.1"
-        },
-        "compile": {
-          "bin/placeholder/TDNPGL.GlobalDepencies.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TDNPGL.GlobalDepencies.dll": {}
+          "bin/placeholder/TDNPGL.Views.WinForms.Lib.dll": {}
         }
       }
     }
@@ -582,31 +374,6 @@
         "skiasharp.views.windowsforms.nuspec"
       ]
     },
-    "System.Buffers/4.4.0": {
-      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
-      "type": "package",
-      "path": "system.buffers/4.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.1/System.Buffers.dll",
-        "lib/netstandard1.1/System.Buffers.xml",
-        "lib/netstandard2.0/System.Buffers.dll",
-        "lib/netstandard2.0/System.Buffers.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.1/System.Buffers.dll",
-        "ref/netstandard1.1/System.Buffers.xml",
-        "ref/netstandard2.0/System.Buffers.dll",
-        "ref/netstandard2.0/System.Buffers.xml",
-        "system.buffers.4.4.0.nupkg.sha512",
-        "system.buffers.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -628,95 +395,22 @@
         "version.txt"
       ]
     },
-    "System.Numerics.Vectors/4.4.0": {
-      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
-      "type": "package",
-      "path": "system.numerics.vectors/4.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Numerics.Vectors.dll",
-        "lib/net46/System.Numerics.Vectors.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.Numerics.Vectors.dll",
-        "lib/netstandard1.0/System.Numerics.Vectors.xml",
-        "lib/netstandard2.0/System.Numerics.Vectors.dll",
-        "lib/netstandard2.0/System.Numerics.Vectors.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Numerics.Vectors.dll",
-        "ref/net46/System.Numerics.Vectors.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.0/System.Numerics.Vectors.dll",
-        "ref/netstandard1.0/System.Numerics.Vectors.xml",
-        "ref/netstandard2.0/System.Numerics.Vectors.dll",
-        "ref/netstandard2.0/System.Numerics.Vectors.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.numerics.vectors.4.4.0.nupkg.sha512",
-        "system.numerics.vectors.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
-      "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "TDNPGL.Core.Lib/1.5.0.6": {
-      "type": "project",
-      "path": "../../TDNPGL.Core/TDNPGL.Core.csproj",
-      "msbuildProject": "../../TDNPGL.Core/TDNPGL.Core.csproj"
-    },
     "TDNPGL.GlobalDepencies/1.0.0": {
       "type": "project",
       "path": "../../TDNPGL.GlobalDepencies/TDNPGL.GlobalDepencies.csproj",
       "msbuildProject": "../../TDNPGL.GlobalDepencies/TDNPGL.GlobalDepencies.csproj"
+    },
+    "TDNPGL.Views.WinForms.Lib/1.5.0.6": {
+      "type": "project",
+      "path": "../../TDNPGL.Core/TDNPGL.Core.csproj",
+      "msbuildProject": "../../TDNPGL.Core/TDNPGL.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "SkiaSharp.Views.Desktop.Common >= 2.80.0",
       "SkiaSharp.Views.WindowsForms >= 2.80.0",
-      "TDNPGL.Core.Lib >= 1.5.0.6"
-    ],
-    ".NETFramework,Version=v4.7.2": [
-      "SkiaSharp.Views.Desktop.Common >= 2.80.0",
-      "SkiaSharp.Views.WindowsForms >= 2.80.0",
-      "TDNPGL.Core.Lib >= 1.5.0.6"
+      "TDNPGL.Views.WinForms.Lib >= 1.5.0.6"
     ]
   },
   "packageFolders": {
@@ -726,7 +420,7 @@
     "version": "1.5.0.6",
     "restore": {
       "projectUniqueName": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
-      "projectName": "TDNPGL.Views.WinForms.Lib",
+      "projectName": "TDNPGL.Views.WinForms",
       "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\TDNPGL.Views.WinForms.csproj",
       "packagesPath": "C:\\Users\\Zatrit\\.nuget\\packages\\",
       "outputPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\Views\\TDNPGL.Views.WinForms\\obj\\",
@@ -736,7 +430,6 @@
         "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net472",
         "netcoreapp3.1"
       ],
       "sources": {
@@ -744,13 +437,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
-              "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
-            }
-          }
-        },
-        "net472": {
           "projectReferences": {
             "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj": {
               "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj"
@@ -792,19 +478,6 @@
           },
           "Microsoft.WindowsDesktop.App.WindowsForms": {
             "privateAssets": "none"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-      },
-      "net472": {
-        "dependencies": {
-          "SkiaSharp.Views.Desktop.Common": {
-            "target": "Package",
-            "version": "[2.80.0, )"
-          },
-          "SkiaSharp.Views.WindowsForms": {
-            "target": "Package",
-            "version": "[2.80.0, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
