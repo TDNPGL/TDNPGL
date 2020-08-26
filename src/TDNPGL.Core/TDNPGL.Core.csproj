@@ -19,7 +19,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
   </PropertyGroup>
-
+ng
   <ItemGroup>
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="1.68.3" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="1.68.3" />
@@ -43,9 +43,5 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="start robocopy $(SolutionDir)Views\TDNPGL.Core\bin\$(ConfigurationName)\net472\ $(SolutionDir)TDNPGL.Engine\lib\ *.dll" />
-  </Target>
 
 </Project>
