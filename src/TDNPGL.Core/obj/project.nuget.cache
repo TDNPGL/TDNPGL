@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "fS2M9tV//Awucn2DMg6k2ESdVpx09AY6534XL/HmnlDg34gQ1ICmpwuWZmMDkcW/P+WGbLC+HgLHcdJmZgsFQw==",
+  "dgSpecHash": "l8IVxc+nYX6GSluFr69AfrbuSnnfc1xrIpZDtlSOwGL3ZnZfCNq4pJRPjrsci+NY7C89nvjmDkFnlhANR8UruQ==",
   "success": true,
   "projectFilePath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.Core\\TDNPGL.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Zatrit\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Zatrit\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
     "C:\\Users\\Zatrit\\.nuget\\packages\\skiasharp.nativeassets.linux\\1.68.3\\skiasharp.nativeassets.linux.1.68.3.nupkg.sha512",

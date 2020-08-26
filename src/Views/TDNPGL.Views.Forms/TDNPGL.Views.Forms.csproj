@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
+   <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,9 +26,4 @@
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="start robocopy $(SolutionDir)Views\TDNPGL.Views.Forms\bin\$(ConfigurationName)\netstandard2.0\ $(SolutionDir)TDNPGL.Engine\lib\Xamarin\ *.dll" />
-  </Target>
-
 </Project>

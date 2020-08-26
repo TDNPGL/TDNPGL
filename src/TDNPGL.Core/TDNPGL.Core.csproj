@@ -1,25 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-    <RootNamespace>TDNPGL.Core</RootNamespace>
-    <Version>1.5.0.6</Version>
-    <PackageId>TDNPGL.Core.Lib</PackageId>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Product>TDNPGL</Product>
     <Authors>Zatrit</Authors>
     <Company>ZatritGames</Company>
-    <Product>TDNPGL</Product>
-    <AssemblyName>TDNPGL.Core</AssemblyName>
-    <AssemblyVersion>1.5.0.6</AssemblyVersion>
-    <FileVersion>1.5.0.6</FileVersion>
+    <Version>1.5.0.6</Version>
+    <PackageId>TDNPGL.Views.WinForms.Lib</PackageId>
+   <LangVersion>8.0</LangVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
   </PropertyGroup>
-ng
   <ItemGroup>
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="1.68.3" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="1.68.3" />

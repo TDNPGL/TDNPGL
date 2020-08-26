@@ -9,6 +9,7 @@
     <Company>ZatritGames</Company>
     <Version>1.5.0.6</Version>
     <PackageId>TDNPGL.Views.WinForms.Lib</PackageId>
+   <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
