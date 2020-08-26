@@ -18,21 +18,13 @@
           "C:\\Users\\Zatrit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net472",
-          "netcoreapp3.1"
+          "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {
-              "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
-                "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
-              }
-            }
-          },
-          "net472": {
+          "netstandard2.1": {
             "projectReferences": {
               "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj": {
                 "projectPath": "c:\\Users\\Zatrit\\Desktop\\TDNPGL\\src\\TDNPGL.GlobalDepencies\\TDNPGL.GlobalDepencies.csproj"
@@ -47,7 +39,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "netstandard2.1": {
           "dependencies": {
             "SkiaSharp.NativeAssets.Linux": {
               "target": "Package",
@@ -69,21 +61,8 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
+            "NETStandard.Library": {
               "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-        },
-        "net472": {
-          "dependencies": {
-            "SkiaSharp.NativeAssets.Linux": {
-              "target": "Package",
-              "version": "[1.68.3, )"
-            },
-            "SkiaSharp.NativeAssets.Linux.NoDependencies": {
-              "target": "Package",
-              "version": "[1.68.3, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
