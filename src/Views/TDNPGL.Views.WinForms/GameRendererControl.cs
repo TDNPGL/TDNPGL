@@ -12,10 +12,11 @@ using TDNPGL.Core;
 using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Math;
 using TDNPGL.Core.Graphics.Renderers;
+using TDNPGL.Core.Sound;
 
 namespace TDNPGL.Views.WinForms
 {
-    public partial class GameRendererControl : SKGLControl,IGameRenderer
+    public partial class GameRendererControl : SKGLControl,IGameRenderer,ISoundProvider
     {
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height); 
 
@@ -26,7 +27,7 @@ namespace TDNPGL.Views.WinForms
         
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(this, assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 

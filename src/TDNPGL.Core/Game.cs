@@ -1,9 +1,9 @@
 ﻿using SkiaSharp;
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using TDNPGL.Core.Debug;
+using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Graphics;
@@ -43,7 +43,7 @@ namespace TDNPGL.Core
             return size;
         }
 
-        public static void Init(IGameRenderer renderer,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
+        public static void Init(GameProvider provider,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
         {
             if(EnableCustomLogger)
                 Logging.SetCustomLogger();
@@ -68,14 +68,14 @@ namespace TDNPGL.Core
                 Thread.Sleep(10);
             }
 
-            GraphicsOutput.AddOutputGameRenderer(renderer);
+            GraphicsOutput.AddOutputGameRenderer(provider.Renderer);
             Logging.MessageAction("LAUNCH", "{0} is running platform",ConsoleColor.Green,ConsoleColor.Gray,Environment.OSVersion.ToString());
             Logging.MessageAction("LAUNCH", "{0} is game-renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
             GraphicsOutput.BeginRender();
         }
-        public static void Init<EntryType>(IGameRenderer renderer, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+        public static void Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
         {
-            Init(renderer, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
+            Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
         }
         #region User interact
         public static void KeyDown(ConsoleKeyInfo key)

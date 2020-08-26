@@ -6,10 +6,11 @@ using SkiaSharp.Views.Gtk;
 using SkiaSharp;
 using System.Reflection;
 using TDNPGL.Core.Gameplay.Assets;
+using TDNPGL.Core.Sound;
 
 namespace TDNPGL.Views.Gtk2
 {
-    public class GameRendererWidget : Widget,IGameRenderer
+    public class GameRendererWidget : Widget,IGameRenderer,ISoundProvider
     {
         public SKWidget SKWidget = new SKWidget();
 
@@ -77,7 +78,7 @@ namespace TDNPGL.Views.Gtk2
         }
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(this, assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
     }

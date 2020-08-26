@@ -8,11 +8,12 @@ using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Graphics.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TDNPGL.Core.Sound;
 
 namespace TDNPGL.Views.Forms
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GameRendererView : SKGLView,IGameRenderer
+    public partial class GameRendererView : SKGLView,IGameRenderer,ISoundProvider
     {
         public double width => CanvasSize.Width;
         public double height => CanvasSize.Height;
@@ -24,7 +25,7 @@ namespace TDNPGL.Views.Forms
             this.Touch+=TouchEvent;
         }
         public void InitGame(Assembly assembly, string GameName)=>
-            TDNPGL.Core.Game.Init(this, assembly, GameName, true);
+            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly, GameName, true);
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap { get; set; }

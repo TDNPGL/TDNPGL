@@ -8,10 +8,11 @@ using System.Reflection;
 using TDNPGL.Core.Gameplay.Assets;
 using Gdk;
 using TDNPGL.Core;
+using TDNPGL.Core.Sound;
 
 namespace TDNPGL.Views.Gtk3
 {
-    public class GameRendererWidget : Widget,IGameRenderer
+    public class GameRendererWidget : Widget,IGameRenderer,ISoundProvider
     {
         public SKDrawingArea DrawingArea = new SKDrawingArea();
 
@@ -74,7 +75,7 @@ namespace TDNPGL.Views.Gtk3
 
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(this, assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
     }
