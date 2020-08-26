@@ -7,8 +7,8 @@ namespace TDNPGL.Core.Gameplay.LowLevel
 {
     public struct AABB
     {
-        public SKPoint max;
-        public SKPoint min;
+        public Vec2f max;
+        public Vec2f min;
 
         public static bool AABBvsAABB(AABB a, AABB b)
         {

@@ -86,7 +86,7 @@ namespace TDNPGL.Core.Gameplay
         [JsonProperty("aabb")]
         public AABB AABB;
         [JsonIgnore]
-        public SKPoint Position => AABB.min;
+        public Vec2f Position => AABB.min;
         [JsonIgnore]
         public SKSize Size => new SKSize(AABB.max.X - AABB.min.X, AABB.max.Y - AABB.min.Y);
         [JsonIgnore]
@@ -224,7 +224,7 @@ namespace TDNPGL.Core.Gameplay
             SKBitmap bmp = new SKBitmap(1, 1);
             bmp.Erase(SKColors.White);
             Sprite = new Sprite(bmp);
-            this.AABB = new AABB() { max = new SKPoint(100, 100) };
+            this.AABB = new AABB() { max = new Vec2f(100, 100) };
             this.BeginAnimation();
 
             Tick += OnTick;
