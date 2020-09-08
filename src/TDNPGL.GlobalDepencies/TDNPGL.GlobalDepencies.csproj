@@ -13,16 +13,4 @@
     <PackageReference Include="SkiaSharp" Version="2.80.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Native\libsoundio-sharp.deps.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Native\libsoundio.dylib">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Native\libsoundio.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
 </Project>
