@@ -1,4 +1,5 @@
 .vscode/launch.json
+src/.vs/
 src/TDNPGL.Core/TDNPGL.Core.csproj.user
 src/TDNPGL.Core/bin/
 src/TDNPGL.Core/obj/
