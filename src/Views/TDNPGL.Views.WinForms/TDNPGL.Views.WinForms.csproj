@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
-    <Product>TDNPGL</Product>
+    <Product>TDNPGL.Views.WinForms</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
     <Version>1.5.0.6</Version>

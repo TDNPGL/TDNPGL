@@ -7,8 +7,9 @@
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
     <Version>1.5.0.6</Version>
-    <PackageId>TDNPGL.Views.WinForms.Lib</PackageId>
+    <PackageId>TDNPGL.Core</PackageId>
    <LangVersion>8.0</LangVersion>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
