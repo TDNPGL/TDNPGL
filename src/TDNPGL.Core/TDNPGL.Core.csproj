@@ -6,10 +6,12 @@
     <Product>TDNPGL</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.0.6</Version>
+    <Version>1.5.1.0</Version>
     <PackageId>TDNPGL.Core</PackageId>
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <Description>Core library of TDNPGL</Description>
+    <PackageIcon>2DNPGL_HD.png</PackageIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +40,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\2DNPGL_HD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

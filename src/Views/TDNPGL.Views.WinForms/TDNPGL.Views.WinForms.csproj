@@ -6,8 +6,10 @@
     <Product>TDNPGL.Views.WinForms</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.0.6</Version>
+    <Version>1.1.0</Version>
    <LangVersion>8.0</LangVersion>
+   <PackageLicenseFile>../../LICENSE.txt</PackageLicenseFile>
+   <PackageIcon>..\..\..\2DNPGL_HD.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\2DNPGL_HD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

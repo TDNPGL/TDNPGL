@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
    <LangVersion>8.0</LangVersion>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>..\..\..\2DNPGL_HD.png</PackageIcon>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,6 +46,17 @@
       <HintPath>..\..\..\libraries\pango-sharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\2DNPGL_HD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
