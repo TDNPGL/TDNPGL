@@ -43,7 +43,7 @@ namespace TDNPGL.Core
             return size;
         }
 
-        public static void Init(GameProvider provider,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
+        public static void Init(IGameProvider provider,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
         {
             if(EnableCustomLogger)
                 Logging.SetCustomLogger();
@@ -73,7 +73,7 @@ namespace TDNPGL.Core
             Logging.MessageAction("LAUNCH", "{0} is game-renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
             GraphicsOutput.BeginRender();
         }
-        public static void Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+        public static void Init<EntryType>(IGameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
         {
             Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
         }
