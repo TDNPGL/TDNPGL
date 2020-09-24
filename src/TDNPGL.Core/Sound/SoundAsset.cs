@@ -1,16 +1,19 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace TDNPGL.Core.Sound
 {
     public class SoundAsset
     {
-        public SoundAsset(byte[] bytes)
+        internal byte[] buffer;
+        public SoundAsset(byte[] buffer)
         {
-            throw new NotImplementedException();
+            this.buffer = buffer;
         }
-        public void Play()
+        public Stream AsStream()
         {
+            return new MemoryStream(buffer);
         }
     }
 }

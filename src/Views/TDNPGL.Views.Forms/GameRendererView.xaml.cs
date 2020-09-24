@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
+using Plugin.SimpleAudioPlayer;
 
 namespace TDNPGL.Views.Forms
 {
@@ -54,6 +55,14 @@ namespace TDNPGL.Views.Forms
             }
             catch { 
             }
+        }
+
+        public void PlaySound(SoundAsset asset)
+        {
+            var stream = asset.AsStream();
+            var audio = CrossSimpleAudioPlayer.Current;
+            audio.Load(stream);
+            audio.Play();
         }
     }
 }
