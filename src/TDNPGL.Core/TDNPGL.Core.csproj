@@ -49,7 +49,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\..\2DNPGL_HD.png">
+    <None Include="..\..\Icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

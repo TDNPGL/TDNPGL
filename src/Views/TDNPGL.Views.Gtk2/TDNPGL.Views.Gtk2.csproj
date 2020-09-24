@@ -4,7 +4,7 @@
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
-    <PackageIcon>..\..\..\2DNPGL_HD.png</PackageIcon>
+    <PackageIcon>..\..\..\Icons\2DNPGL_HD.png</PackageIcon>
     <Version>1.5.1.2</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
