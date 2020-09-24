@@ -10,7 +10,7 @@
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageIcon>2DNPGL_HD.png</PackageIcon>
+    <PackageIcon>2DNPGL_HD_Win.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
