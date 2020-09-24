@@ -1,14 +1,13 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Graphics.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TDNPGL.Core.Sound;
+using TDNPGL.Core.Gameplay;
 
 namespace TDNPGL.Views.Forms
 {
@@ -25,7 +24,7 @@ namespace TDNPGL.Views.Forms
             this.Touch+=TouchEvent;
         }
         public void InitGame(Assembly assembly, string GameName)=>
-            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly, GameName, true);
+            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly, GameName, true);
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap { get; set; }
