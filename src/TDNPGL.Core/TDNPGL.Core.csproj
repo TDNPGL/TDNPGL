@@ -13,6 +13,7 @@
     <Description>Core library of TDNPGL</Description>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

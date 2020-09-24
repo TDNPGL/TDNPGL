@@ -7,6 +7,7 @@
     <PackageIcon>..\..\..\2DNPGL_HD.png</PackageIcon>
     <Version>1.1.1</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
