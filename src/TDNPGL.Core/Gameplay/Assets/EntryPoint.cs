@@ -9,8 +9,8 @@ namespace TDNPGL.Core.Gameplay.Assets
 {
     public class EntryPoint : ContentFile
     {
-        [JsonProperty("scripts")]
-        public Dictionary<string, string> Scripts = new Dictionary<string, string>();
+        [JsonProperty("listeners")]
+        public Dictionary<string, string> Listeners = new Dictionary<string, string>();
         [JsonProperty("entry_class_name")]
         public string Name;
         [JsonProperty("namespace")] 
@@ -37,7 +37,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         }
         public Type GetScript(string name)
         {
-            Type type = Game.AssetsAssembly.GetType(Scripts[name]);
+            Type type = Game.AssetsAssembly.GetType(Listeners[name]);
             if (type == null)
                 throw new AssetsException("Script not found!");
             return type;

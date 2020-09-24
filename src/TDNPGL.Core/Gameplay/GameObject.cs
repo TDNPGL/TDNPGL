@@ -141,20 +141,20 @@ namespace TDNPGL.Core.Gameplay
         }
         #endregion
         #region Scripting
-        [JsonProperty("scripts")]
-        public string[] scripts;
+        [JsonProperty("listeners")]
+        public string[] listeners;
         [JsonIgnore]
-        public List<CSharpGameObjectListener> Scripts = new List<CSharpGameObjectListener>();
+        public List<CSharpGameObjectListener> Listeners = new List<CSharpGameObjectListener>();
         internal void CollidedWith(GameObject obj)
         {
-            foreach (CSharpGameObjectListener script in Scripts)
+            foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnCollideWith(state as GameObject),obj);
+                listener.OnCollideWith(state as GameObject),obj);
             }
         }
         public virtual void OnMouseReleased(SkiaSharp.SKPoint point){
-            foreach (CSharpGameObjectListener script in Scripts)
+            foreach (CSharpGameObjectListener script in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnMouseReleased((SKPoint)state),point);
@@ -165,16 +165,16 @@ namespace TDNPGL.Core.Gameplay
          }
          public virtual void OnMouseReleasedOver(SkiaSharp.SKPoint point){
          }
-        internal void LoadScripts()
+        internal void LoadListeners()
         {
-            if (scripts != null)
-                foreach (string scriptName in scripts)
+            if (listeners != null)
+                foreach (string scriptName in listeners)
                 {
                     Type type = Game.CurrentEntry.GetScript(scriptName);
                     if (type == null)
                         throw new AssetsException(Parent as Level, "Script not found!");
                     CSharpGameObjectListener script = Activator.CreateInstance(type, this) as CSharpGameObjectListener;
-                    Scripts.Add(script);
+                    Listeners.Add(script);
                 }
             else
                 Console.WriteLine($"Wrong object format!");
@@ -191,7 +191,7 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnTick()
         {
-            foreach (CSharpGameObjectListener script in Scripts)
+            foreach (CSharpGameObjectListener script in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnTick());
@@ -199,8 +199,8 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnCreate()
         {
-            LoadScripts();
-            foreach (CSharpGameObjectListener script in Scripts)
+            LoadListeners();
+            foreach (CSharpGameObjectListener script in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnCreate());
@@ -209,7 +209,7 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnFirstTick()
         {
-            foreach (CSharpGameObjectListener script in Scripts)
+            foreach (CSharpGameObjectListener script in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnFirstTick());

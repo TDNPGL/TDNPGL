@@ -6,6 +6,7 @@
     <PackageLicenseFile>..\..\..\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <Version>1.1.0</Version>
+    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

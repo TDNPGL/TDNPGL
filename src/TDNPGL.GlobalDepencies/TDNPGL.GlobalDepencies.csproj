@@ -7,6 +7,7 @@
     <Description>It's depencies, using in TDNPGL</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
+    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
