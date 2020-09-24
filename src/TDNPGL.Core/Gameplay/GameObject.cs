@@ -144,17 +144,17 @@ namespace TDNPGL.Core.Gameplay
         [JsonProperty("scripts")]
         public string[] scripts;
         [JsonIgnore]
-        public List<GameObjectScript> Scripts = new List<GameObjectScript>();
+        public List<CSharpGameObjectListener> Scripts = new List<CSharpGameObjectListener>();
         internal void CollidedWith(GameObject obj)
         {
-            foreach (GameObjectScript script in Scripts)
+            foreach (CSharpGameObjectListener script in Scripts)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnCollideWith(state as GameObject),obj);
             }
         }
         public virtual void OnMouseReleased(SkiaSharp.SKPoint point){
-            foreach (GameObjectScript script in Scripts)
+            foreach (CSharpGameObjectListener script in Scripts)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnMouseReleased((SKPoint)state),point);
@@ -173,7 +173,7 @@ namespace TDNPGL.Core.Gameplay
                     Type type = Game.CurrentEntry.GetScript(scriptName);
                     if (type == null)
                         throw new AssetsException(Parent as Level, "Script not found!");
-                    GameObjectScript script = Activator.CreateInstance(type, this) as GameObjectScript;
+                    CSharpGameObjectListener script = Activator.CreateInstance(type, this) as CSharpGameObjectListener;
                     Scripts.Add(script);
                 }
             else
@@ -191,7 +191,7 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnTick()
         {
-            foreach (GameObjectScript script in Scripts)
+            foreach (CSharpGameObjectListener script in Scripts)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnTick());
@@ -200,7 +200,7 @@ namespace TDNPGL.Core.Gameplay
         public virtual void OnCreate()
         {
             LoadScripts();
-            foreach (GameObjectScript script in Scripts)
+            foreach (CSharpGameObjectListener script in Scripts)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnCreate());
@@ -209,7 +209,7 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnFirstTick()
         {
-            foreach (GameObjectScript script in Scripts)
+            foreach (CSharpGameObjectListener script in Scripts)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnFirstTick());
