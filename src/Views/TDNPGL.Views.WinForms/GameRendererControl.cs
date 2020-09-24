@@ -13,11 +13,14 @@ using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Math;
 using TDNPGL.Core.Graphics.Renderers;
 using TDNPGL.Core.Sound;
+using TDNPGL.Core.Gameplay;
+using System.Media;
 
 namespace TDNPGL.Views.WinForms
 {
     public partial class GameRendererControl : SKGLControl,IGameRenderer,ISoundProvider
     {
+        public SoundPlayer SoundPlayer = new SoundPlayer();
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height); 
 
         public double width => Width;
@@ -27,7 +30,7 @@ namespace TDNPGL.Views.WinForms
         
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
@@ -109,6 +112,12 @@ namespace TDNPGL.Views.WinForms
         private void skglControl1_SizeChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void PlaySound(SoundAsset asset)
+        {
+            SoundPlayer.Stream = asset.AsStream();
+            SoundPlayer.Play();
         }
     }
 }
