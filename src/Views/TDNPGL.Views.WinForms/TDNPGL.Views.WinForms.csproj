@@ -10,7 +10,7 @@
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageIcon>2DNPGL_HD_Win.png</PackageIcon>
+    <PackageIcon>2DNPGL_HD.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Icons\2DNPGL_HD_Win.png">
+    <None Include="..\..\..\Icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
