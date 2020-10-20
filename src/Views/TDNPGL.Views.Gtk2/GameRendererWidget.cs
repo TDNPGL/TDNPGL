@@ -7,6 +7,9 @@ using SkiaSharp;
 using System.Reflection;
 using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Sound;
+using TDNPGL.Core.Gameplay;
+using TDNPGL.Core.Math;
+using TDNPGL.Core;
 
 namespace TDNPGL.Views.Gtk2
 {
@@ -14,8 +17,7 @@ namespace TDNPGL.Views.Gtk2
     {
         public SKWidget SKWidget = new SKWidget();
 
-        public double PixelSize => ((width + height) / 2) / (314);
-
+        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
         public double width => this.WidthRequest;
         public double height => this.HeightRequest;
 
@@ -31,6 +33,9 @@ namespace TDNPGL.Views.Gtk2
                 currentGameBitmap = value;
             }
         }
+
+        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+
         private SKBitmap currentGameBitmap = new SKBitmap();
 
         [Obsolete]
@@ -48,7 +53,7 @@ namespace TDNPGL.Views.Gtk2
             SKWidget.HeightRequest = requisition.Height;
         }
 
-        public GameRendererWidget()
+        public unsafe GameRendererWidget()
         {
             SKWidget.PaintSurface += SKWidget_PaintSurface;
         }
@@ -73,13 +78,18 @@ namespace TDNPGL.Views.Gtk2
         }
     
         protected override bool OnButtonReleaseEvent(Gdk.EventButton evnt){
-            TDNPGL.Core.Game.MouseReleased((int)evnt.Button,new SKPoint((float)evnt.X,(float)evnt.Y));
+            Game.MouseReleased((int)evnt.Button,new SKPoint((float)evnt.X,(float)evnt.Y));
             return base.OnButtonReleaseEvent(evnt);
         }
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
+            Game.Init(new GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
+
+        public unsafe void PlaySound(SoundAsset asset,bool sync)
+        {
+            
+        }
     }
 }

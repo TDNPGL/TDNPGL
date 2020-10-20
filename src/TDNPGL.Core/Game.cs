@@ -79,9 +79,11 @@ namespace TDNPGL.Core
         #region User interact
         public static void KeyDown(ConsoleKeyInfo key)
         {
+
         }
         public static void KeyPress(ConsoleKeyInfo key)
         {
+
         }
         public static void MouseReleased(int button,SKPoint point)
         {
@@ -93,6 +95,34 @@ namespace TDNPGL.Core
                 Console.WriteLine(ex);
             }
         }
+        public static void MouseMove(int button, SKPoint point)
+        {
+            try
+            {
+                foreach (GameObject obj in CurrentLevel.Objects)
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        public static void MouseDown(int button, SKPoint point)
+        {
+            try
+            {
+                foreach (GameObject obj in CurrentLevel.Objects)
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        #endregion
+        #region Events
         #endregion
     }
 }

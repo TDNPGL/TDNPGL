@@ -17,7 +17,7 @@ namespace TDNPGL.Core.Graphics
     public static class GraphicsOutput
     {
         public static FrameUpdateEventHandler FrameUpdate;
-        public static LevelRenderer MainLevelRenderer { private set; get; }
+        public static BaseLevelRenderer MainLevelRenderer { private set; get; }
         /// <summary>
         /// Main graphics thread
         /// </summary>
@@ -42,7 +42,7 @@ namespace TDNPGL.Core.Graphics
                 MainGraphicsThread = new Thread(Render) { Name = "MainGraphicsThread" };
                 MainGraphicsThread.Start();
 
-                MainLevelRenderer = new LevelRenderer();
+                MainLevelRenderer = new BaseLevelRenderer();
 
                 Logging.MessageAction("GRAPHICS", "Begin graphics rendering at {0} renderers in {1}!", ConsoleColor.Green, ConsoleColor.Gray, Renderers.Count, MainGraphicsThread.Name);
             }
@@ -70,7 +70,7 @@ namespace TDNPGL.Core.Graphics
                     foreach (IGameRenderer renderer in Renderers)
                         try
                         {
-                            SKBitmap bitmap = MainLevelRenderer.RenderLevel(TDNPGL.Core.Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height));
+                            SKBitmap bitmap = MainLevelRenderer.Render(TDNPGL.Core.Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height));
                             renderer.DrawBitmap(bitmap);
                             if (GC.GetTotalMemory(true) / 1024 / 1024 > 40)
                                 GC.Collect();

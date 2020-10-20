@@ -9,6 +9,8 @@ using TDNPGL.Core.Gameplay.Assets;
 using Gdk;
 using TDNPGL.Core;
 using TDNPGL.Core.Sound;
+using TDNPGL.Core.Gameplay;
+using TDNPGL.Core.Math;
 
 namespace TDNPGL.Views.Gtk3
 {
@@ -16,7 +18,7 @@ namespace TDNPGL.Views.Gtk3
     {
         public SKDrawingArea DrawingArea = new SKDrawingArea();
 
-        public double PixelSize => ((width + height) / 2) / (314);
+        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
 
         public double width => this.WidthRequest;
         public double height => this.HeightRequest;
@@ -33,9 +35,11 @@ namespace TDNPGL.Views.Gtk3
                 currentGameBitmap = value;
             }
         }
+
+        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+
         private SKBitmap currentGameBitmap = new SKBitmap();
 
-        [Obsolete]
         public void DrawBitmap(SKBitmap bitmap)
         {
             CurrentGameBitmap = bitmap;
@@ -75,8 +79,14 @@ namespace TDNPGL.Views.Gtk3
 
         public void InitGame(Assembly assembly,string GameName)
         {
-            TDNPGL.Core.Game.Init(new Core.Gameplay.Interfaces.GameProvider(this,this), assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly,GameName,true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
+
+        public void PlaySound(SoundAsset asset,bool sync)
+        {
+            if (sync)
+                throw new InvalidOperationException();
+        }
     }
 }

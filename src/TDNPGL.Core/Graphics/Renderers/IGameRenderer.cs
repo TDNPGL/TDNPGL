@@ -7,9 +7,9 @@ namespace TDNPGL.Core.Graphics.Renderers
     {
         void DrawBitmap(SKBitmap bitmap);
 
-        SKBitmap CurrentGameBitmap { get; set; }
         double width { get;}
         double height { get; }
         double PixelSize { get; }
+        ILevelRenderer LevelRenderer { get; }
     }
 }

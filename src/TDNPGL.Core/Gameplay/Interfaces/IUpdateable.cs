@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
-using TDNPGL.Core.Gameplay.LowLevel;
-
-namespace TDNPGL.Core.Gameplay.Interfaces
+﻿namespace TDNPGL.Core.Gameplay.Interfaces
 {
     public interface IUpdateable : IParentable
     {
@@ -12,6 +6,9 @@ namespace TDNPGL.Core.Gameplay.Interfaces
         void OnCreate();
         void OnFirstTick();
         void OnMouseReleased(SkiaSharp.SKPoint point);
+        void OnMouseUp(SkiaSharp.SKPoint point);
+        void OnMouseMove(SkiaSharp.SKPoint point);
+        void OnKeyDown(SkiaSharp.SKPoint point);
         void OnMouseReleasedOver(SkiaSharp.SKPoint point);
     }
 }

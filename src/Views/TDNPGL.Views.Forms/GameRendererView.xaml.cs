@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using Plugin.SimpleAudioPlayer;
+using TDNPGL.Core.Math;
 
 namespace TDNPGL.Views.Forms
 {
@@ -18,7 +19,7 @@ namespace TDNPGL.Views.Forms
         public double width => CanvasSize.Width;
         public double height => CanvasSize.Height;
 
-        public double PixelSize => ((width + height) / 2) / (Math.PI * 100);
+        public double PixelSize => ScreenCalculations.CalculatePixelSize(width,height);
         public GameRendererView()
         {
             InitializeComponent();
@@ -29,12 +30,11 @@ namespace TDNPGL.Views.Forms
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap { get; set; }
-
-        public override IDispatcher Dispatcher => base.Dispatcher;
+        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
 
         public void Dispose()
         {
-            
+            CurrentGameBitmap.Dispose();
         }
 
         public void TouchEvent(object sender,SKTouchEventArgs args){
@@ -57,11 +57,13 @@ namespace TDNPGL.Views.Forms
             }
         }
 
-        public void PlaySound(SoundAsset asset)
+        public void PlaySound(SoundAsset asset, bool sync=false)
         {
             var stream = asset.AsStream();
             var audio = CrossSimpleAudioPlayer.Current;
             audio.Load(stream);
+            if (sync)
+                throw new InvalidOperationException();
             audio.Play();
         }
     }
