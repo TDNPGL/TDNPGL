@@ -12,6 +12,7 @@ using System.Linq;
 using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Debug.Exceptions;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace TDNPGL.Core.Gameplay
 {
@@ -191,29 +192,42 @@ namespace TDNPGL.Core.Gameplay
         }
         public virtual void OnTick()
         {
-            foreach (CSharpGameObjectListener script in Listeners)
+            foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnTick());
+                listener.OnTick());
             }
         }
         public virtual void OnCreate()
         {
             LoadListeners();
-            foreach (CSharpGameObjectListener script in Listeners)
+            foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnCreate());
+                listener.OnCreate());
             }
             Loaded = true;
         }
         public virtual void OnFirstTick()
         {
-            foreach (CSharpGameObjectListener script in Listeners)
+            foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnFirstTick());
+                listener.OnFirstTick());
             }
+        }
+
+        public void OnMouseMove(SKPoint point)
+        {
+            foreach (CSharpGameObjectListener listener in Listeners)
+            {
+                ThreadPool.QueueUserWorkItem((object state) =>
+                listener.OnMouseMove(point));
+            }
+        }
+
+        public void OnKeyDown(SKPoint point)
+        {
         }
         #endregion
         #region Constructors

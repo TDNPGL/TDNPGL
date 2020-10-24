@@ -6,7 +6,7 @@
     <Product>TDNPGL</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.1.2</Version>
+    <Version>1.5.2</Version>
     <PackageId>TDNPGL.Core</PackageId>
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -19,6 +19,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
+  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TDNPGL.GlobalDepencies\TDNPGL.GlobalDepencies.csproj" />
@@ -48,6 +49,11 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.7.1" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

@@ -13,5 +13,7 @@ namespace TDNPGL.Core.Gameplay
         public abstract void OnMouseReleasedOver(SKPoint point);
         public abstract void OnTick();
         public abstract void OnCollideWith(GameObject collide);
+        public abstract void OnMouseMove(SKPoint point);
+        public abstract void OnKeyDown(SKPoint point);
     }
 }

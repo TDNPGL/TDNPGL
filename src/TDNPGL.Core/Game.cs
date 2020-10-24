@@ -41,10 +41,9 @@ namespace TDNPGL.Core
             size = new SKSize((float)width, (float)height);
             return size;
         }
-
         public static void Init(GameProvider provider,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
         {
-            if(EnableCustomLogger)
+            if (EnableCustomLogger)
                 Logging.SetCustomLogger();
             Game.GameName = GameName;
 
@@ -72,6 +71,7 @@ namespace TDNPGL.Core
             Logging.MessageAction("LAUNCH", "{0} is game-renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
             GraphicsOutput.BeginRender();
         }
+
         public static void Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
         {
             Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
@@ -79,7 +79,6 @@ namespace TDNPGL.Core
         #region User interact
         public static void KeyDown(ConsoleKeyInfo key)
         {
-
         }
         public static void KeyPress(ConsoleKeyInfo key)
         {
