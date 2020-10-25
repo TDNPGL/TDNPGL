@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDNPGL.Views.WPF", "Views\T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDNPGL.Native.Win32.Extensions", "Native\TDNPGL.Native.Win32.Extensions\TDNPGL.Native.Win32.Extensions.csproj", "{3ECE5339-AC10-488D-AFF8-ABFFD7C116EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeTest", "Native\NativeTest\NativeTest.csproj", "{1741C234-1D72-4744-95CC-F20C1866CA04}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TDNPGL.Native.Win32", "Native\TDNPGL.Native.Win32\TDNPGL.Native.Win32.vcxproj", "{E9ED6938-1781-4AD6-8BD4-E4C0BCE51BF2}"
 EndProject
 Global
