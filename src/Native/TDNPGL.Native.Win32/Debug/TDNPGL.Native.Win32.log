@@ -1,0 +1,3 @@
+﻿D:\VisualStudio\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(477,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр сборки добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+  dllmain.cpp
+  TDNPGL.Native.Win32.vcxproj -> D:\ZatritProjects\TDNPGL\src\Native\TDNPGL.Native.Win32\Debug\x86\TDNPGL.Native.Win32.dll

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
+    <ProjectReference Include="..\..\TDNPGL.GlobalDepencies\TDNPGL.GlobalDepencies.csproj" />
+    <ProjectReference Include="..\TDNPGL.Native.Win32.Extensions\TDNPGL.Native.Win32.Extensions.csproj" />
+  </ItemGroup>
+
+</Project>
