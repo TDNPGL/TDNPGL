@@ -1,7 +1,8 @@
+using SkiaSharp;
 using System;
 using System.Data.Common;
 
-namespace TDNPGL.Core{
+namespace TDNPGL.Core.Math {
     public struct Vec2f{
         public float X;
         public float Y;
@@ -18,6 +19,10 @@ namespace TDNPGL.Core{
         public static implicit operator System.Numerics.Vector2(Vec2f point)
         {
             return point.ToVector2();
+        }
+        public static explicit operator Vec2f(SKPoint point)
+        {
+            return point.ToVec2f();
         }
         public Vec2f(float x,float y){
             this.X=x;

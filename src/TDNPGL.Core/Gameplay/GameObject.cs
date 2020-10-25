@@ -1,6 +1,4 @@
-﻿using TDNPGL.Core.Debug;
-using TDNPGL.Core.Gameplay.Assets;
-using TDNPGL.Core.Gameplay.LowLevel;
+﻿using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Graphics;
 using Newtonsoft.Json;
 using SkiaSharp;
@@ -12,7 +10,7 @@ using System.Linq;
 using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Debug.Exceptions;
 using System.Threading;
-using System.Runtime.InteropServices;
+using TDNPGL.Core.Math;
 
 namespace TDNPGL.Core.Gameplay
 {
@@ -159,7 +157,7 @@ namespace TDNPGL.Core.Gameplay
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnMouseReleased((SKPoint)state),point);
-                if(AABB.IsPointOver(AABB,point))
+                if(AABB.IsPointOver(AABB,point.ToVec2f()))
                 ThreadPool.QueueUserWorkItem((object state) =>
                 script.OnMouseReleasedOver((SKPoint)state),point);
             }

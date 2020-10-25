@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
-    <ProjectReference Include="..\..\TDNPGL.NativeLoader\TDNPGL.NativeLoader.csproj" />
   </ItemGroup>
 
   <ItemGroup>

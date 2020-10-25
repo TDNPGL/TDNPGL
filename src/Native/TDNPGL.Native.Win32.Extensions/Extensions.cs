@@ -1,43 +1,30 @@
 ﻿using SkiaSharp;
 using System;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.ExceptionServices;
+using System.IO;
 using System.Runtime.InteropServices;
-using TDNPGL.Core.Gameplay.LowLevel;
-using TDNPGL.Native.Win32.Extensions.Delegates;
+using TDNPGL.Core.Math;
 using TDNPGL.Native.Win32.Extensions.Properties;
-using TDNPGL.NativeLoader;
 
 namespace TDNPGL.Native.Win32.Extensions
 {
     public static class Extensions
     {
-        public static WinNativeLibrary TDNPGLNative;
-        public static bool IsPointOverNative(this AABB aabb, SKPoint point)
-        {
-            try
-            {
-                return TDNPGLNative.
-                    GetDelegate<IsPointOver>("AABB_IsPointOver").
-                    Invoke(
-                    point.X,
-                    point.Y,
-                    aabb.min.X,
-                    aabb.min.Y,
-                    aabb.max.X,
-                    aabb.max.Y);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-                return false;
-            }
-        }
+        public static bool IsPointOverNative(this AABB aabb, Vec2f point) =>
+            AABB_IsPointOver(
+            point.X,
+            point.Y,
+            aabb.min.X,
+            aabb.min.Y,
+            aabb.max.X,
+            aabb.max.Y) == 1;
 
-        static Extensions(){
+        static Extensions()
+        {
             byte[] buffer = Resources.TDNPGLNativeWin32;
-            TDNPGLNative = WinNativeLibrary.GetLibrary(buffer,"TDNPGL.Native.Win32.dll","");
+            File.WriteAllBytes("TDNPGL.Native.Win32.dll", buffer);
         }
+        [DllImport("TDNPGL.Native.Win32.dll", EntryPoint = "AABB_IsPointOver", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy);
     }
 }

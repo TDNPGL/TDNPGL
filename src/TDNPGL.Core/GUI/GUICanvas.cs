@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TDNPGL.Core.GUI;
 
-namespace TDNPGL.Core.Graphics.Renderers
+namespace TDNPGL.Core.GUI
 {
     public class GUICanvas
     {
