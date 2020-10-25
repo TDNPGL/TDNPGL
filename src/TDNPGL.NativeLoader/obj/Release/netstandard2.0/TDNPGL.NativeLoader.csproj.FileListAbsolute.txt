@@ -1,9 +1,0 @@
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\bin\Release\netstandard2.0\TDNPGL.NativeLoader.deps.json
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\bin\Release\netstandard2.0\TDNPGL.NativeLoader.dll
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\bin\Release\netstandard2.0\TDNPGL.NativeLoader.pdb
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.csprojAssemblyReference.cache
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.AssemblyInfoInputs.cache
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.AssemblyInfo.cs
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.csproj.CoreCompileInputs.cache
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.dll
-D:\ZatritProjects\TDNPGL\src\TDNPGL.NativeLoader\obj\Release\netstandard2.0\TDNPGL.NativeLoader.pdb
