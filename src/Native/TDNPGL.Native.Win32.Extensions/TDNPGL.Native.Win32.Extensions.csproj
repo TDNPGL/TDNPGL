@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+    <Product>TDNPGL.Views.WinForms</Product>
+    <Authors>Zatrit</Authors>
+    <Company>Zatrit</Company>
+    <Version>1.5.3</Version>
+    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>2DNPGL_HD.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -11,10 +19,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="2.80.1" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
