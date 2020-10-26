@@ -1,6 +1,7 @@
 TDNPGL
 =============
-[TDNPGL.Core](https://www.nuget.org/packages/TDNPGL.Core)
+[TDNPGL.Core on nuget](https://www.nuget.org/packages/TDNPGL.Core)
+
 *Two-dimensional non-physics game library*,
 
 What need to add or fix:
