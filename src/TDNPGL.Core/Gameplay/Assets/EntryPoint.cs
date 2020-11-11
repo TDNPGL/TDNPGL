@@ -19,7 +19,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         public Assembly currentAssembly => Assembly.GetAssembly(GetType());
         [JsonProperty("auto_load_level")]
         public string AutoLoadLevel;
-        [JsonProperty("content_type")]
+        [JsonIgnore]
         public override string ContentType { get; set; }
 
         public void RunMainLevel()
@@ -27,9 +27,9 @@ namespace TDNPGL.Core.Gameplay.Assets
             Console.WriteLine("Running level: " + AutoLoadLevel);
             Game.SetLevel((Level)AssetLoader.GetAsset<Level>(AutoLoadLevel,Game.AssetsAssembly));
         }
-        public EntryPoint(string name) : base("entry")
+        public EntryPoint() : base("entry")
         {
-            Name = name;
+            ContentType = "entry";
         }
         public static T FromJSON<T>(string json) where T : EntryPoint
         {
@@ -39,7 +39,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         {
             Type type = Game.AssetsAssembly.GetType(Listeners[name]);
             if (type == null)
-                throw new AssetsException("Script not found!");
+                throw new AssetsException("Listener not found!");
             return type;
         }
     }

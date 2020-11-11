@@ -1,0 +1,1 @@
+copy ..\TDNPGL.Native\build\Win\Release\tdnpgl.dll Resources\tdnpgl.dll

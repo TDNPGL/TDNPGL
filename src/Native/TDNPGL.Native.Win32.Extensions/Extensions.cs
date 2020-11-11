@@ -1,7 +1,4 @@
-﻿using SkiaSharp;
-using System;
-using System.Drawing;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.InteropServices;
 using TDNPGL.Core.Math;
 using TDNPGL.Native.Win32.Extensions.Properties;
@@ -21,10 +18,10 @@ namespace TDNPGL.Native.Win32.Extensions
 
         static Extensions()
         {
-            byte[] buffer = Resources.TDNPGLNativeWin32;
-            File.WriteAllBytes("TDNPGL.Native.Win32.dll", buffer);
+            byte[] buffer = Resources.tdnpgl;
+            File.WriteAllBytes("tdnpgl.dll", buffer);
         }
-        [DllImport("TDNPGL.Native.Win32.dll", EntryPoint = "AABB_IsPointOver", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("tdnpgl.dll", EntryPoint = "AABB_IsPointOver", CallingConvention = CallingConvention.Cdecl)]
         private static extern int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy);
     }
 }

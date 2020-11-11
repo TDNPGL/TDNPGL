@@ -13,3 +13,4 @@ src/Views/TDNPGL.Views.Gtk3/bin/
 src/Views/TDNPGL.Views.Gtk3/obj/
 src/Views/TDNPGL.Views.WinForms/obj/
 src/Views/TDNPGL.Views.WinForms/bin/
+src/Native/TDNPGL.Native/build

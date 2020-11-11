@@ -14,7 +14,9 @@ using TDNPGL.Core.Math;
 namespace TDNPGL.Views.Forms
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+#pragma warning disable CA1063
     public partial class GameRendererView : SKGLView,IGameRenderer,ISoundProvider
+#pragma warning restore CA1063
     {
         public double width => CanvasSize.Width;
         public double height => CanvasSize.Height;
@@ -32,10 +34,7 @@ namespace TDNPGL.Views.Forms
         public SKBitmap CurrentGameBitmap { get; set; }
         public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
 
-        public void Dispose()
-        {
-            CurrentGameBitmap.Dispose();
-        }
+        public void Dispose() => CurrentGameBitmap.Dispose();
 
         public void TouchEvent(object sender,SKTouchEventArgs args){
             TDNPGL.Core.Game.MouseReleased(((int)args.MouseButton)-1,args.Location);

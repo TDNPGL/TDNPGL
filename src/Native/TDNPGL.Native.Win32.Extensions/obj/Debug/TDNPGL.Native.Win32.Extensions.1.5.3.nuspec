@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>TDNPGL.Native.Win32.Extensions</id>
+    <version>1.5.3</version>
+    <authors>Zatrit</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>2DNPGL_HD.png</icon>
+    <description>Package Description</description>
+    <repository type="git" url="github.com/zatrit/TDNPGL" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="TDNPGL.Core" version="1.5.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Runtime" targetFramework=".NETFramework4.7.2" />
+      <frameworkAssembly assemblyName="System.Runtime.InteropServices" targetFramework=".NETFramework4.7.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/net472/libSkiaSharp.dll" buildAction="Content" />
+      <files include="any/net472/libSkiaSharp.dylib" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\ZatritProjects\TDNPGL\src\Native\TDNPGL.Native.Win32.Extensions\bin\Debug\net472\TDNPGL.Native.Win32.Extensions.dll" target="lib\net472\TDNPGL.Native.Win32.Extensions.dll" />
+    <file src="C:\Users\Admin\.nuget\packages\skiasharp\2.80.2\runtimes\win-x86\native\libSkiaSharp.dll" target="content\libSkiaSharp.dll" />
+    <file src="C:\Users\Admin\.nuget\packages\skiasharp\2.80.2\runtimes\win-x86\native\libSkiaSharp.dll" target="contentFiles\any\net472\libSkiaSharp.dll" />
+    <file src="C:\Users\Admin\.nuget\packages\skiasharp\2.80.2\runtimes\osx\native\libSkiaSharp.dylib" target="content\libSkiaSharp.dylib" />
+    <file src="C:\Users\Admin\.nuget\packages\skiasharp\2.80.2\runtimes\osx\native\libSkiaSharp.dylib" target="contentFiles\any\net472\libSkiaSharp.dylib" />
+    <file src="D:\ZatritProjects\TDNPGL\icons\2DNPGL_HD.png" target="2DNPGL_HD.png" />
+    <file src="D:\ZatritProjects\TDNPGL\LICENSE.txt" target="LICENSE.txt" />
+  </files>
+</package>

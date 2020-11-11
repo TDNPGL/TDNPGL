@@ -11,17 +11,19 @@ using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Debug.Exceptions;
 using System.Threading;
 using TDNPGL.Core.Math;
+using System.ComponentModel;
 
 namespace TDNPGL.Core.Gameplay
 {
-    public class GameObject : IParentable, IEquatable<GameObject>, IComparable, IUpdateable
+    public class GameObject : IParentable, IEquatable<GameObject>, IComparable, IUpdateable, INotifyPropertyChanged
     {
         #region Private Fields
         [JsonIgnore]
         protected bool firstTick = true;
         #endregion
         #region Delegate
-        public GameObjectEventHandler Tick { set; internal get; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public GameObjectEventHandler Tick;
         #endregion
         #region Animation
         private bool Paused = false;
@@ -83,7 +85,7 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         internal int LevelID;
         [JsonProperty("aabb")]
-        public AABB AABB;
+        public AABB AABB { get; set; }
         [JsonIgnore]
         public Vec2f Position => AABB.min;
         [JsonIgnore]
@@ -139,7 +141,7 @@ namespace TDNPGL.Core.Gameplay
             canvas.DrawBitmap(SpriteBitmap, rect);
         }
         #endregion
-        #region Scripting
+        #region UserListeners
         [JsonProperty("listeners")]
         public string[] listeners;
         [JsonIgnore]
@@ -243,12 +245,14 @@ namespace TDNPGL.Core.Gameplay
         }
         public GameObject(IParentable parent, string sprite) : this(parent, Sprite.Sprites[sprite])
         {
-
         }
         public GameObject(IParentable parent, Sprite sprite) : this(parent)
         {
             this.Sprite = sprite;
         }
+        #endregion
+        #region Networking
+        public bool UseInMultiplayer=true;
         #endregion
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
    <LangVersion>8.0</LangVersion>
-    <PackageLicenseFile>..\..\..\Icons\LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>..\..\..\icons\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <Version>1.5.3</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
@@ -24,7 +24,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\..\..\Icons\2DNPGL_HD.png">
+    <None Include="..\..\..\icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
