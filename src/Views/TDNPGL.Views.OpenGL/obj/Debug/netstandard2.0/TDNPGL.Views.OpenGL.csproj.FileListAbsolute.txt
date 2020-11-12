@@ -1,0 +1,4 @@
+D:\ZatritProjects\TDNPGL\src\Views\TDNPGL.Views.OpenGL\obj\Debug\netstandard2.0\TDNPGL.Views.OpenGL.csprojAssemblyReference.cache
+D:\ZatritProjects\TDNPGL\src\Views\TDNPGL.Views.OpenGL\obj\Debug\netstandard2.0\TDNPGL.Views.OpenGL.AssemblyInfoInputs.cache
+D:\ZatritProjects\TDNPGL\src\Views\TDNPGL.Views.OpenGL\obj\Debug\netstandard2.0\TDNPGL.Views.OpenGL.AssemblyInfo.cs
+D:\ZatritProjects\TDNPGL\src\Views\TDNPGL.Views.OpenGL\obj\Debug\netstandard2.0\TDNPGL.Views.OpenGL.csproj.CoreCompileInputs.cache

@@ -11,6 +11,7 @@ namespace TDNPGL.Tests.OpenGL
         public void Test()
         {
             Assert.IsTrue(true);
+            
         }
     }
 }

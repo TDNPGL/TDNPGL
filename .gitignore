@@ -14,3 +14,9 @@ src/Views/TDNPGL.Views.Gtk3/obj/
 src/Views/TDNPGL.Views.WinForms/obj/
 src/Views/TDNPGL.Views.WinForms/bin/
 src/Native/TDNPGL.Native/build
+src/Tests/TDNPGL.Tests.Native/bin
+src/Tests/TDNPGL.Tests.Native/obj
+src/Tests/TDNPGL.Tests.OpenGL/bin
+src/Tests/TDNPGL.Tests.OpenGL/obj
+src/TDNPGL.Networking/bin
+src/TDNPGL.Networking/obj
