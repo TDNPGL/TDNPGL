@@ -8,6 +8,7 @@
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryType>git</RepositoryType>
+    <Description>Xamarin.Forms library of TDNPGL</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,9 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp.Views" Version="2.80.0" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.0" />
-    <PackageReference Include="System.Runtime" Version="4.2.2.0" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.4.0" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />

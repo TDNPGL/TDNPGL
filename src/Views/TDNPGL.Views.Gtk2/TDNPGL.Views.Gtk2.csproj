@@ -5,9 +5,10 @@
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>..\..\..\icons\2DNPGL_HD.png</PackageIcon>
-    <Version>1.5.3</Version>
+    <Version>1.5.4</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Description>GTK2 library of TDNPGL</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
@@ -19,8 +20,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.80.1" />
-    <PackageReference Include="SkiaSharp.Views.Gtk2" Version="2.80.1" />
+    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.Gtk2" Version="2.80.2" />
   </ItemGroup>
 
   <ItemGroup>

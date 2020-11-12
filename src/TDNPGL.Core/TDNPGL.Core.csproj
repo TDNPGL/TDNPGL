@@ -6,9 +6,9 @@
     <Product>TDNPGL</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.3</Version>
+    <Version>1.5.4</Version>
     <PackageId>TDNPGL.Core</PackageId>
-   <LangVersion>8.0</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Description>Core library of TDNPGL</Description>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
@@ -52,7 +52,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.7.1" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
   </ItemGroup>
 

@@ -5,14 +5,15 @@
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>..\..\..\icons\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
-    <Version>1.5.3</Version>
+    <Version>1.5.4</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Description>GTK3 library of TDNPGL</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GtkSharp" Version="3.22.25.98" />
-    <PackageReference Include="SkiaSharp.Views.Gtk3" Version="2.80.1" />
+    <PackageReference Include="GtkSharp" Version="3.22.25.128" />
+    <PackageReference Include="SkiaSharp.Views.Gtk3" Version="2.80.2" />
   </ItemGroup>
 
   <ItemGroup>

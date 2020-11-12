@@ -6,16 +6,17 @@
     <Product>TDNPGL.Views.WinForms</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.3</Version>
+    <Version>1.5.4</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
+  <Description>Windows Forms library of TDNPGL</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.80.0" />
-    <PackageReference Include="SkiaSharp.Views.WindowsForms" Version="2.80.0" />
+    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.WindowsForms" Version="2.80.2" />
   </ItemGroup>
 
   <ItemGroup>
