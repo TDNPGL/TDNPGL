@@ -5,6 +5,6 @@ Setting up project
    :caption: Contents:
 .. _setting_project:
 
-* At first you need to create .NET Core project, I'm recommending you call it [Game name].Assets.
-* Secondary you need create Xamarin Forms, WPF, WinForms or GTKSharp application, I'm recommending you call it [Game name].[Platform name].
-* After this you need add references to TDNPGL.Core to all this projects and TDNPGL.Views.[Platform name] to game client project.
+* First you need to create a .NET Core project, I recommend you call it [Game Name] .Assets.
+* Second, you need to create a Xamarin Forms, WPF, WinForms or GTKSharp application, I recommend you call it [Game Name]. [Platform name].
+* After that you need to add links to TDNPGL.Core to all these projects and TDNPGL.Views. [Platform name] to the client project of the game.

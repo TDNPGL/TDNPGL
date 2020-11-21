@@ -1,7 +1,7 @@
 Welcome to TDNPGL's documentation!
 ==================================
 
-It's a game library, created by C#
+It's a game library, created using C#
 
 TDNPGL game structure
 =====================
