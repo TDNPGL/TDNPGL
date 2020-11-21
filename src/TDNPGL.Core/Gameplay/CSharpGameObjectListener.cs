@@ -14,8 +14,8 @@ namespace TDNPGL.Core.Gameplay
         public override void OnCreate() { }
         public override void OnFirstTick() { }
         public override void OnTick(){ }
-        public override void OnMouseReleased(SkiaSharp.SKPoint point){ }
-        public override void OnMouseReleasedOver(SkiaSharp.SKPoint point){ }
+        public override void OnMouseReleased(int button,SkiaSharp.SKPoint point){ }
+        public override void OnMouseReleasedOver(int button, SkiaSharp.SKPoint point){ }
         public override void OnCollideWith(GameObject collide) { }
     }
 }

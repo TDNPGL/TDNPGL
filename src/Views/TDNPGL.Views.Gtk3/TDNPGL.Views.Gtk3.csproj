@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
    <LangVersion>8.0</LangVersion>
-    <PackageLicenseFile>..\..\..\icons\LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <Version>1.5.4</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\LICENSE.txt">
+    <None Include="..\..\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\..\..\icons\2DNPGL_HD.png">
+    <None Include="..\..\icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

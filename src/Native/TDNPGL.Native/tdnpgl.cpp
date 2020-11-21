@@ -18,6 +18,6 @@ EXPORT int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx
 	int result = (x > minx) && (x < maxx) && (y > miny) && (y < maxy);
 	return result;
 }
-int main() {
+EXPORT int main() {
 	std::cout << "TDNPGL Native Library for " << PLATFORM;
 }

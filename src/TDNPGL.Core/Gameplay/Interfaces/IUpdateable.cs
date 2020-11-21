@@ -5,9 +5,10 @@
         void OnTick();
         void OnCreate();
         void OnFirstTick();
-        void OnMouseReleased(SkiaSharp.SKPoint point);
-        void OnMouseMove(SkiaSharp.SKPoint point);
+        void OnMouseReleasedOver(int button, SkiaSharp.SKPoint point);
+        void OnMouseReleased(int button,SkiaSharp.SKPoint point);
+        void OnMouseMove(int button,SkiaSharp.SKPoint point);
+        void OnMouseDown(int button, SkiaSharp.SKPoint point);
         void OnKeyDown(SkiaSharp.SKPoint point);
-        void OnMouseReleasedOver(SkiaSharp.SKPoint point);
     }
 }

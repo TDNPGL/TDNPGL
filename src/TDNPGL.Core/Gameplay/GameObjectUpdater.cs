@@ -25,7 +25,7 @@ namespace TDNPGL.Core.Gameplay
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Exceptions.Call(ex);
             }
         }
         internal static void PressKey(ConsoleKeyInfo keyInfo)
@@ -42,9 +42,9 @@ namespace TDNPGL.Core.Gameplay
                 }
                 catch(Exception ex)
                 {
-                    if(ex is InvalidOperationException) { }
+                    if (ex is InvalidOperationException) { }
                     else
-                        Logging.WriteError(ex);
+                        Exceptions.Call(ex);
                 }
         }
 

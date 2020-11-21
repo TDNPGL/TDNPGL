@@ -13,8 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Native\TDNPGL.Native.Win32.Extensions\TDNPGL.Native.Win32.Extensions.csproj" />
-    <ProjectReference Include="..\TDNPGL.Core\TDNPGL.Core.csproj" />
+    <ProjectReference Include="..\..\Native\TDNPGL.DNNI\TDNPGL.DNNI.csproj" />
+    <ProjectReference Include="..\..\Native\TDNPGL.Native.Win32.Extensions\TDNPGL.Native.Win32.Extensions.csproj" />
+    <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
   </ItemGroup>
 
 </Project>

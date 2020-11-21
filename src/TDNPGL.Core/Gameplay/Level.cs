@@ -8,6 +8,7 @@ namespace TDNPGL.Core.Gameplay
 {
     public class Level : ContentFile, IParentable
     {
+        public static Level Empty { get { return new Level(); } }
         public bool IsObjectsLoaded()
         {
             for(int i = 0; i < objects.Count;i++)
@@ -18,7 +19,7 @@ namespace TDNPGL.Core.Gameplay
             return true;
         }
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; protected set; }
         public override string ContentType { get; set; }
         #region Rendering
         [JsonIgnore]
@@ -34,7 +35,9 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         public GameObject[] Objects => objects.ToArray();
         [JsonIgnore]
-        public GameObjectUpdater Updater { get; private set; }
+        public IReadOnlyCollection<GameObject> ObjectsCollection => objects;
+        [JsonIgnore]
+        public GameObjectUpdater Updater { get; protected set; }
         [JsonIgnore]
         public IParentable Parent { get; set; } = null;
         #endregion
