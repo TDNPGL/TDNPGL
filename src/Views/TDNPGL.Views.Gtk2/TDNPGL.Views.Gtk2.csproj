@@ -5,7 +5,7 @@
    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>..\..\..\icons\2DNPGL_HD.png</PackageIcon>
-    <Version>1.5.4</Version>
+    <Version>1.5.4.1</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>GTK2 library of TDNPGL</Description>
