@@ -5,11 +5,12 @@
     <Product>TDNPGL.Views.WinForms</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.4</Version>
+    <Version>1.5.4.2</Version>
     <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
+    <Description>TDNPGL native extensions writted by C# and C++ for Windows</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

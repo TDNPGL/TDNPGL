@@ -83,7 +83,7 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         public bool Loaded { get; private set; } = false;
         [JsonIgnore]
-        internal int LevelID;
+        public int LevelID { get; internal set; }
         [JsonProperty("aabb")]
         public AABB AABB { get; set; }
         [JsonIgnore]
@@ -151,21 +151,23 @@ namespace TDNPGL.Core.Gameplay
             foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                listener.OnCollideWith(state as GameObject),obj);
+                listener.OnCollideWith(state as GameObject), obj);
             }
         }
-        public virtual void OnMouseReleased(SkiaSharp.SKPoint point){
+        public virtual void OnMouseReleased(int button, SkiaSharp.SKPoint point)
+        {
             foreach (CSharpGameObjectListener script in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnMouseReleased((SKPoint)state),point);
-                if(AABB.IsPointOver(AABB,point.ToVec2f()))
-                ThreadPool.QueueUserWorkItem((object state) =>
-                script.OnMouseReleasedOver((SKPoint)state),point);
+                    script.OnMouseReleased(button, point));
+                if (AABB.IsPointOver(AABB, point.ToVec2f()))
+                    ThreadPool.QueueUserWorkItem((object state) =>
+                        script.OnMouseReleasedOver(button, point));
             }
-         }
-         public virtual void OnMouseReleasedOver(SkiaSharp.SKPoint point){
-         }
+        }
+        public virtual void OnMouseReleasedOver(int button, SkiaSharp.SKPoint point)
+        {
+        }
         internal void LoadListeners()
         {
             if (listeners != null)
@@ -217,17 +219,30 @@ namespace TDNPGL.Core.Gameplay
             }
         }
 
-        public void OnMouseMove(SKPoint point)
+        public void OnMouseMove(int button, SKPoint point)
         {
             foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                listener.OnMouseMove(point));
+                listener.OnMouseMove(button, point));
             }
         }
 
         public void OnKeyDown(SKPoint point)
         {
+            foreach (CSharpGameObjectListener listener in Listeners)
+            {
+                ThreadPool.QueueUserWorkItem((object state) =>
+                listener.OnKeyDown(point));
+            }
+        }
+        public void OnMouseDown(int button, SKPoint point)
+        {
+            foreach (CSharpGameObjectListener listener in Listeners)
+            {
+                ThreadPool.QueueUserWorkItem((object state) =>
+                listener.OnMouseDown(button, point));
+            }
         }
         #endregion
         #region Constructors
@@ -252,7 +267,7 @@ namespace TDNPGL.Core.Gameplay
         }
         #endregion
         #region Networking
-        public bool UseInMultiplayer=true;
+        public bool UseInMultiplayer = true;
         #endregion
     }
 }

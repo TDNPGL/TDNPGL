@@ -13,12 +13,12 @@ namespace TDNPGL.Core
     public class Game
     {
         public static EntryPoint CurrentEntry;
-        public static Level CurrentLevel { get; private set; }
+        public static Level CurrentLevel { get; protected set; }
 
         private Game() { 
         }
 
-        public static string GameName= "Game01";
+        public static string GameName{ get; set; } = "TDNPGL Game";
         public static PlatformID CurrentPlatform;
         public static Assembly AssetsAssembly;
 
@@ -88,10 +88,10 @@ namespace TDNPGL.Core
         {
             try{
                 foreach(GameObject obj in CurrentLevel.Objects){
-                    obj.OnMouseReleased(point);
+                    obj.OnMouseReleased(button,point);
                 }
             }catch(Exception ex){
-                Console.WriteLine(ex);
+                Exceptions.Call(ex);
             }
         }
         public static void MouseMove(int button, SKPoint point)
@@ -100,11 +100,12 @@ namespace TDNPGL.Core
             {
                 foreach (GameObject obj in CurrentLevel.Objects)
                 {
+                    obj.OnMouseMove(button, point);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Exceptions.Call(ex);
             }
         }
         public static void MouseDown(int button, SKPoint point)
@@ -113,11 +114,12 @@ namespace TDNPGL.Core
             {
                 foreach (GameObject obj in CurrentLevel.Objects)
                 {
+                    obj.OnMouseDown(button,point);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Exceptions.Call(ex);
             }
         }
         #endregion

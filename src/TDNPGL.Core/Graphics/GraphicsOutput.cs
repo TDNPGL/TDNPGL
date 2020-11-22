@@ -48,7 +48,7 @@ namespace TDNPGL.Core.Graphics
             }
             catch (Exception ex)
             {
-                Logging.WriteError(ex);
+                Exceptions.Call(ex);
             }
         }
         public static IGameRenderer GetMainRenderer()
@@ -77,7 +77,7 @@ namespace TDNPGL.Core.Graphics
                         }
                         catch (Exception ex)
                         {
-                            Logging.WriteError(ex);
+                            Exceptions.Call(ex);
                         }
                 Thread.Sleep(Options.FPS.FPSDelay);
             }
@@ -93,9 +93,9 @@ namespace TDNPGL.Core.Graphics
                 Logging.MessageAction("GRAPHICS", "Rendering stopped!", ConsoleColor.Red);
                 GC.Collect();
             }
-            catch
+            catch(Exception ex)
             {
-
+                Exceptions.Call(ex);
             }
         }
     }
