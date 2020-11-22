@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Zatrit</Authors>
-    <Version>1.5.4.1</Version>
+    <Version>1.5.4.2</Version>
     <Description>It's depencies, using in TDNPGL</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>

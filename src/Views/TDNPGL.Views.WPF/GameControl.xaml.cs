@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;
+using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Graphics.Renderers;
 using TDNPGL.Core.Math;
 using TDNPGL.Core.Sound;
@@ -24,7 +25,7 @@ namespace TDNPGL.Views.WPF
     /// <summary>
     /// Логика взаимодействия для GameControl.xaml
     /// </summary>
-    public partial class GameControl : UserControl,ISoundProvider,IGameRenderer
+    public partial class GameControl : UserControl, ISoundProvider, IGameRenderer, IGameInitializer
     {
         public GameControl()
         {
@@ -35,7 +36,8 @@ namespace TDNPGL.Views.WPF
         public double height => Height;
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
 
-        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        public ILevelRenderer LevelRenderer => renderer;
         public SKBitmap OutputBitmap;
         private SoundPlayer soundPlayer = new SoundPlayer();
 

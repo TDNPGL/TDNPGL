@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Linq;
 using System;
 using System.Windows.Forms;
+using System.Media;
 
 using TDNPGL.Core.Debug;
 using TDNPGL.Core.Gameplay.Assets;
@@ -13,23 +14,23 @@ using TDNPGL.Core.Math;
 using TDNPGL.Core.Graphics.Renderers;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
-using System.Media;
+using TDNPGL.Core.Gameplay.Interfaces;
 
 namespace TDNPGL.Views.WinForms
 {
-    public partial class GameRendererGLControl : SKGLControl,IGameRenderer,ISoundProvider
+    public partial class GameRendererGLControl : SKGLControl, IGameRenderer, ISoundProvider, IGameInitializer
     {
         public SoundPlayer SoundPlayer = new SoundPlayer();
-        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height); 
+        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
         public double width => Width;
         public double height => Height;
 
         public bool Rendering = true;
-        public void InitGame(Assembly assembly,string GameName)
+        public void InitGame(Assembly assembly, string GameName)
         {
-            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new GameProvider(this, this), assembly, GameName, true);
         }
-        public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => 
+        public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint =>
             InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap
@@ -73,7 +74,7 @@ namespace TDNPGL.Views.WinForms
             SKPoint point = new SKPoint(e.X, e.Y);
             MouseButtons[] buttons = { MouseButtons.Left, MouseButtons.Middle, MouseButtons.Right };
             int b = buttons.ToList().IndexOf(e.Button);
-            TDNPGL.Core.Game.MouseReleased(b,point);
+            TDNPGL.Core.Game.MouseReleased(b, point);
         }
         [HandleProcessCorruptedStateExceptions]
         private void This_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs e)
@@ -113,7 +114,7 @@ namespace TDNPGL.Views.WinForms
 
         }
 
-        public void PlaySound(SoundAsset asset,bool sync=false)
+        public void PlaySound(SoundAsset asset, bool sync = false)
         {
             SoundPlayer.Stream = asset.AsStream();
             SoundPlayer.Play();

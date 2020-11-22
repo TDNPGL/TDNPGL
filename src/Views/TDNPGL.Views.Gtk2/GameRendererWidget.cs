@@ -10,10 +10,11 @@ using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Math;
 using TDNPGL.Core;
+using TDNPGL.Core.Gameplay.Interfaces;
 
 namespace TDNPGL.Views.Gtk2
 {
-    public class GameRendererWidget : Widget,IGameRenderer,ISoundProvider
+    public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
         public SKWidget SKWidget = new SKWidget();
 
@@ -34,7 +35,8 @@ namespace TDNPGL.Views.Gtk2
             }
         }
 
-        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        public ILevelRenderer LevelRenderer => renderer;
 
         private SKBitmap currentGameBitmap = new SKBitmap();
 
@@ -43,7 +45,7 @@ namespace TDNPGL.Views.Gtk2
         {
             CurrentGameBitmap = bitmap;
 
-            SKWidget.Draw(new Gdk.Rectangle(0,0,SKWidget.WidthRequest,SKWidget.HeightRequest));
+            SKWidget.Draw(new Gdk.Rectangle(0, 0, SKWidget.WidthRequest, SKWidget.HeightRequest));
         }
 
         protected override void OnSizeRequested(ref Requisition requisition)
@@ -76,20 +78,21 @@ namespace TDNPGL.Views.Gtk2
                 CurrentGameBitmap.Dispose();
             }
         }
-    
-        protected override bool OnButtonReleaseEvent(Gdk.EventButton evnt){
-            Game.MouseReleased((int)evnt.Button,new SKPoint((float)evnt.X,(float)evnt.Y));
+
+        protected override bool OnButtonReleaseEvent(Gdk.EventButton evnt)
+        {
+            Game.MouseReleased((int)evnt.Button, new SKPoint((float)evnt.X, (float)evnt.Y));
             return base.OnButtonReleaseEvent(evnt);
         }
-        public void InitGame(Assembly assembly,string GameName)
+        public void InitGame(Assembly assembly, string GameName)
         {
-            Game.Init(new GameProvider(this,this), assembly,GameName,true);
+            Game.Init(new GameProvider(this, this), assembly, GameName, true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
-        public unsafe void PlaySound(SoundAsset asset,bool sync)
+        public unsafe void PlaySound(SoundAsset asset, bool sync)
         {
-            
+
         }
     }
 }

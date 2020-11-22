@@ -11,10 +11,11 @@ using TDNPGL.Core;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Math;
+using TDNPGL.Core.Gameplay.Interfaces;
 
 namespace TDNPGL.Views.Gtk3
 {
-    public class GameRendererWidget : Widget,IGameRenderer,ISoundProvider
+    public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
         public SKDrawingArea DrawingArea = new SKDrawingArea();
 
@@ -36,7 +37,8 @@ namespace TDNPGL.Views.Gtk3
             }
         }
 
-        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        public ILevelRenderer LevelRenderer => renderer;
 
         private SKBitmap currentGameBitmap = new SKBitmap();
 
@@ -44,7 +46,7 @@ namespace TDNPGL.Views.Gtk3
         {
             CurrentGameBitmap = bitmap;
 
-            DrawingArea.QueueDrawArea(0,0,(int)width, (int)height);
+            DrawingArea.QueueDrawArea(0, 0, (int)width, (int)height);
         }
         public GameRendererWidget()
         {
@@ -77,13 +79,13 @@ namespace TDNPGL.Views.Gtk3
             }
         }
 
-        public void InitGame(Assembly assembly,string GameName)
+        public void InitGame(Assembly assembly, string GameName)
         {
-            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly,GameName,true);
+            TDNPGL.Core.Game.Init(new GameProvider(this, this), assembly, GameName, true);
         }
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
-        public void PlaySound(SoundAsset asset,bool sync)
+        public void PlaySound(SoundAsset asset, bool sync)
         {
             if (sync)
                 throw new InvalidOperationException();

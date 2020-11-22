@@ -27,8 +27,7 @@ namespace TDNPGL.Core.Graphics.Renderers
             }
             catch(Exception exception)
             {
-                if (exception is InvalidOperationException) {
-                }
+                if (exception is InvalidOperationException);
                 else
                 {
                     SKPaint textPaint = new SKPaint() { Color = SKColors.White, TextSize = ScreenSize.Width / 40 };

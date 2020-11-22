@@ -4,18 +4,18 @@ using System;
 using System.Reflection;
 using TDNPGL.Core.Gameplay.Assets;
 using TDNPGL.Core.Graphics.Renderers;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using Plugin.SimpleAudioPlayer;
 using TDNPGL.Core.Math;
+using TDNPGL.Core.Gameplay.Interfaces;
 
 namespace TDNPGL.Views.Forms
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 #pragma warning disable CA1063
-    public partial class GameRendererView : SKGLView,IGameRenderer,ISoundProvider
+    public partial class GameRendererView : SKGLView,IGameRenderer, ISoundProvider, IGameInitializer
 #pragma warning restore CA1063
     {
         public double width => CanvasSize.Width;
@@ -32,7 +32,8 @@ namespace TDNPGL.Views.Forms
         public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap { get; set; }
-        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        public ILevelRenderer LevelRenderer => renderer;
 
         public void Dispose() => CurrentGameBitmap.Dispose();
 
