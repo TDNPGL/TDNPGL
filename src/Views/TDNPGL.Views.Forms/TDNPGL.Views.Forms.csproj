@@ -4,11 +4,12 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
    <LangVersion>8.0</LangVersion>
     <Version>1.5.4.2</Version>
-    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <RepositoryType>git</RepositoryType>
     <Description>Xamarin.Forms library of TDNPGL</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

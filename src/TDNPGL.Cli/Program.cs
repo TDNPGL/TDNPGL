@@ -2,11 +2,16 @@
 
 namespace TDNPGL.Cli
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new CLI().RunWithArgs(args);
+            if(NativeMethods.IsOwnConsole())
+            {
+                Console.Write("Press any key to exit...");
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -6,9 +6,10 @@
     <PackageLicenseFile>..\..\LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
     <Version>1.5.4.1</Version>
-    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <RepositoryUrl>github.com/zatrit/TDNPGL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>GTK3 library of TDNPGL</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

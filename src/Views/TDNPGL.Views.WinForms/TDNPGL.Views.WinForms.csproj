@@ -7,7 +7,8 @@
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
     <Version>1.5.4.2</Version>
-    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>

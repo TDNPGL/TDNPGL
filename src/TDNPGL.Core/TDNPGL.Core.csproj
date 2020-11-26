@@ -6,13 +6,14 @@
     <Product>TDNPGL</Product>
     <Authors>Zatrit</Authors>
     <Company>Zatrit</Company>
-    <Version>1.5.4.1</Version>
+    <Version>1.5.4.2</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>TDNPGL.Core</PackageId>
     <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Description>Core library of TDNPGL</Description>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
-    <RepositoryUrl>github.com/zatrit/TDNPGL</RepositoryUrl>
+    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
