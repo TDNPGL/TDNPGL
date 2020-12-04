@@ -22,7 +22,7 @@ namespace TDNPGL.Core.Gameplay
             return true;
         }
         [JsonProperty("name")]
-        public string Name { get; protected set; }
+        public string Name { get; set; }
         public override string ContentType { get; set; }
         #region Rendering
         [JsonIgnore]

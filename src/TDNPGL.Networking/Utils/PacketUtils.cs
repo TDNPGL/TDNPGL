@@ -79,6 +79,8 @@ namespace TDNPGL.Networking.Utils
 
                 if (type == typeof(float))
                     value = reader.ReadSingle();
+                else if (type.IsAssignableFrom(typeof(Enum)))
+                    value = reader.ReadInt16();
                 else if (type == typeof(string))
                     value = reader.ReadString();
                 else if (type == typeof(bool))

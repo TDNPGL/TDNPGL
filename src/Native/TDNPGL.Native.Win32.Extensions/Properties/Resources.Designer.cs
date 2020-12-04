@@ -59,15 +59,5 @@ namespace TDNPGL.Native.Win32.Extensions.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        internal static byte[] tdnpgl {
-            get {
-                object obj = ResourceManager.GetObject("tdnpgl", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

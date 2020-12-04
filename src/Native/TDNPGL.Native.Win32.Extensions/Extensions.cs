@@ -18,8 +18,6 @@ namespace TDNPGL.Native.Win32.Extensions
 
         static Extensions()
         {
-            byte[] buffer = Resources.tdnpgl;
-            File.WriteAllBytes("tdnpgl.dll", buffer);
         }
         [DllImport("tdnpgl.dll", EntryPoint = "AABB_IsPointOver", CallingConvention = CallingConvention.Cdecl)]
         private static extern int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy);

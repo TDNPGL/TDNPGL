@@ -37,7 +37,7 @@ namespace TDNPGL.Views.Gtk3
             }
         }
 
-        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        private readonly BaseLevelRenderer renderer = new BaseLevelRenderer();
         public ILevelRenderer LevelRenderer => renderer;
 
         private SKBitmap currentGameBitmap = new SKBitmap();

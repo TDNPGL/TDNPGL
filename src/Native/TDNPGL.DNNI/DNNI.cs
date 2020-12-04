@@ -16,7 +16,7 @@ namespace TDNPGL.DNNI
         {
             Type type = typeof(T);
             if (!typeof(T).IsInterface)
-                throw new TypeInitializationException(type.FullName, new Exception(string.Format("Given type {0} not interface",type.Name)));
+                throw new TypeInitializationException(type.FullName, new Exception(string.Format("Given type {0} not interface", type.Name)));
 
             TypeBuilder builder = module.DefineType("DNNIDynamicAssembly.Native" + type.Name,
                               TypeAttributes.Public |
@@ -25,14 +25,6 @@ namespace TDNPGL.DNNI
 
             FieldBuilder fieldBuilder = builder.DefineField("MethodsCount", typeof(int), FieldAttributes.Public);
             fieldBuilder.SetConstant(type.GetMethods().Length);
-            
-            ConstructorBuilder ciBuilder=builder.DefineConstructor(MethodAttributes.Public, CallingConventions.Any, Type.EmptyTypes);
-            ILGenerator ctorILGen = ciBuilder.GetILGenerator();
-
-            ctorILGen.Emit(OpCodes.Ldarg_0);
-            ctorILGen.Emit(OpCodes.Call,
-                typeof(object).GetConstructor(Type.EmptyTypes));
-            ctorILGen.Emit(OpCodes.Ret);
 
             foreach (MethodInfo info in type.GetMethods())
             {
@@ -44,22 +36,23 @@ namespace TDNPGL.DNNI
                 MethodBuilder m = builder.DefineMethod(info.Name,
                                      MethodAttributes.Public | MethodAttributes.Virtual
                                      );
-                ILGenerator iLGen = m.GetILGenerator();
+                ILGenerator MiLGen = m.GetILGenerator();
 
-                iLGen.Emit(OpCodes.Ldarg_0);
-                iLGen.EmitCall(OpCodes.Call, typeof(Console).GetMethod("WriteLine", Type.EmptyTypes), null);
-                iLGen.Emit(OpCodes.Ret);
+                MiLGen.Emit(OpCodes.Ldarg_0);
+                MiLGen.EmitCall(OpCodes.Call, typeof(Console).GetMethod("WriteLine", Type.EmptyTypes), null);
+                MiLGen.Emit(OpCodes.Ret);
 
                 builder.DefineMethodOverride(m, info);
+                ConstructorBuilder ctor = builder.DefineDefaultConstructor(MethodAttributes.Public);
 
                 m.SetParameters(args);
                 m.SetReturnType(info.ReturnType);
             }
+
+            Type type1 = builder.MakePointerType();
+
             Console.WriteLine(builder.Name);
-            Type type1 = builder.CreateTypeInfo().BaseType;
-            if (!builder.IsCreated())
-                throw new TypeInitializationException(builder.FullName,new Exception("Type can't be created!"));
-               Console.WriteLine(type1.Name);
+            Console.WriteLine(type1.Name);
             T item = (T)Activator.CreateInstance(type1);
 
             return item;

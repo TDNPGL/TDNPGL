@@ -1,17 +1,28 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(TDNPGL.Native.Linux)
+project(tdnpgl)
 
 include(GenerateExportHeader)
 
 set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-option(PROC_ARCH "Target processor architecture" "amd64")
-
 # add the executable
 set( SOURCE_LIB tdnpgl.cpp)
 message("-- Building TDNPGL")
 add_library(tdnpgl SHARED ${SOURCE_LIB})
+
+set(CMAKE_CXX_COMPILER x86_64-linux-gnux32-g++)
+set(CMAKE_C_COMPILER x86_64-linux-gnux32-gcc)
+add_library(tdnpgl_x86 SHARED ${SOURCE_LIB})
+
+set(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
+set(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+add_library(tdnpgl_ARM64 SHARED ${SOURCE_LIB})
+
+set(CMAKE_CXX_COMPILER i686-linux-gnu-g++)
+set(CMAKE_C_COMPILER i686-linux-gnu-gcc)
+add_library(tdnpgl_i686 SHARED ${SOURCE_LIB})
+
 include_directories(tdnpgl_native ../TDNPGL.Native)

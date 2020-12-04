@@ -12,9 +12,11 @@ using TDNPGL.Core.Debug.Exceptions;
 using System.Threading;
 using TDNPGL.Core.Math;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TDNPGL.Core.Gameplay
 {
+    [Serializable]
     public class GameObject : IParentable, IEquatable<GameObject>, IComparable, IUpdateable, INotifyPropertyChanged
     {
         #region Private Fields
@@ -38,14 +40,21 @@ namespace TDNPGL.Core.Gameplay
             {
                 spritename = value;
                 Sprite = Graphics.Sprite.Sprites[value];
+                NotifyPropertyChange();
             }
         }
         [JsonIgnore]
         private string spritename;
         [JsonIgnore]
-        public Sprite Sprite;
+        public Sprite Sprite { get; private set; }
+        private int spriteIndex = 0;
         [JsonIgnore]
-        public int SpriteIndex;
+        public int SpriteIndex { get { return spriteIndex; } set
+            {
+                spriteIndex = value;
+                NotifyPropertyChange();
+            } 
+        }
         [JsonIgnore]
         public SKBitmap SpriteBitmap => this.Sprite.Frames[SpriteIndex];
 
@@ -78,14 +87,24 @@ namespace TDNPGL.Core.Gameplay
         public void PauseAnimation() => Paused = true;
         public void ResumeAnimation() => Paused = false;
         public void ChangeAnimationState() => Paused = !Paused;
+        public void SetSprite()
+        {
+            SpriteIndex = 0;
+            NotifyPropertyChange();
+        }
         #endregion
         #region Controllers
         [JsonIgnore]
         public bool Loaded { get; private set; } = false;
         [JsonIgnore]
         public int LevelID { get; internal set; }
+        private AABB aABB = new AABB();
         [JsonProperty("aabb")]
-        public AABB AABB { get; set; }
+        public AABB AABB { get { return aABB; } set { 
+                aABB = value;
+                NotifyPropertyChange();
+            } 
+        }
         [JsonIgnore]
         public Vec2f Position => AABB.min;
         [JsonIgnore]
@@ -243,6 +262,10 @@ namespace TDNPGL.Core.Gameplay
                 ThreadPool.QueueUserWorkItem((object state) =>
                 listener.OnMouseDown(button, point));
             }
+        }
+        private void NotifyPropertyChange([CallerMemberName] string name = "")
+        {
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
         }
         #endregion
         #region Constructors

@@ -17,16 +17,17 @@ namespace TDNPGL.Networking
     {
         #region Fields
         private QueudAction action = QueudAction.None;
-        private ClientBootstrap client;
-        private EndPoint endPoint;
+        private readonly ClientBootstrap client;
+        private readonly EndPoint endPoint;
         private IChannelFuture channelFuture;
 
         private sbyte pingResult = -1;
+        public event AsyncActionResultHandler AsyncEventComplete;
         #endregion
         #region Constructors
         public Client(EndPoint endPoint)
         {
-            Func<IChannelHandler[]> handlersFactory = () => new IChannelHandler[] { this };
+            IChannelHandler[] handlersFactory() => new IChannelHandler[] { this };
             client = new ClientBootstrap();
 
             client.SetPipelineFactory(handlersFactory);
@@ -41,7 +42,7 @@ namespace TDNPGL.Networking
         /// Better use it async, because i don't know, when server return anything
         /// </summary>
         /// <param name="args"></param>
-        /// <returns></returns>
+        /// <returns>SByte result of ping</returns>
         public async Task<sbyte> Ping(params object[] args)
         {
             if (channelFuture == null)
@@ -68,49 +69,54 @@ namespace TDNPGL.Networking
         }
         public override void MessageReceived(IChannelHandlerContext ctx, IMessageEvent e)
         {
+            PacketType Ptype = (PacketType)PacketUtils.GetObjects((IByteBuf)e.GetMessage(),typeof(PacketType))[0];
             switch (action)
             {
                 case QueudAction.Ping:
                     object[] objects = PacketUtils.GetObjects((IByteBuf)e.GetMessage(),
-                                                              typeof(PacketType),
-                                                              typeof(byte),
-                                                              typeof(byte));
+                                       typeof(PacketType),
+                                       typeof(byte),
+                                       typeof(byte));
                     pingResult = (sbyte)objects[2];
+                    AsyncEventComplete.Invoke(this, AsyncActionResult.Ping);
                     break;
                 case QueudAction.None:
                     break;
                 case QueudAction.GetLevel:
                     object[] objects1 = PacketUtils.GetObjects((IByteBuf)e.GetMessage(),
-                                                               typeof(PacketType),
-                                                               typeof(byte),
-                                                               typeof(Level));
+                                        typeof(PacketType),
+                                        typeof(byte),
+                                        typeof(Level));
                     this.Level = (Level)objects1[2];
+                    AsyncEventComplete.Invoke(this, AsyncActionResult.Level);
                     break;
                 default:
                     break;
             }
-            object[] objects2 = PacketUtils.GetObjects((IByteBuf)e.GetMessage(),
-                                                       typeof(PacketType),
-                                                       typeof(int),
-                                                       typeof(string),
-                                                       typeof(string),
-                                                       typeof(string));
-            try
+            if (Ptype == PacketType.UpdateObject)
             {
-                int id = (int)objects2[1];
-                string field = (string)objects2[2];
-                string value = (string)objects2[3];
-                string type = (string)objects2[4];
-                Type type1 = Type.GetType(type);
-                object valueObj = JsonConvert.DeserializeObject(value, type1);
-                GameObject gameObject = Level.GetObject(id);
-                type1.GetField(field).SetValue(gameObject, valueObj);
+                object[] objects2 = PacketUtils.GetObjects((IByteBuf)e.GetMessage(),
+                                    typeof(PacketType),
+                                    typeof(int),
+                                    typeof(string),
+                                    typeof(string),
+                                    typeof(string));
+                try
+                {
+                    int id = (int)objects2[1];
+                    string field = (string)objects2[2];
+                    string value = (string)objects2[3];
+                    string type = (string)objects2[4];
+                    Type type1 = Type.GetType(type);
+                    object valueObj = JsonConvert.DeserializeObject(value, type1);
+                    GameObject gameObject = Level.GetObject(id);
+                    type1.GetField(field).SetValue(gameObject, valueObj);
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.Call(ex);
+                }
             }
-            catch(Exception ex)
-            {
-                Exceptions.Call(ex);
-            }
-
             action = QueudAction.None;
         }
         #endregion

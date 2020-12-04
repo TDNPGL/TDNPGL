@@ -1,0 +1,1 @@
+i686-linux-gnu-g++ -fPIC   -shared -Wl,-soname,libtdnpgl.so -o libtdnpgl.so CMakeFiles/tdnpgl.dir/tdnpgl.cpp.o 

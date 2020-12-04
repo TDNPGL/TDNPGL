@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TDNPGL.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "-create TestProject"
+    }
+  }
+}

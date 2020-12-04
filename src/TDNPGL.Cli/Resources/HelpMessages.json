@@ -1,0 +1,17 @@
+[
+  {
+    "name": "-help",
+    "description": "Show this message",
+    "aliases": []
+  },
+  {
+    "name": "-create [NAME]",
+    "description": "Creates empty project for MSBuild with default resources for game in current directory",
+    "aliases": []
+  },
+  {
+    "name": "-info",
+    "description": "Runs info about tdnpgl",
+    "aliases": ["-about"]
+  }
+]

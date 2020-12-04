@@ -20,7 +20,7 @@ namespace TDNPGL.Networking
         public event ClientConnect Connect;
         public event ClientDisconnect Disconnect;
 
-        private List<IChannel> channels = new List<IChannel>();
+        private readonly List<IChannel> channels = new List<IChannel>();
         
         public override void MessageReceived(IChannelHandlerContext ctx, IMessageEvent e)
         {
@@ -85,7 +85,7 @@ namespace TDNPGL.Networking
         {
             SingleLevelServer levelServer = new SingleLevelServer(level);
 
-            Func<IChannelHandler[]> handlersFactory = () => new IChannelHandler[] { levelServer };
+            IChannelHandler[] handlersFactory() => new IChannelHandler[] { levelServer };
             var server = new SimpleTcpService().SetHandlers(handlersFactory);
             server.Bind((IPEndPoint)endPoint);
 

@@ -1,6 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+    <PackageReference Include="System.Resources.Writer" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDNPGL.Core\TDNPGL.Core.csproj" />
     <ProjectReference Include="..\TDNPGL.GlobalDepencies\TDNPGL.GlobalDepencies.csproj" />
   </ItemGroup>
 
