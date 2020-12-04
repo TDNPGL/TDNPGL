@@ -1,6 +1,0 @@
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/rebuild_cache.dir
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/edit_cache.dir
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/tdnpgl_i686.dir
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/tdnpgl_ARM64.dir
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/tdnpgl_x86.dir
-/mnt/d/ZatritProjects/TDNPGL/src/Native/TDNPGL.Native/build/Unix/CMakeFiles/tdnpgl.dir

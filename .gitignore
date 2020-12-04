@@ -6,4 +6,4 @@ src/TDNPGL.Core/TDNPGL.Core.csproj.user
 src/TDNPGL.Networking/bin
 src/TDNPGL.Networking/obj
 src/packages
-src/Native/TDNPGL.Native/build/*
+src/Native/TDNPGL.Native/build/
