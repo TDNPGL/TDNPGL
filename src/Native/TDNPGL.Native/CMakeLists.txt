@@ -25,4 +25,8 @@ set(CMAKE_CXX_COMPILER i686-linux-gnu-g++)
 set(CMAKE_C_COMPILER i686-linux-gnu-gcc)
 add_library(tdnpgl_i686 SHARED ${SOURCE_LIB})
 
+set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+set(CMAKE_C_COMPILER arm-none-eabi-gcc)
+add_library(tdnpgl_ARM SHARED ${SOURCE_LIB})
+
 include_directories(tdnpgl_native ../TDNPGL.Native)

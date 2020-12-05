@@ -13,7 +13,7 @@ using TDNPGL.Networking.Utils;
 
 namespace TDNPGL.Networking
 {
-    public class Client : NetworkLevel
+    public class Client : NetworkObject
     {
         #region Fields
         private QueudAction action = QueudAction.None;
