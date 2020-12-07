@@ -18,7 +18,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arm64\libtdnpgl_ARM64.so" />
+    <None Remove="x64\libtdnpgl.so" />
     <None Remove="x64\tdnpgl.dll" />
+    <None Remove="x86\libtdnpgl_x86.so" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,7 +55,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="arm64\libtdnpgl_ARM64.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libtdnpgl.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\tdnpgl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libtdnpgl_x86.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

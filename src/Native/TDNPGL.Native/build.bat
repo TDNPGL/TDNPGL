@@ -14,5 +14,3 @@ echo MSBuild locaion: %Build%
 "%Build%" tdnpgl.vcxproj /t:Rebuild /p:Configuration=Release
 
 cd ..\..
-
-pause
