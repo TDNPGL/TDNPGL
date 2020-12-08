@@ -32,8 +32,4 @@ if(UNIX)
 	set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 	add_library(tdnpgl_ARM SHARED ${SOURCE_LIB})
 endif(UNIX)
-#Windows
-if(WIN32)
-	add_library(libtdnpgl SHARED ${SOURCE_LIB})
-endif(WIN32)
 include_directories(tdnpgl_native ../TDNPGL.Native)
