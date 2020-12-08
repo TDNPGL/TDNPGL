@@ -1,0 +1,111 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: build.py",
+            "type": "python",
+            "args": [
+                "${input:build_arg1}",
+                "${input:build_arg2}",
+                "${input:build_arg3}",
+                "tdnpgl${input:build_arg4}"
+            ],
+            "request": "launch",
+            "program": "${workspaceFolder}/src/Native/TDNPGL.Native/build.py",
+            "cwd": "${workspaceFolder}/src/Native/TDNPGL.Native/",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "logging": {
+                "engineLogging": false,
+                "moduleLoad": false
+            },
+            "args": [
+                "${input:cli_command}",
+                "${input:cli_command2}"
+            ],
+            "name": ".NET: TDNPGL.Cli",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/TDNPGL.Cli/bin/Debug/netcoreapp3.1/tdnpgl.dll",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "cli_command",
+            "description": "First argument for TDNPGL.Cli",
+            "options": [
+                "-help",
+                "-info",
+                "-about"
+            ],
+            "default": "-help"
+        },
+        {
+            "type": "pickString",
+            "id": "cli_command2",
+            "description": "Second argument for TDNPGL.Cli",
+            "options": [
+                "-help",
+                "-info",
+                "-about",
+                "-create",
+                ""
+            ],
+            "default": ""
+        },
+        {
+            "type": "pickString",
+            "id": "build_arg1",
+            "description": "First argument for build.py",
+            "options": [
+                "-wsl",
+                "-h",
+                "--help",
+                ""
+            ],
+            "default": ""
+        },
+        {
+            "type": "pickString",
+            "id": "build_arg2",
+            "description": "Second argument for build.py",
+            "options": [
+                "true",
+                "false",
+                ""
+            ],
+            "default": ""
+        },
+        {
+            "type": "pickString",
+            "id": "build_arg3",
+            "description": "Third argument for build.py",
+            "options": [
+                "-cpu",
+                ""
+            ],
+            "default": ""
+        },
+        {
+            "type": "pickString",
+            "id": "build_arg4",
+            "description": "Fourth argument for build.py",
+            "options": [
+                "_x86",
+                "_ARM64",
+                "_i686",
+                "_ARM",
+                ""
+            ],
+            "default": ""
+        }
+    ]
+}
