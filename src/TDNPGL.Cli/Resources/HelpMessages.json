@@ -1,6 +1,6 @@
 [
   {
-    "name": "-help",
+    "name": "-help [COMMAND]",
     "description": "Show this message",
     "aliases": []
   },

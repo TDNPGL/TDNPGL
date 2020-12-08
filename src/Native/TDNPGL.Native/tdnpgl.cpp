@@ -1,6 +1,6 @@
-﻿#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32)
+﻿#include <iostream>
+#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32)
 //  Microsoft 
-#include <iostream>
 #define EXPORT extern "C" __declspec(dllexport)
 #define PLATFORM "Windows"
 #elif defined(__GNUC__) || defined(__unix__ )
