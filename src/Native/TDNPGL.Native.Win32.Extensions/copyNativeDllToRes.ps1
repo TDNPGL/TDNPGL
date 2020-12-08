@@ -1,4 +1,7 @@
-copy ..\TDNPGL.Native\build\Win\Release\tdnpgl.dll Resources\tdnpgl.dll
+copy ..\TDNPGL.Native\build\Win\Release\tdnpgl.dll x64\tdnpgl.dll
+copy ..\TDNPGL.Native\build\Win\Release\tdnpgl.dll x86\tdnpgl.dll
+copy ..\TDNPGL.Native\build\Unix\tdnpgl_x86.so x86\tdnpgl.so
+copy ..\TDNPGL.Native\build\Unix\tdnpgl_ARM64.so arm64\tdnpgl.so
 # SIG # Begin signature block
 # MIIFZQYJKoZIhvcNAQcCoIIFVjCCBVICAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR

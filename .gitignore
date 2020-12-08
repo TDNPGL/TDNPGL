@@ -1,5 +1,5 @@
 *.vs
-src/TDNPGL.Core/TDNPGL.Core.csproj.user
+*.csproj.user
 *obj*
 *bin*
 src/TDNPGL.Networking/bin

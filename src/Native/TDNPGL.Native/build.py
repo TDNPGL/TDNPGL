@@ -47,7 +47,7 @@ if os_pl=="Windows" and not wsl_mode:
 	print("MSBuild found at \""+vspath+"\"")
 	#Build
 	gotoWin()
-	os.system("cmake ../..")
+	os.system("cmake ../.. -A"+target_cpu)
 	os.system("\""+vspath + "\"" + " tdnpgl.vcxproj /t:Rebuild /p:Configuration=Release")
 #WSL
 elif wsl_mode and not is_linux:
