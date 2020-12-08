@@ -9,12 +9,13 @@ set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
 # add the executable
-set(SOURCE_LIB tdnpgl.cpp native_window.cpp)
+set(SOURCE_LIB tdnpgl.cpp)
 message("-- Building TDNPGL")
 add_library(tdnpgl SHARED ${SOURCE_LIB})
 
 #Unix
 if(UNIX)
+	message("-- Adding UNIX-supporting builds")
 	#Current architecture
 	set(CMAKE_CXX_COMPILER x86_64-linux-gnux32-g++)
 	set(CMAKE_C_COMPILER x86_64-linux-gnux32-gcc)

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from shutil import copyfile
 copyfile("../TDNPGL.Native/build/Win/Release/tdnpgl.dll","x64/tdnpgl.dll")
 copyfile("../TDNPGL.Native/build/Win/Release/tdnpgl.dll","x86/tdnpgl.dll")
