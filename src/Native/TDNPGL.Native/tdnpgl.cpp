@@ -1,5 +1,4 @@
-﻿#include <iostream>
-#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32)
+﻿#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32)
 //  Microsoft 
 #define EXPORT extern "C" __declspec(dllexport)
 #define PLATFORM "Windows"
@@ -17,7 +16,4 @@
 EXPORT int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy) {
 	int result = (x > minx) && (x < maxx) && (y > miny) && (y < maxy);
 	return result;
-}
-EXPORT int main() {
-	std::cout << "TDNPGL Native Library for " << PLATFORM;
 }

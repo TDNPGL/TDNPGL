@@ -19,16 +19,22 @@ def gotoWin():
 	if not Path("build/Win").is_dir():
 		os.mkdir("build/Win")
 	os.chdir("build/Win")
+def linuxBuild():
+	gotoUnix()
+	os.system(prfx+"cmake ../..")
+	print("Started Makefile build")
+	os.system(prfx+"make "+target)
 #Defines
+prfx=""
 parser = argparse.ArgumentParser(description='TDNPGL.Native build script')
 parser.add_argument("-wsl", help="Allow compile using WSL(boolean)",default="false", type=str)
-parser.add_argument("-cpu", help="Sets target CPU",default="tdnpgl", type=str)
+parser.add_argument("-target", help="Sets build target",default="tdnpgl", type=str)
 args = parser.parse_args()
 os_pl=platform.system()
 is_linux=os_pl=="Linux"
 
 wsl_mode=args.wsl=="true"
-target_cpu=args.cpu
+target=str(args.target)
 #Code
 if not Path("build").is_dir():
 	os.mkdir("build")
@@ -47,21 +53,16 @@ if os_pl=="Windows" and not wsl_mode:
 	print("MSBuild found at \""+vspath+"\"")
 	#Build
 	gotoWin()
-	os.system("cmake ../.. -A"+target_cpu)
+	os.system("cmake ../.. -A "+target.replace("tdnpgl_",""))
 	os.system("\""+vspath + "\"" + " tdnpgl.vcxproj /t:Rebuild /p:Configuration=Release")
 #WSL
 elif wsl_mode and not is_linux:
 	print(Fore.YELLOW+"Enabled WSL build mode"+Fore.RESET)
-	gotoUnix()
-	os.system("wsl cmake ../..")
-	print("Started Makefile build")
-	os.system("wsl make "+target_cpu)
+	prfx="wsl "
+	linuxBuild()
 #Error
 elif wsl_mode and is_linux:
 	print(Fore.RED+"Could not enable WSL build mode in Linux"+Fore.RESET)
 #Just linux
 elif not wsl_mode and is_linux:
-	gotoUnix()
-	os.system("cmake ../..")
-	print("Started Makefile build")
-	os.system("make "+target_cpu)
+	linuxBuild()

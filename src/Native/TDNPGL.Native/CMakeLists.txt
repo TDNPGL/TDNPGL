@@ -34,3 +34,7 @@ if(UNIX)
 	add_library(tdnpgl_ARM SHARED ${SOURCE_LIB})
 endif(UNIX)
 include_directories(tdnpgl_native ../TDNPGL.Native)
+
+set(CMAKE_CXX_COMPILER clang++)
+set(CMAKE_C_COMPILER clang)
+add_library(tdnpgl_clang SHARED ${SOURCE_LIB})

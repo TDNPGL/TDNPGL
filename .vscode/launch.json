@@ -8,7 +8,7 @@
                 "${input:build_arg1}",
                 "${input:build_arg2}",
                 "${input:build_arg3}",
-                "tdnpgl${input:build_arg4}"
+                "${input:build_arg4}"
             ],
             "request": "launch",
             "program": "${workspaceFolder}/src/Native/TDNPGL.Native/build.py",
@@ -86,7 +86,7 @@
             "id": "build_arg3",
             "description": "Third argument for build.py",
             "options": [
-                "-cpu",
+                "-target",
                 ""
             ],
             "default": ""
@@ -96,11 +96,13 @@
             "id": "build_arg4",
             "description": "Fourth argument for build.py",
             "options": [
-                "_x86",
-                "_ARM64",
-                "_i686",
-                "_ARM",
-                ""
+                "tdnpgl_x86",
+                "tdnpgl_ARM64",
+                "tdnpgl_i686",
+                "tdnpgl_ARM",
+                "tdnpgl_clang",
+                "all",
+                "tdnpgl"
             ],
             "default": ""
         }
