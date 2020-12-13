@@ -5,51 +5,28 @@ using System.Threading;
 using TDNPGL.Core.Debug;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;
+using TDNPGL.Core.Gameplay.Interfaces;
 using TDNPGL.Core.Graphics;
 using TDNPGL.Core.Graphics.Renderers;
 
 namespace TDNPGL.Core
 {
-    public class Game
+    public class Game : IUpdateable
     {
-        public static EntryPoint CurrentEntry;
-        public static Level CurrentLevel { get; protected set; }
+        private static Game current;
+        public EntryPoint CurrentEntry;
+        public Level CurrentLevel { get; protected set; }
+        public GraphicsOutput GraphicsOutput{get;protected set;}
 
-        private Game() { 
-        }
-
-        public static string GameName{ get; set; } = "Unnamed";
-        public static PlatformID CurrentPlatform;
-        public static Assembly AssetsAssembly;
-
-        public static void SetLevel(Level level)
-        {
-            CurrentLevel = level;
-            CurrentLevel.BeginUpdate();
-            CurrentLevel.ReloadObjectsIDs();
-            Logging.MessageAction("LEVEL", "Level setted: {0}", ConsoleColor.Green, ConsoleColor.Gray,CurrentLevel.Name);
-        }
-
-        public static SKSize GetCurrentDisplaySize()
-        {
-            SKSize size;
-
-            IGameRenderer renderer = GraphicsOutput.GetMainRenderer();
-
-            double height=renderer.height;
-            double width= renderer.width;
-            size = new SKSize((float)width, (float)height);
-            return size;
-        }
-        public static void Init(GameProvider provider,Assembly AssetsAssembly,string GameName,bool EnableCustomLogger)
-        {
-            if (EnableCustomLogger)
+        private Game(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger) { 
+            this.GraphicsOutput=new GraphicsOutput(this);
+            if (enableCustomLogger)
                 Logging.SetCustomLogger();
-            Game.GameName = GameName;
+            GameName = gameName;
 
             Console.WriteLine("Game initialized!");
 
-            Game.AssetsAssembly = AssetsAssembly;
+            AssetsAssembly = assetsAssembly;
 
             CurrentPlatform = Environment.OSVersion.Platform;
 
@@ -70,21 +47,56 @@ namespace TDNPGL.Core
             Logging.MessageAction("LAUNCH", "{0} is running platform",ConsoleColor.Green,ConsoleColor.Gray,Environment.OSVersion.ToString());
             Logging.MessageAction("LAUNCH", "{0} is game-renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
             GraphicsOutput.BeginRender();
+
+            current=this;
         }
 
-        public static void Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+        public string GameName{ get; set; } = "Unnamed";
+        public IParentable Parent { get => null; set {} }
+
+        public PlatformID CurrentPlatform;
+        public Assembly AssetsAssembly;
+
+        public void SetLevel(Level level)
         {
-            Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
+            CurrentLevel = level;
+            CurrentLevel.BeginUpdate();
+            CurrentLevel.ReloadObjectsIDs();
+            Logging.MessageAction("LEVEL", "Level setted: {0}", ConsoleColor.Green, ConsoleColor.Gray,CurrentLevel.Name);
         }
+
+        public static SKSize GetCurrentDisplaySize()
+        {
+            SKSize size;
+
+            IGameRenderer renderer = GraphicsOutput.GetMainRenderer();
+
+            double height=renderer.height;
+            double width= renderer.width;
+            size = new SKSize((float)width, (float)height);
+            return size;
+        }
+        public static Game Create(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger)
+            => new Game(provider,assetsAssembly,gameName,enableCustomLogger);
+
+        public static Game Create<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+            => Create(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
         #region User interact
-        public static void KeyDown(ConsoleKeyInfo key)
+        void IUpdateable.OnKeyDown(ConsoleKeyInfo key)
         {
+            try
+            {
+                foreach (GameObject obj in CurrentLevel.Objects)
+                {
+                    obj.OnKeyDown(key);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptions.Call(ex);
+            }
         }
-        public static void KeyPress(ConsoleKeyInfo key)
-        {
-
-        }
-        public static void MouseReleased(int button,SKPoint point)
+        public void OnMouseReleased(int button,SKPoint point)
         {
             try{
                 foreach(GameObject obj in CurrentLevel.Objects){
@@ -94,7 +106,7 @@ namespace TDNPGL.Core
                 Exceptions.Call(ex);
             }
         }
-        public static void MouseMove(int button, SKPoint point)
+        public void OnMouseMove(int button, SKPoint point)
         {
             try
             {
@@ -108,7 +120,7 @@ namespace TDNPGL.Core
                 Exceptions.Call(ex);
             }
         }
-        public static void MouseDown(int button, SKPoint point)
+        public void OnMouseDown(int button, SKPoint point)
         {
             try
             {
@@ -122,6 +134,13 @@ namespace TDNPGL.Core
                 Exceptions.Call(ex);
             }
         }
+        public static Game GetInstance(){
+            return current;
+        }
+        public void OnTick(){}
+        public void OnCreate(){}
+        public void OnFirstTick(){}
+        public void OnMouseReleasedOver(int button, SKPoint point){}
         #endregion
         #region Events
         #endregion

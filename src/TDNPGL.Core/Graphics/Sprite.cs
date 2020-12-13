@@ -16,11 +16,11 @@ namespace TDNPGL.Core.Graphics
         public static Dictionary<string, Sprite> Sprites = new Dictionary<string, Sprite>();
         public static void LoadSprites()
         {
-            Dictionary<string, SKBitmap> bitmaps = AssetLoader.LoadAssetsFrom<SKBitmap>(Game.AssetsAssembly);
+            Dictionary<string, SKBitmap> bitmaps = AssetLoader.LoadAssetsFrom<SKBitmap>(Game.GetInstance().AssetsAssembly);
             Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
             foreach (KeyValuePair<string, SKBitmap> pair in bitmaps)
             {
-                SpriteManifest manifest = (SpriteManifest)AssetLoader.GetAsset<SpriteManifest>(pair.Key + "_manifest", Game.AssetsAssembly);
+                SpriteManifest manifest = (SpriteManifest)AssetLoader.GetAsset<SpriteManifest>(pair.Key + "_manifest", Game.GetInstance().AssetsAssembly);
                 Sprite sprite = new Sprite(pair.Value,manifest);
                 sprites.Add(pair.Key, sprite);
             }
@@ -29,7 +29,7 @@ namespace TDNPGL.Core.Graphics
         }
         public static Stream GetSpriteAssetStream(string name)
         {
-            Assembly assembly = Game.AssetsAssembly;
+            Assembly assembly = Game.GetInstance().AssetsAssembly;
             string[] names = assembly.GetManifestResourceNames();
             ResourceSet set = new ResourceSet(assembly.GetManifestResourceStream(names[0]));
             object obj = set.GetObject(name);
@@ -38,7 +38,7 @@ namespace TDNPGL.Core.Graphics
         }
         public static SKStream GetSpriteAssetSKStream(string name)
         {
-            Assembly assembly = Game.AssetsAssembly;
+            Assembly assembly = Game.GetInstance().AssetsAssembly;
             string[] names = assembly.GetManifestResourceNames();
             ResourceSet set = new ResourceSet(assembly.GetManifestResourceStream(names[0]));
             object obj = set.GetObject(name);

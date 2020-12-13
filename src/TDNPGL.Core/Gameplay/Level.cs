@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using SkiaSharp;
 using System.Collections.Generic;
 using TDNPGL.Core.Gameplay.Interfaces;
+using TDNPGL.Core;
 using System.Runtime.Serialization;
 using System;
 
@@ -11,7 +12,12 @@ namespace TDNPGL.Core.Gameplay
     [Serializable]
     public class Level : ContentFile, IParentable, ISerializable
     {
-        public static Level Empty { get { return new Level(); } }
+        public static Level Empty { 
+            get 
+                { 
+                return new Level(TDNPGL.Core.Game.GetInstance()); 
+                }
+            }
         public bool IsObjectsLoaded()
         {
             for(int i = 0; i < objects.Count;i++)
@@ -21,6 +27,8 @@ namespace TDNPGL.Core.Gameplay
             }
             return true;
         }
+        [JsonIgnore()]
+        public Game Game;
         [JsonProperty("name")]
         public string Name { get; set; }
         public override string ContentType { get; set; }
@@ -44,9 +52,9 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         public IParentable Parent { get; set; } = null;
         #endregion
-        internal Level() : base("level")
+        internal Level(Game game) : base("level")
         {
-            Updater = new GameObjectUpdater(this);
+            Updater = new GameObjectUpdater(this,game);
             BackColor = SKColor.Parse(BackColor_HEX);
         }
         public void BeginUpdate()

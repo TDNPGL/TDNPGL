@@ -3,18 +3,11 @@
     <OutputType>Library</OutputType>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net472;netcoreapp3.1</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
-    <Product>TDNPGL</Product>
-    <Authors>Zatrit</Authors>
-    <Company>Zatrit</Company>
-    <Version>1.5.4.2</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>TDNPGL.Core</PackageId>
-    <LangVersion>8.0</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Description>Core library of TDNPGL</Description>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
-    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

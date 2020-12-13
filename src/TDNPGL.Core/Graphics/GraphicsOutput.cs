@@ -1,4 +1,4 @@
-﻿//Systen
+﻿//System
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -14,14 +14,16 @@ namespace TDNPGL.Core.Graphics
     /// <summary>
     /// Graphics output class
     /// </summary>
-    public static class GraphicsOutput
+    public class GraphicsOutput
     {
-        public static FrameUpdateEventHandler FrameUpdate;
-        public static BaseLevelRenderer MainLevelRenderer { private set; get; }
+        public GUI.GUICanvas Canvas;
+        public Game Game{get;private set;}
+        public FrameUpdateEventHandler FrameUpdate;
+        public BaseLevelRenderer MainLevelRenderer { private set; get; }
         /// <summary>
         /// Main graphics thread
         /// </summary>
-        private static Thread MainGraphicsThread;
+        private Thread MainGraphicsThread;
         /// <summary>
         /// All graphics outputs
         /// </summary>
@@ -30,12 +32,18 @@ namespace TDNPGL.Core.Graphics
         /// Add new renderer
         /// </summary>
         /// <param name="renderer"></param>
-        public static void AddOutputGameRenderer(IGameRenderer renderer) =>
+        public void AddOutputGameRenderer(IGameRenderer renderer) =>
             Renderers.Add(renderer);
         /// <summary>
         /// Begins rendering
         /// </summary>
-        public static void BeginRender()
+        public GraphicsOutput(Game game, GUI.GUICanvas canvas = null){
+            this.Game=game;
+            Canvas = canvas;
+            if (canvas == null)
+                this.Canvas = new GUI.GUICanvas();
+        }
+        public void BeginRender()
         {
             try
             {
@@ -55,14 +63,14 @@ namespace TDNPGL.Core.Graphics
         {
             return Renderers[0];
         }
-        public static void PauseRender(int pauseTime)
+        public void PauseRender(int pauseTime)
         {
         }
         /// <summary>
         /// Rendering method(only thread)
         /// </summary>
         [HandleProcessCorruptedStateExceptions]
-        private static void Render()
+        private void Render()
         {
             while (true)
             {
@@ -70,7 +78,8 @@ namespace TDNPGL.Core.Graphics
                     foreach (IGameRenderer renderer in Renderers)
                         try
                         {
-                            SKBitmap bitmap = MainLevelRenderer.Render(TDNPGL.Core.Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height));
+                            SKBitmap bitmap = MainLevelRenderer.Render(Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height),Canvas);
+                            
                             renderer.DrawBitmap(bitmap);
                             if (GC.GetTotalMemory(true) / 1024 / 1024 > 40)
                                 GC.Collect();
@@ -85,7 +94,7 @@ namespace TDNPGL.Core.Graphics
         /// <summary>
         /// Stops rendering thread
         /// </summary>
-        public static void StopRender()
+        public void StopRender()
         {
             try
             {

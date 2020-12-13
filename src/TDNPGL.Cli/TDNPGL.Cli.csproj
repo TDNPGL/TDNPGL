@@ -29,10 +29,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
     <AssemblyName>tdnpgl</AssemblyName>
     <ApplicationIcon>TDNPGL.ico</ApplicationIcon>
-    <Authors>Zatrit</Authors>
     <Product>tdnpgl-cli</Product>
     <Description>CLI for TDNPGL project</Description>
     <SignAssembly>false</SignAssembly>

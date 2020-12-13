@@ -17,6 +17,8 @@ namespace TDNPGL.Views.Gtk3
 {
     public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
+        public Game game{get;set;}
+
         public SKDrawingArea DrawingArea = new SKDrawingArea();
 
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
@@ -56,7 +58,7 @@ namespace TDNPGL.Views.Gtk3
         {
             SKPoint point = new SKPoint((float)evnt.X, (float)evnt.Y);
             int b = (int)evnt.Button;
-            Game.MouseReleased(b, point);
+            game.OnMouseReleased(b, point);
             return base.OnButtonReleaseEvent(evnt);
         }
 
@@ -79,11 +81,12 @@ namespace TDNPGL.Views.Gtk3
             }
         }
 
-        public void InitGame(Assembly assembly, string GameName)
-        {
-            TDNPGL.Core.Game.Init(new GameProvider(this, this), assembly, GameName, true);
+        public Game CreateGame(Assembly assembly, string GameName){
+            Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
+            this.game=g;
+            return g;
         }
-        public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
+        public Game CreateGame<EntryType>(string GameName) where EntryType : EntryPoint => CreateGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public void PlaySound(SoundAsset asset, bool sync)
         {

@@ -25,7 +25,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         public void RunMainLevel()
         {
             Console.WriteLine("Running level: " + AutoLoadLevel);
-            Game.SetLevel((Level)AssetLoader.GetAsset<Level>(AutoLoadLevel,Game.AssetsAssembly));
+            Game.GetInstance().SetLevel((Level)AssetLoader.GetAsset<Level>(AutoLoadLevel,Game.GetInstance().AssetsAssembly));
         }
         public EntryPoint() : base("entry")
         {
@@ -37,7 +37,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         }
         public Type GetScript(string name)
         {
-            Type type = Game.AssetsAssembly.GetType(Listeners[name]);
+            Type type = Game.GetInstance().AssetsAssembly.GetType(Listeners[name]);
             if (type == null)
                 throw new AssetsException("Listener not found!");
             return type;

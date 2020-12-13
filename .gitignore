@@ -8,3 +8,4 @@ src/packages
 src/Native/TDNPGL.Native/build/
 src/TestResults
 .vscode/settings.json
+.vscode/.ropeproject

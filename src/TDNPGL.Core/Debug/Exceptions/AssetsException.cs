@@ -11,7 +11,7 @@ namespace TDNPGL.Core.Debug.Exceptions
         {
         }
 
-        public AssetsException(DateTime time) : base(Game.CurrentLevel, time, "Wrong asset")
+        public AssetsException(DateTime time) : base(Game.GetInstance().CurrentLevel, time, "Wrong asset")
         {
         }
 
@@ -19,7 +19,7 @@ namespace TDNPGL.Core.Debug.Exceptions
         {
         }
 
-        public AssetsException(string message) : base(Game.CurrentLevel, DateTime.Now, message)
+        public AssetsException(string message) : base(Game.GetInstance().CurrentLevel, DateTime.Now, message)
         {
         }
     }

@@ -10,8 +10,9 @@
 
 namespace TDNPGL.Cli.Properties {
     using System;
-    
-    
+    using Newtonsoft.Json;
+
+
     /// <summary>
     ///   Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
     /// </summary>
@@ -93,9 +94,11 @@ namespace TDNPGL.Cli.Properties {
         ///  }
         ///].
         /// </summary>
-        internal static string HelpMessages {
+        internal static HelpMessage[] HelpMessages {
             get {
-                return ResourceManager.GetString("HelpMessages", resourceCulture);
+                return 
+                    JsonConvert
+                        .DeserializeObject<HelpMessage[]>(ResourceManager.GetString("HelpMessages", resourceCulture));
             }
         }
     }

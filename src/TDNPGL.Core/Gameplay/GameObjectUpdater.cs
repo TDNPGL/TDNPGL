@@ -1,7 +1,4 @@
-﻿using TDNPGL.Core.Debug;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
 
 namespace TDNPGL.Core.Gameplay
@@ -10,6 +7,7 @@ namespace TDNPGL.Core.Gameplay
     {
         private Thread ObjectUpdateThread;
         public Level Level { get; private set; }
+        public Game game{get;private set;}
 
         public void Start()
         {
@@ -48,7 +46,7 @@ namespace TDNPGL.Core.Gameplay
                 }
         }
 
-        public GameObjectUpdater(Level level)
+        public GameObjectUpdater(Level level,Game game)
         {
             this.Level = level;
         }

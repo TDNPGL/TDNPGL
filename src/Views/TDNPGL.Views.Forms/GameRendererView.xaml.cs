@@ -10,6 +10,7 @@ using TDNPGL.Core.Gameplay;
 using Plugin.SimpleAudioPlayer;
 using TDNPGL.Core.Math;
 using TDNPGL.Core.Gameplay.Interfaces;
+using TDNPGL.Core;
 
 namespace TDNPGL.Views.Forms
 {
@@ -18,6 +19,7 @@ namespace TDNPGL.Views.Forms
     public partial class GameRendererView : SKGLView,IGameRenderer, ISoundProvider, IGameInitializer
 #pragma warning restore CA1063
     {
+        public Game game{get;set;}
         public double width => CanvasSize.Width;
         public double height => CanvasSize.Height;
 
@@ -27,9 +29,12 @@ namespace TDNPGL.Views.Forms
             InitializeComponent();
             this.Touch+=TouchEvent;
         }
-        public void InitGame(Assembly assembly, string GameName)=>
-            TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly, GameName, true);
-        public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint => InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
+        public Game CreateGame(Assembly assembly, string GameName){
+            Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
+            this.game=g;
+            return g;
+        }
+        public Game CreateGame<EntryType>(string GameName) where EntryType : EntryPoint => CreateGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap { get; set; }
         private BaseLevelRenderer renderer = new BaseLevelRenderer();
@@ -38,7 +43,7 @@ namespace TDNPGL.Views.Forms
         public void Dispose() => CurrentGameBitmap.Dispose();
 
         public void TouchEvent(object sender,SKTouchEventArgs args){
-            TDNPGL.Core.Game.MouseReleased(((int)args.MouseButton)-1,args.Location);
+            game.OnMouseReleased(((int)args.MouseButton)-1,args.Location);
         }
 
         public void DrawBitmap(SKBitmap bitmap)

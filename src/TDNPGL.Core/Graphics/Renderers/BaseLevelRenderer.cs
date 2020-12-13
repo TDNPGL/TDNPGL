@@ -10,14 +10,14 @@ namespace TDNPGL.Core.Graphics.Renderers
         public BaseLevelRenderer()
         {
         }
-        public virtual SKBitmap Render(Level level,SKSize ScreenSize)
+        public virtual SKBitmap Render(Level level,SKSize ScreenSize,GUI.GUICanvas gcanvas=null)
         {
             SKBitmap bitmap = new SKBitmap((int)ScreenSize.Width, (int)ScreenSize.Height);
             SKCanvas canvas = new SKCanvas(bitmap);
 
             canvas.Clear(level.BackColor);
             try {
-                level?.SortObjects();
+                gcanvas?.Render(canvas);
                 if (level != null)
                     foreach (GameObject @object in level?.Objects)
                     {

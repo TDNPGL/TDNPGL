@@ -15,23 +15,26 @@ using TDNPGL.Core.Graphics.Renderers;
 using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Interfaces;
+using TDNPGL.Core;
 
 namespace TDNPGL.Views.WinForms
 {
     public partial class GameRendererGLControl : SKGLControl, IGameRenderer, ISoundProvider, IGameInitializer
     {
+        public Game game{get;set;}
         public SoundPlayer SoundPlayer = new SoundPlayer();
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
         public double width => Width;
         public double height => Height;
 
         public bool Rendering = true;
-        public void InitGame(Assembly assembly, string GameName)
-        {
-            TDNPGL.Core.Game.Init(new GameProvider(this, this), assembly, GameName, true);
+        public Game CreateGame(Assembly assembly, string GameName){
+            Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
+            this.game=g;
+            return g;
         }
-        public void InitGame<EntryType>(string GameName) where EntryType : EntryPoint =>
-            InitGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
+        public Game CreateGame<EntryType>(string GameName) where EntryType : EntryPoint =>
+            CreateGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
         public SKBitmap CurrentGameBitmap
         {
@@ -74,7 +77,7 @@ namespace TDNPGL.Views.WinForms
             SKPoint point = new SKPoint(e.X, e.Y);
             MouseButtons[] buttons = { MouseButtons.Left, MouseButtons.Middle, MouseButtons.Right };
             int b = buttons.ToList().IndexOf(e.Button);
-            TDNPGL.Core.Game.MouseReleased(b, point);
+            game.OnMouseReleased(b, point);
         }
         [HandleProcessCorruptedStateExceptions]
         private void This_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs e)

@@ -45,15 +45,25 @@ namespace TDNPGL.Core.Gameplay
         }
         [JsonIgnore]
         private string spritename;
+        public GameObject(Sprite sprite, bool loaded, IParentable parent)
+        {
+            this.Sprite = sprite;
+            this.Loaded = loaded;
+            this.Parent = parent;
+
+        }
         [JsonIgnore]
         public Sprite Sprite { get; private set; }
         private int spriteIndex = 0;
         [JsonIgnore]
-        public int SpriteIndex { get { return spriteIndex; } set
+        public int SpriteIndex
+        {
+            get { return spriteIndex; }
+            set
             {
                 spriteIndex = value;
                 NotifyPropertyChange();
-            } 
+            }
         }
         [JsonIgnore]
         public SKBitmap SpriteBitmap => this.Sprite.Frames[SpriteIndex];
@@ -100,10 +110,14 @@ namespace TDNPGL.Core.Gameplay
         public int LevelID { get; internal set; }
         private AABB aABB = new AABB();
         [JsonProperty("aabb")]
-        public AABB AABB { get { return aABB; } set { 
+        public AABB AABB
+        {
+            get { return aABB; }
+            set
+            {
                 aABB = value;
                 NotifyPropertyChange();
-            } 
+            }
         }
         [JsonIgnore]
         public Vec2f Position => AABB.min;
@@ -192,7 +206,7 @@ namespace TDNPGL.Core.Gameplay
             if (listeners != null)
                 foreach (string scriptName in listeners)
                 {
-                    Type type = Game.CurrentEntry.GetScript(scriptName);
+                    Type type = (Parent as Level).Game.CurrentEntry.GetScript(scriptName);
                     if (type == null)
                         throw new AssetsException(Parent as Level, "Script not found!");
                     CSharpGameObjectListener script = Activator.CreateInstance(type, this) as CSharpGameObjectListener;
@@ -246,15 +260,6 @@ namespace TDNPGL.Core.Gameplay
                 listener.OnMouseMove(button, point));
             }
         }
-
-        public void OnKeyDown(SKPoint point)
-        {
-            foreach (CSharpGameObjectListener listener in Listeners)
-            {
-                ThreadPool.QueueUserWorkItem((object state) =>
-                listener.OnKeyDown(point));
-            }
-        }
         public void OnMouseDown(int button, SKPoint point)
         {
             foreach (CSharpGameObjectListener listener in Listeners)
@@ -266,6 +271,15 @@ namespace TDNPGL.Core.Gameplay
         private void NotifyPropertyChange([CallerMemberName] string name = "")
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public void OnKeyDown(ConsoleKeyInfo key)
+        {
+            foreach (CSharpGameObjectListener listener in Listeners)
+            {
+                ThreadPool.QueueUserWorkItem((object state) =>
+                listener.OnKeyDown(key));
+            }
         }
         #endregion
         #region Constructors
