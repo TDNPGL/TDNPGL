@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace TDNPGL.Cli.Properties {
-    using Newtonsoft.Json;
     using System;
     
     
@@ -76,12 +75,27 @@ namespace TDNPGL.Cli.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на [
+        ///  {
+        ///    &quot;name&quot;: &quot;-help [COMMAND]&quot;,
+        ///    &quot;description&quot;: &quot;Show this message&quot;,
+        ///    &quot;aliases&quot;: []
+        ///  },
+        ///  {
+        ///    &quot;name&quot;: &quot;-create [NAME]&quot;,
+        ///    &quot;description&quot;: &quot;Creates empty project for MSBuild with default resources for game in current directory&quot;,
+        ///    &quot;aliases&quot;: []
+        ///  },
+        ///  {
+        ///    &quot;name&quot;: &quot;-info&quot;,
+        ///    &quot;description&quot;: &quot;Runs info about tdnpgl&quot;,
+        ///    &quot;aliases&quot;: [&quot;-about&quot;]
+        ///  }
+        ///].
         /// </summary>
-        internal static HelpMessage[] HelpMessages {
+        internal static string HelpMessages {
             get {
-                string json = ResourceManager.GetString("HelpMessages", resourceCulture);
-                return JsonConvert.DeserializeObject<HelpMessage[]>(json);
+                return ResourceManager.GetString("HelpMessages", resourceCulture);
             }
         }
     }

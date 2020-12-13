@@ -18,7 +18,7 @@ namespace TDNPGL.Core
         private Game() { 
         }
 
-        public static string GameName{ get; set; } = "TDNPGL Game";
+        public static string GameName{ get; set; } = "Unnamed";
         public static PlatformID CurrentPlatform;
         public static Assembly AssetsAssembly;
 
