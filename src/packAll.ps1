@@ -3,21 +3,23 @@ dotnet pack > ".\packed\packingOutput.txt"
 If (-Not (Test-Path -Path packed)){
 	mkdir packed
 }
-$arr = Get-ChildItem . -recurse *.nupkg | 
+$arr = Get-ChildItem . -recurse *.nupkg |
        Foreach-Object {$_.FullName}
 ForEach ($file in $arr)
 	{
-		$fileName=[System.IO.Path]::GetFileName($file)
-		$packPath=".\packed\$fileName" 
-		write-host "Copying $fileName"  -foreground 'yellow'
-		Move-Item -Path $file -Destination $packPath -Force
+		if( -Not($file -clike "*\packed\*")){
+			$fileName=[System.IO.Path]::GetFileName($file)
+			$packPath=".\packed\$fileName" 
+			write-host "Copying $fileName"  -foreground 'yellow'
+			Move-Item -Path $file -Destination $packPath -Force
+		}
 	}
 
 # SIG # Begin signature block
 # MIIFQAYJKoZIhvcNAQcCoIIFMTCCBS0CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUY+eO/yhUl2UivwolNhJse2lH
-# phqgggLkMIIC4DCCAcigAwIBAgIQFNgQ8TQuZYpPx82ZwitY4TANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUryxYTbBvmmLA0YlsUVzXWcha
+# 7DugggLkMIIC4DCCAcigAwIBAgIQFNgQ8TQuZYpPx82ZwitY4TANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDEwZaYXRyaXQwHhcNMjAwNjE5MjA0NjUxWhcNMjEwNjIw
 # MDI0NjUxWjARMQ8wDQYDVQQDEwZaYXRyaXQwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDnn3YEAR72zq6hCp7NEVWd7RK2cPMbzQic7AIpl9Rmw75wGuKZ
@@ -35,12 +37,12 @@ ForEach ($file in $arr)
 # JqEmVAzqAStR/spDTXIvzixHnjgZf53dZ0sxggHGMIIBwgIBATAlMBExDzANBgNV
 # BAMTBlphdHJpdAIQFNgQ8TQuZYpPx82ZwitY4TAJBgUrDgMCGgUAoHgwGAYKKwYB
 # BAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAc
-# BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUqCK0
-# FFpwNcFnFFjTFQIsooFTWm8wDQYJKoZIhvcNAQEBBQAEggEAPveFIYmjOyWe3X/+
-# vFH3L/QuOpipdUWzMI+qHQtf7kBOUlqL1NB/+4n3KKagXkmtxPNxgApE0FsFTw+3
-# YHJhgZb7LzSB+tq1xPNM+NaoWkwHvHXl2Ickpis/vVJYHfJzlDMDYMsgp5rx3i53
-# PsKM2juLomHK95+kRzOHEg8QhOkgMCPtzU7hKT6WREr7gvwakfC+aec23rTZlrfQ
-# kFlk1NlpBhra5QUNSuUOss/dJK6pUtTKElaKbzHEi+ZR88SsMmBz9egnWcGdvMrN
-# c8Gj16LSNkrNJMjX462HLPM1JYSHS5xg1laIpmZzeVL0dmAQ8FmnTiLDShB9hRD5
-# SmK1bw==
+# BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUqNWG
+# LVam00DFzggsdeGf1EE9vaYwDQYJKoZIhvcNAQEBBQAEggEAiQxI8AVbaxPvJYcc
+# sJ8X7FOfF0Yca/trZyFWX7/fA5zwbyF0Wnle3kEsxk3oLEuc/FT3SMaZdeTAx1fQ
+# kePJALkIy3Ph0/DrIHsCI8+yZpLe/fgHVoMIoInQ50063DJ8ntEvKJqnIu/fS9+b
+# zJTJop+4zfrvvX5TWHh8+ADrNhmISepS+C/004B5z6dNYvDIOqrvu+dPWb8P3eBm
+# VBTi1Dx+t2pdLH/uiVwNNOLFXPlsbH+YRLTFQ/himqPrtp2NmwqwZv0Q0V59Hraf
+# PihZh5I0QePW6Gu7bjVoc4CyCPvbYVl0M2SfkWmP1YXhkb2mhpj7jX3EkjbkkLsY
+# Cn0JDQ==
 # SIG # End signature block
