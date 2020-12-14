@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using SkiaSharp;
 using TDNPGL.Core.Math;
-using TDNPGL.Native.Win32.Extensions;
+using TDNPGL.Native.Extensions;
 
 namespace TDNPGL.Tests.Native
 {
