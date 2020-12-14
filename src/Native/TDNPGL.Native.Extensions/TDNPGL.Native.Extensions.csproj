@@ -19,6 +19,7 @@
     <None Remove="x64\libtdnpgl.so" />
     <None Remove="x64\tdnpgl.dll" />
     <None Remove="x86\libtdnpgl_x86.so" />
+    <None Remove="x86\tdnpgl.dll" />
     <None Include="..\..\..\icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -57,6 +58,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="x64\tdnpgl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\tdnpgl.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

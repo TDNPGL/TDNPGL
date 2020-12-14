@@ -1,23 +1,43 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using TDNPGL.Core.Math;
 
-namespace TDNPGL.Native.Win32.Extensions
+namespace TDNPGL.Native.Extensions
 {
     public static class Extensions
     {
-        public static bool IsPointOverNative(this AABB aabb, Vec2f point) =>
-            AABB_IsPointOver(
-            point.X,
-            point.Y,
-            aabb.min.X,
-            aabb.min.Y,
-            aabb.max.X,
-            aabb.max.Y) == 1;
-
-        static Extensions()
+        public static bool IsPointOverNative(this AABB aabb, Vec2f point)
         {
+            switch (Environment.OSVersion.Platform)
+            {
+                //Win
+                case PlatformID.Win32S:
+                    return
+                        NativeWin32.IsPointOverNative(aabb, point);
+                case PlatformID.WinCE:
+                    goto case PlatformID.Win32S;
+                case PlatformID.Win32Windows:
+                    goto case PlatformID.Win32S;
+                case PlatformID.Win32NT:
+                    goto case PlatformID.Win32S;
+                //Linux
+                case PlatformID.Unix:
+                    Architecture processArchitecture = 
+                        RuntimeInformation.ProcessArchitecture;
+                    switch (processArchitecture)
+                    {
+                        case Architecture.Arm64:
+                            return NativeLinuxARM64.IsPointOverNative(aabb, point);
+                        case Architecture.X64:
+                            return NativeLinuxAMD64.IsPointOverNative(aabb, point);
+                        case Architecture.X86:
+                            return NativeLinuxX86.IsPointOverNative(aabb, point);
+                        default:
+                            throw new PlatformNotSupportedException();
+                    }
+                default:
+                    throw new PlatformNotSupportedException();
+            }
         }
-        [DllImport("tdnpgl.dll", EntryPoint = "AABB_IsPointOver", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy);
     }
 }
