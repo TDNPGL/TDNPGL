@@ -7,7 +7,7 @@ import sys
 import os
 from colorama import init
 init()
-from colorama import Fore
+from colorama import Fore,Style
 import argparse
 
 #Methods
@@ -66,3 +66,5 @@ elif wsl_mode and is_linux:
 #Just linux
 elif not wsl_mode and is_linux:
 	linuxBuild()
+	
+print(Style.RESET_ALL)

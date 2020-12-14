@@ -10,7 +10,7 @@ ForEach ($file in $arr)
 		if( -Not($file -clike "*\packed\*")){
 			$fileName=[System.IO.Path]::GetFileName($file)
 			$packPath=".\packed\$fileName" 
-			write-host "Copying $fileName"  -foreground 'yellow'
+			write-host "Moving $fileName"  -foreground 'yellow'
 			Move-Item -Path $file -Destination $packPath -Force
 		}
 	}
