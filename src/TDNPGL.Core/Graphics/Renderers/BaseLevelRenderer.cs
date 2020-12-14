@@ -27,8 +27,7 @@ namespace TDNPGL.Core.Graphics.Renderers
             }
             catch(Exception exception)
             {
-                if (exception is InvalidOperationException);
-                else
+                if (exception is not InvalidOperationException)
                 {
                     SKPaint textPaint = new SKPaint() { Color = SKColors.White, TextSize = ScreenSize.Width / 40 };
                     canvas.DrawText($"Level can't be rendered", new SKPoint(50, ScreenSize.Height / 2), textPaint);

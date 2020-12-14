@@ -3,14 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <Product>TDNPGL.Views.WinForms</Product>
-    <Authors>Zatrit</Authors>
-    <Company>Zatrit</Company>
-    <Version>1.5.4.2</Version>
-    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+    <Description>TDNPGL native extensions writted by C# and C++ for Windows</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
-    <Description>TDNPGL native extensions writted by C# and C++ for Windows</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/zatrit/TDNPGL</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,6 +19,18 @@
     <None Remove="x64\libtdnpgl.so" />
     <None Remove="x64\tdnpgl.dll" />
     <None Remove="x86\libtdnpgl_x86.so" />
+    <None Include="..\..\..\icons\2DNPGL_HD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +40,7 @@
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+      <AutoGen>False</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -44,20 +53,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\icons\2DNPGL_HD.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\..\..\LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="arm64\libtdnpgl_ARM64.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="x64\libtdnpgl.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

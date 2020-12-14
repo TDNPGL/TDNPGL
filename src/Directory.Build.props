@@ -1,0 +1,12 @@
+<Project>
+ <PropertyGroup>
+   <LangVersion>9.0</LangVersion>
+   <Authors>Zatrit</Authors>
+    <Company>Zatrit</Company>
+    <Version>1.5.4.3</Version>
+    <RepositoryUrl>https://github.com/zatrit/TDNPGL.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Product>TDNPGL</Product>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+ </PropertyGroup>
+</Project>

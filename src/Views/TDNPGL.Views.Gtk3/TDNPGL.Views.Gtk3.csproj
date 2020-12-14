@@ -2,14 +2,10 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-   <LangVersion>8.0</LangVersion>
-    <PackageLicenseFile>..\..\..\LICENSE.txt</PackageLicenseFile>
-    <PackageIcon>2DNPGL_HD.png</PackageIcon>
-    <Version>1.5.4.1</Version>
-    <RepositoryUrl>github.com/zatrit/TDNPGL.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <Description>GTK3 library of TDNPGL</Description>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/zatrit/TDNPGL</PackageProjectUrl>
+    <PackageIcon>2DNPGL_HD.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\LICENSE.txt">
+    <None Include="..\..\..\icons\2DNPGL_HD.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\..\..\icons\2DNPGL_HD.png">
+    <None Include="..\..\..\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

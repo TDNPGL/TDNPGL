@@ -14,4 +14,5 @@ for root, dirs, files in os.walk("."):
                 s = f.read()
             packages=re.findall(regex,s)
             for package in packages:
+				print(Fore.YELLOW+"Updating "+package+" in "+fileName+Fore.RESET)
                 os.system("dotnet add "+fileName+" package "+package)
