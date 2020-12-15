@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Native\TDNPGL.Native.Extensions\TDNPGL.Native.Extensions.csproj" />
     <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
   </ItemGroup>
 
