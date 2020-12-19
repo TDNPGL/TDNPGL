@@ -21,6 +21,8 @@ namespace TDNPGL.Views.WinForms
 {
     public partial class GameRendererGLControl : SKGLControl, IGameRenderer, ISoundProvider, IGameInitializer
     {
+
+        #region Fields
         public Game game{get;set;}
         public SoundPlayer SoundPlayer = new SoundPlayer();
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
@@ -28,6 +30,10 @@ namespace TDNPGL.Views.WinForms
         public double height => Height;
 
         public bool Rendering = true;
+
+        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
+        private SKBitmap currentGameBitmap = new SKBitmap();
+        #endregion
         public Game CreateGame(Assembly assembly, string GameName){
             Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
             this.game=g;
@@ -48,10 +54,6 @@ namespace TDNPGL.Views.WinForms
                 currentGameBitmap = value;
             }
         }
-
-        public ILevelRenderer LevelRenderer => new BaseLevelRenderer();
-
-        private SKBitmap currentGameBitmap = new SKBitmap();
 
         public GameRendererGLControl()
         {

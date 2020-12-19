@@ -17,6 +17,7 @@ namespace TDNPGL.Views.Gtk3
 {
     public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
+        #region Fields
         public Game game{get;set;}
 
         public SKDrawingArea DrawingArea = new SKDrawingArea();
@@ -38,7 +39,7 @@ namespace TDNPGL.Views.Gtk3
                 currentGameBitmap = value;
             }
         }
-
+        #endregion
         private readonly BaseLevelRenderer renderer = new BaseLevelRenderer();
         public ILevelRenderer LevelRenderer => renderer;
 

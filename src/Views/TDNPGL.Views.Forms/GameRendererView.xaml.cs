@@ -19,11 +19,16 @@ namespace TDNPGL.Views.Forms
     public partial class GameRendererView : SKGLView,IGameRenderer, ISoundProvider, IGameInitializer
 #pragma warning restore CA1063
     {
+        #region Fields
         public Game game{get;set;}
         public double width => CanvasSize.Width;
         public double height => CanvasSize.Height;
+        public SKBitmap CurrentGameBitmap { get; set; }
+        private BaseLevelRenderer renderer = new BaseLevelRenderer();
+        public ILevelRenderer LevelRenderer => renderer;
 
         public double PixelSize => ScreenCalculations.CalculatePixelSize(width,height);
+        #endregion
         public GameRendererView()
         {
             InitializeComponent();
@@ -36,9 +41,6 @@ namespace TDNPGL.Views.Forms
         }
         public Game CreateGame<EntryType>(string GameName) where EntryType : EntryPoint => CreateGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
-        public SKBitmap CurrentGameBitmap { get; set; }
-        private BaseLevelRenderer renderer = new BaseLevelRenderer();
-        public ILevelRenderer LevelRenderer => renderer;
 
         public void Dispose() => CurrentGameBitmap.Dispose();
 
