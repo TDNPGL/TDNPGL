@@ -13,11 +13,9 @@ namespace TDNPGL.Core.Gameplay
     public class Level : ContentFile, IParentable, ISerializable
     {
         public static Level Empty { 
-            get 
-                { 
-                return new Level(TDNPGL.Core.Game.GetInstance()); 
-                }
-            }
+            get =>
+                new Level(TDNPGL.Core.Game.GetInstance()); 
+        }
         public bool IsObjectsLoaded()
         {
             for(int i = 0; i < objects.Count;i++)

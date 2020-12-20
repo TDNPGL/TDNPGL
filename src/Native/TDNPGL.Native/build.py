@@ -23,12 +23,12 @@ def linuxBuild():
 	gotoUnix()
 	os.system(prfx+"cmake ../..")
 	print("Started Makefile build")
-	os.system(prfx+"make "+target)
+	os.system(prfx+"make "+"tdnpgl_"+target)
 #Defines
 prfx=""
 parser = argparse.ArgumentParser(description='TDNPGL.Native build script')
 parser.add_argument("-wsl", help="Allow compile using WSL(boolean)",default="false", type=str)
-parser.add_argument("-target", help="Sets build target",default="tdnpgl", type=str)
+parser.add_argument("-target", help="Sets build target",default="x64", type=str)
 args = parser.parse_args()
 os_pl=platform.system()
 is_linux=os_pl=="Linux"
@@ -53,7 +53,7 @@ if os_pl=="Windows" and not wsl_mode:
 	print("MSBuild found at \""+vspath+"\"")
 	#Build
 	gotoWin()
-	os.system("cmake ../.. -A "+target.replace("tdnpgl_",""))
+	os.system("cmake ../.. -A "+target)
 	os.system("\""+vspath + "\"" + " tdnpgl.vcxproj /t:Rebuild /p:Configuration=Release")
 #WSL
 elif wsl_mode and not is_linux:

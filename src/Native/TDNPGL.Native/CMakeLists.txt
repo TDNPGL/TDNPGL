@@ -5,8 +5,12 @@ project(tdnpgl)
 
 include(GenerateExportHeader)
 
-set(CMAKE_SYSTEM_NAME Linux)
-set(CMAKE_SYSTEM_PROCESSOR arm)
+if(DEBUG)
+	set(DEBUG_ARG "-ggdb")
+endif(DEBUG)
+
+set(GCC "gcc" ${DEBUG_ARG})
+set(GPP "g++" ${DEBUG_ARG})
 
 # add the executable
 set(SOURCE_LIB tdnpgl.cpp)
@@ -16,21 +20,25 @@ add_library(tdnpgl SHARED ${SOURCE_LIB})
 #Unix
 if(UNIX)
 	message("-- Adding UNIX-supporting builds")
-	#Current architecture
-	set(CMAKE_CXX_COMPILER x86_64-linux-gnux32-g++)
-	set(CMAKE_C_COMPILER x86_64-linux-gnux32-gcc)
+	#x86
+	set(CMAKE_CXX_COMPILER x86_64-linux-gnux32-${GPP})
+	set(CMAKE_C_COMPILER x86_64-linux-gnux32-${GCC})
 	add_library(tdnpgl_x86 SHARED ${SOURCE_LIB})
+	#x64
+	set(CMAKE_CXX_COMPILER ${GPP} -m32)
+	set(CMAKE_C_COMPILER ${GCC} -m32)
+	add_library(tdnpgl_x64 SHARED ${SOURCE_LIB})
 	#ARM64
-	set(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
-	set(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+	set(CMAKE_CXX_COMPILER aarch64-linux-gnu-${GPP})
+	set(CMAKE_C_COMPILER aarch64-linux-gnu-${GCC})
 	add_library(tdnpgl_ARM64 SHARED ${SOURCE_LIB})
 	#I686
-	set(CMAKE_CXX_COMPILER i686-linux-gnu-g++)
-	set(CMAKE_C_COMPILER i686-linux-gnu-gcc)
+	set(CMAKE_CXX_COMPILER i686-linux-gnu-${GPP})
+	set(CMAKE_C_COMPILER i686-linux-gnu-${${GCC}})
 	add_library(tdnpgl_i686 SHARED ${SOURCE_LIB})
 	#ARM
-	set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
-	set(CMAKE_C_COMPILER arm-none-eabi-gcc)
+	set(CMAKE_CXX_COMPILER arm-none-eabi-${GPP})
+	set(CMAKE_C_COMPILER arm-none-eabi-${GCC})
 	add_library(tdnpgl_ARM SHARED ${SOURCE_LIB})
 endif(UNIX)
 include_directories(tdnpgl_native ../TDNPGL.Native)
