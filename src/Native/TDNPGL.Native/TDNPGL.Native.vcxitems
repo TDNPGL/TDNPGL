@@ -14,7 +14,16 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)native_window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\game_window_error_handler.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\game_window_manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_glfw.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_linux_gamepad.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_eglut.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_glfw.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_eglut.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_glfw.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tdnpgl.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -23,5 +32,20 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="$(MSBuildThisFileDirectory)CMakeLists.txt" />
+    <Text Include="$(MSBuildThisFileDirectory)game-window\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window_error_handler.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window_manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\key_mapping.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_glfw.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_linux_gamepad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_eglut.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_glfw.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_eglut.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_glfw.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.h" />
   </ItemGroup>
 </Project>
