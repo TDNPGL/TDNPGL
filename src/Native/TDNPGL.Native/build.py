@@ -21,20 +21,30 @@ def gotoWin():
 	os.chdir("build/Win")
 def linuxBuild():
 	gotoUnix()
-	os.system(prfx+"cmake ../..")
+	cmake_command=prfx+"cmake ../.. "+target_with_arch
+	print("Building with: "+Fore.GREEN+cmake_command+Fore.RESET)
+	os.system(cmake_command)
 	print("Started Makefile build")
-	os.system(prfx+"make "+"tdnpgl_"+target)
+	os.system(prfx+"make "+make_target)
 #Defines
 prfx=""
 parser = argparse.ArgumentParser(description='TDNPGL.Native build script')
 parser.add_argument("-wsl", help="Allow compile using WSL(boolean)",default="false", type=str)
-parser.add_argument("-target", help="Sets build target",default="x64", type=str)
+parser.add_argument("-target", help="Sets build target",default="tdnpgl", type=str)
 args = parser.parse_args()
 os_pl=platform.system()
 is_linux=os_pl=="Linux"
 
 wsl_mode=args.wsl=="true"
 target=str(args.target)
+
+make_target=target
+target_with_arch=""
+platforms=["x64","ARM64","ARM","i686","x86"]
+if target in platforms:
+	print("Platform "+target+" found")
+	target_with_arch="-A "+target
+	make_target="tdnpgl_"+target
 #Code
 if not Path("build").is_dir():
 	os.mkdir("build")
@@ -53,7 +63,7 @@ if os_pl=="Windows" and not wsl_mode:
 	print("MSBuild found at \""+vspath+"\"")
 	#Build
 	gotoWin()
-	os.system("cmake ../.. -A "+target)
+	os.system("cmake ../.. "+target_with_arch)
 	os.system("\""+vspath + "\"" + " tdnpgl.vcxproj /t:Rebuild /p:Configuration=Release")
 #WSL
 elif wsl_mode and not is_linux:

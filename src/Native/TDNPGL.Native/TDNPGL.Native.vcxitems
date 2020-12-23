@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)build.py" />
+    <None Include="$(MSBuildThisFileDirectory)fetch_dependencies.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="$(MSBuildThisFileDirectory)CMakeLists.txt" />

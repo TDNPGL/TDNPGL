@@ -1,5 +1,6 @@
 ﻿#if defined(_MSC_VER) || defined(_WIN32) || defined(WIN32)
 //  Microsoft 
+#include <game_window.h>
 #define EXPORT extern "C" __declspec(dllexport)
 #define PLATFORM "Windows"
 #elif defined(__GNUC__) || defined(__unix__ )
@@ -17,3 +18,4 @@ EXPORT int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx
 	int result = (x > minx) && (x < maxx) && (y > miny) && (y < maxy);
 	return result;
 }
+

@@ -1,0 +1,3 @@
+[submodule "src/Native/TDNPGL.Native/game-window"]
+	path = src/Native/TDNPGL.Native/game-window
+	url = https://github.com/minecraft-linux/game-window

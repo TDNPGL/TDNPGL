@@ -41,7 +41,6 @@ namespace TDNPGL.Views.Forms
         }
         public Game CreateGame<EntryType>(string GameName) where EntryType : EntryPoint => CreateGame(Assembly.GetAssembly(typeof(EntryType)), GameName);
 
-
         public void Dispose() => CurrentGameBitmap.Dispose();
 
         public void TouchEvent(object sender,SKTouchEventArgs args){

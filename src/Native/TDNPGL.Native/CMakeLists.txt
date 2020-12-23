@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-
 # set the project name
 project(tdnpgl)
 
@@ -15,7 +14,9 @@ set(GPP "g++" ${DEBUG_ARG})
 # add the executable
 set(SOURCE_LIB tdnpgl.cpp)
 message("-- Building TDNPGL")
+
 add_library(tdnpgl SHARED ${SOURCE_LIB})
+include_directories(tdnpgl "game-window/include")
 
 #Unix
 if(UNIX)
@@ -41,7 +42,6 @@ if(UNIX)
 	set(CMAKE_C_COMPILER arm-none-eabi-${GCC})
 	add_library(tdnpgl_ARM SHARED ${SOURCE_LIB})
 endif(UNIX)
-include_directories(tdnpgl_native ../TDNPGL.Native)
 
 set(CMAKE_CXX_COMPILER clang++)
 set(CMAKE_C_COMPILER clang)
