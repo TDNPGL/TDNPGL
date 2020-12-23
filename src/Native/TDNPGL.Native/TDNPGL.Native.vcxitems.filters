@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tdnpgl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\game_window_error_handler.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\game_window_manager.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_glfw.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_linux_gamepad.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_eglut.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_glfw.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_eglut.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_glfw.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.cpp">
+      <Filter>game-window\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)build.py" />
+    <None Include="$(MSBuildThisFileDirectory)fetch_dependencies.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="$(MSBuildThisFileDirectory)CMakeLists.txt" />
+    <Text Include="$(MSBuildThisFileDirectory)game-window\CMakeLists.txt">
+      <Filter>game-window</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game-window">
+      <UniqueIdentifier>{fd41b675-d539-4cf4-ae1e-7d80d8863722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game-window\src">
+      <UniqueIdentifier>{9c83cee1-e353-4043-ac73-eaca4ac30c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game-window\include">
+      <UniqueIdentifier>{b6d528fe-66de-44f9-bbd8-90d90186773d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window.h">
+      <Filter>game-window\include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window_error_handler.h">
+      <Filter>game-window\include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\game_window_manager.h">
+      <Filter>game-window\include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\include\key_mapping.h">
+      <Filter>game-window\include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_glfw.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\joystick_manager_linux_gamepad.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_eglut.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_glfw.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_eglut.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_glfw.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.h">
+      <Filter>game-window\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
