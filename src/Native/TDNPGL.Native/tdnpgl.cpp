@@ -2,14 +2,19 @@
 //  Microsoft 
 #define EXPORT extern "C" __declspec(dllexport)
 #define PLATFORM "Windows"
+#include <string>
+EXPORT int NewGameWindow(std::string const& title){
+	return 0;
+}
 #elif defined(__GNUC__) || defined(__unix__ )
 //  GCC
+#include <window_glfw.h>
 #include <game_window.h>
 #define EXPORT extern "C"
 #define PLATFORM "Unix"
-EXPORT int NewNativeWindow() {
-	KeyAction action = KeyAction::PRESS;
-	return (int)action;
+EXPORT int NewGameWindow(std::string const& title) {
+	GLFWGameWindow* window=new GLFWGameWindow(title,800,600,GraphicsApi::OPENGL);
+	return 0;
 }
 #else
 //  do nothing and hope for the best?

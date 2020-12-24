@@ -10,3 +10,4 @@ src/TestResults
 .vscode/settings.json
 .vscode/.ropeproject
 src/packed
+build
