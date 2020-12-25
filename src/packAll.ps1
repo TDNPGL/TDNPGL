@@ -7,7 +7,7 @@ $arr = Get-ChildItem . -recurse *.nupkg |
        Foreach-Object {$_.FullName}
 ForEach ($file in $arr)
 	{
-		if( -Not($file -clike "*\packed\*")){
+		if( -Not($file -clike ".\packed\*")){
 			$fileName=[System.IO.Path]::GetFileName($file)
 			$packPath=".\packed\$fileName" 
 			write-host "Moving $fileName"  -foreground 'yellow'
@@ -18,8 +18,8 @@ ForEach ($file in $arr)
 # SIG # Begin signature block
 # MIIFQAYJKoZIhvcNAQcCoIIFMTCCBS0CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUryxYTbBvmmLA0YlsUVzXWcha
-# 7DugggLkMIIC4DCCAcigAwIBAgIQFNgQ8TQuZYpPx82ZwitY4TANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUxAn4KX5Gn3ASMgBOdQydbVMv
+# BOOgggLkMIIC4DCCAcigAwIBAgIQFNgQ8TQuZYpPx82ZwitY4TANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDEwZaYXRyaXQwHhcNMjAwNjE5MjA0NjUxWhcNMjEwNjIw
 # MDI0NjUxWjARMQ8wDQYDVQQDEwZaYXRyaXQwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDnn3YEAR72zq6hCp7NEVWd7RK2cPMbzQic7AIpl9Rmw75wGuKZ
@@ -37,12 +37,12 @@ ForEach ($file in $arr)
 # JqEmVAzqAStR/spDTXIvzixHnjgZf53dZ0sxggHGMIIBwgIBATAlMBExDzANBgNV
 # BAMTBlphdHJpdAIQFNgQ8TQuZYpPx82ZwitY4TAJBgUrDgMCGgUAoHgwGAYKKwYB
 # BAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAc
-# BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUqNWG
-# LVam00DFzggsdeGf1EE9vaYwDQYJKoZIhvcNAQEBBQAEggEAiQxI8AVbaxPvJYcc
-# sJ8X7FOfF0Yca/trZyFWX7/fA5zwbyF0Wnle3kEsxk3oLEuc/FT3SMaZdeTAx1fQ
-# kePJALkIy3Ph0/DrIHsCI8+yZpLe/fgHVoMIoInQ50063DJ8ntEvKJqnIu/fS9+b
-# zJTJop+4zfrvvX5TWHh8+ADrNhmISepS+C/004B5z6dNYvDIOqrvu+dPWb8P3eBm
-# VBTi1Dx+t2pdLH/uiVwNNOLFXPlsbH+YRLTFQ/himqPrtp2NmwqwZv0Q0V59Hraf
-# PihZh5I0QePW6Gu7bjVoc4CyCPvbYVl0M2SfkWmP1YXhkb2mhpj7jX3EkjbkkLsY
-# Cn0JDQ==
+# BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQU5FtV
+# j/8VY6I7+s/ZJ/F3jIj4UmYwDQYJKoZIhvcNAQEBBQAEggEAsJl1XxeMYJhn5jxa
+# 4gnubQ7h1hItKRWOuYIXTwQBWF3W+TjTf5D55Rp/RoMaB3u33nuPTMIJG4QS3Yi2
+# tI+aK0VHD8Ao8ZL1dieLvEk01B3U9EW3V5/5FG48UGvLhBcrYVPghiTY9ggGMIws
+# 1L1uwyJs+ECdgamkqeuK8b5lLbnnLORqSAztwhh6sixgOAMLLdfO/N5sUdvxgnaB
+# hbX9iJWl5Po7vOxg/JJJ9D/FUmkx6OctJd3SXlXMvJQRPILs99sOmMnLjNZHFZ+N
+# aFXXnbC9UqEme/9WD3rfErACgr3+lzH3aZXcJYIz0exk/SQDv0oKyV3fDddzgSzC
+# 3NmKjw==
 # SIG # End signature block

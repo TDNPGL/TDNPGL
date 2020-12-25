@@ -10,8 +10,8 @@ os.system("mkdir packed")
 os.system("dotnet pack > ./packed/packingOutput.txt")
 for root, dirs, files in os.walk("."):
 	for file in files:
-		if file.endswith(".nupkg"):
-			pkg = os.path.join(root, file)
+		pkg = os.path.join(root, file)
+		if file.endswith(".nupkg") and not pkg.startswith(".\packed") and not pkg.startswith("./packed"):
 			print(Fore.YELLOW+"Moving "+pkg)
 			shutil.move(pkg, os.path.join("packed", file))
 print(Style.RESET_ALL)
