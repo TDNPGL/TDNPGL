@@ -22,6 +22,7 @@ namespace TDNPGL.Networking
         private IChannelFuture channelFuture;
 
         private sbyte pingResult = -1;
+        private bool pingRcvd = false;
         public event AsyncActionResultHandler AsyncEventComplete;
         #endregion
         #region Constructors
@@ -50,7 +51,8 @@ namespace TDNPGL.Networking
             Channels.Write(channelFuture.GetChannel(),
                            PacketUtils.GetByteBuf(PacketType.Ping, args));
             action = QueudAction.Ping;
-            while (pingResult < 0) ;
+            while (pingRcvd) ;
+            pingRcvd=false;
             return pingResult;
         }
         /// <summary>
@@ -79,6 +81,7 @@ namespace TDNPGL.Networking
                                        typeof(byte));
                     pingResult = (sbyte)objects[2];
                     AsyncEventComplete.Invoke(this, AsyncActionResult.Ping);
+                    pingRcvd=true;
                     break;
                 case QueudAction.None:
                     break;
