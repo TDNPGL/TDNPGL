@@ -14,19 +14,20 @@ EXPORT int NewGameWindow(std::string const& title){
 #define PLATFORM "Unix"
 EXPORT int NewGameWindow(std::string const& title) {
 	GLFWGameWindow* window=new GLFWGameWindow(title,800,600,GraphicsApi::OPENGL);
+	window->show();
 	return 0;
 }
 #else
 //  do nothing and hope for the best?
 #define EXPORT
 #define PLATFORM "UNKNOWN"
-#pragma warning Unknown dynamic link import/export semantics.
+#pragma warning Unknown dynamic link export semantics.
 #endif
 
 EXPORT int AABB_IsPointOver(float x, float y, float minx, float miny, float maxx, float maxy) {
 	int result = (x > minx) 
 		&& (x < maxx) 
-		&& (y > miny) 
+		&& (y > miny)
 		&& (y < maxy);
 	return result;
 }

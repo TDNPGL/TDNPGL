@@ -26,7 +26,12 @@ namespace TDNPGL.Cli
                     case "-create":
                         string gameName = args.Length > 1 
                             ? Path.GetFileNameWithoutExtension(Directory.GetCurrentDirectory()) : args[1];
-                        this.CreateNewProject(gameName+".Assets");
+                        Console.Write("Creating project named ");
+                        this.WriteWithColor(gameName,ConsoleColor.Green);
+                        Console.WriteLine();
+                        string assetsName=gameName+".Assets";
+                        this.CreateNewProject(assetsName);
+                        this.CreateSolution(gameName,assetsName+".\\"+assetsName+".csproj");
                         break;
                     default:
                         this.ShowAboutHelpMessage("Unknown command \'" + command + "\'.");

@@ -12,7 +12,7 @@ namespace TDNPGL.Cli
     {
         public static void CreateNewProject(this CLI cli,string name)
         {
-            cli.WriteWithColor("Running dotnet cli for create project...\n", ConsoleColor.Yellow);
+            cli.ShowRunCliForMessage("create project");
             Console.WriteLine("DotNet CLI output: ");
 
             Directory.CreateDirectory(name);
@@ -21,7 +21,7 @@ namespace TDNPGL.Cli
             Process create = RunCliWithArgs(name,"new", "classlib");
             create.WaitForExit();
 
-            cli.WriteWithColor("Running dotnet cli for add TDNPGL.Core to project...\n", ConsoleColor.Yellow);
+            cli.ShowRunCliForMessage("add TDNPGL.Core to project");
             Console.WriteLine("DotNet CLI output: ");
 
             Process addNuget = RunCliWithArgs(name, "add", "package", "TDNPGL.Core");
@@ -29,20 +29,25 @@ namespace TDNPGL.Cli
 
             CreateResourcesForProject(name);
         }
-        public static void CreateSolution(string name)
+        public static void CreateSolution(this CLI cli,string name,params string[] projects)
         {
-
+            cli.ShowRunCliForMessage("create solution");
+            Console.WriteLine("DotNet CLI output: ");
+            Process createSLN = RunCliWithArgs(".", "new", "sln","--name", name);
+            createSLN.WaitForExit();
+            projects.ToList().ForEach(x=>{
+                cli.ShowRunCliForMessage("add project to sln");
+                RunCliWithArgs(".", "sln","add", x).WaitForExit();
+            });
         }
         private static void CreateResourcesForProject(string name)
         {
             string resourcesDirectory = name + "\\Resources\\";
-            string file = resourcesDirectory+"Resources.resources";
-            ResourceWriter writer = new ResourceWriter(new FileStream(file, FileMode.OpenOrCreate));
+            string file = resourcesDirectory+"lvl_main.json";
             Level lvl_main = Level.Empty;
             lvl_main.Name = "lvl_main";
             string emptyLevelJson = lvl_main.ToJSON();
-            writer.AddResource("lvl_main", emptyLevelJson);
-            writer.Generate();
+            File.WriteAllText(file,emptyLevelJson);
         }
         private static Process RunCliWithArgs(string workingDir,params string[] args)
         {
@@ -52,11 +57,12 @@ namespace TDNPGL.Cli
             args.ToList().ForEach(x => process.StartInfo.ArgumentList.Add(x));
             process.StartInfo.WorkingDirectory = workingDir;
 
-            process.StartInfo.RedirectStandardOutput = true;
-
             process.Start();
 
             return process;
+        }
+        internal static void ShowRunCliForMessage(this CLI cli,string target){
+            cli.WriteWithColor("Running dotnet cli for "+target+"...\n", ConsoleColor.Yellow);
         }
     }
 }

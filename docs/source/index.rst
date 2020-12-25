@@ -16,4 +16,5 @@ The game also has a client that launches it through TDNPGL.Core using assets
 	:caption: Contents:
    
 	setting_project.rst
+	create_first_game.rst
 

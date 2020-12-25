@@ -91,5 +91,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.h">
       <Filter>game-window\src</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tdnpgl.h" />
   </ItemGroup>
 </Project>
