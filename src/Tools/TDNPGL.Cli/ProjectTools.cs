@@ -10,15 +10,16 @@ namespace TDNPGL.Cli
 {
     public static class ProjectTools
     {
+        private static string fsSlash=>Os.FileSystemSlash;
         public static void CreateNewProject(this CLI cli,string name)
         {
             cli.ShowRunCliForMessage("create project");
             Console.WriteLine("DotNet CLI output: ");
 
             Directory.CreateDirectory(name);
-            Directory.CreateDirectory(name+"\\Resources");
+            Directory.CreateDirectory(name+fsSlash+"Resources");
 
-            Process create = RunCliWithArgs(name,"new", "classlib");
+            Process create = RunCliWithArgs(name,"new", "classlib","--force");
             create.WaitForExit();
 
             cli.ShowRunCliForMessage("add TDNPGL.Core to project");
@@ -42,10 +43,17 @@ namespace TDNPGL.Cli
         }
         private static void CreateResourcesForProject(string name)
         {
-            string resourcesDirectory = name + "\\Resources\\";
+            string resourcesDirectory = name + fsSlash + "Resources"+fsSlash;
             string file = resourcesDirectory+"lvl_main.json";
             Level lvl_main = Level.Empty;
             lvl_main.Name = "lvl_main";
+
+            string res="\n  <ItemGroup>\n\t<Resource Include=\"Resources\\**\\*.json\" />\n  </ItemGroup>";
+            string projFile=name+fsSlash+name+".csproj";
+            string[] projContent=File.ReadAllLines(projFile);
+            projContent[projContent.Length-2]+=(res);
+            File.WriteAllLines(projFile,projContent);
+
             string emptyLevelJson = lvl_main.ToJSON();
             File.WriteAllText(file,emptyLevelJson);
         }
