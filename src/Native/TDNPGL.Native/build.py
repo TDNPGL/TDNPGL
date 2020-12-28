@@ -40,7 +40,7 @@ target=str(args.target)
 
 make_target=target
 target_with_arch=""
-platforms=["x64","ARM64","ARM","i686","x86"]
+platforms=["x64","ARM64","ARM","x86"]
 if target in platforms:
 	print("Platform "+target+" found")
 	target_with_arch="-A "+target

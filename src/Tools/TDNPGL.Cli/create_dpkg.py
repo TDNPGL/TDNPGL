@@ -5,6 +5,7 @@ import sys
 os.system("dotnet msbuild /property:Configuration=Release")
 
 if not os.path.exists("bin/tdnpgl-deb/usr/lib/tdnpgl"):
+	os.mkdir("./bin")
     os.mkdir("./bin/tdnpgl-deb")
     os.mkdir("./bin/tdnpgl-deb/usr")
     os.mkdir("./bin/tdnpgl-deb/usr/bin")

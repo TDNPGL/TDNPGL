@@ -21,22 +21,18 @@ include_directories(tdnpgl "game-window/include" "game-window/src")
 #Unix
 if(UNIX)
 	message("-- Adding UNIX-supporting builds")
-	#x86
+	#x64
 	set(CMAKE_CXX_COMPILER x86_64-linux-gnux32-${GPP})
 	set(CMAKE_C_COMPILER x86_64-linux-gnux32-${GCC})
 	add_library(tdnpgl_x86 SHARED ${SOURCE_LIB})
-	#x64
-	set(CMAKE_CXX_COMPILER ${GPP} -m32)
-	set(CMAKE_C_COMPILER ${GCC} -m32)
-	add_library(tdnpgl_x64 SHARED ${SOURCE_LIB})
 	#ARM64
 	set(CMAKE_CXX_COMPILER aarch64-linux-gnu-${GPP})
 	set(CMAKE_C_COMPILER aarch64-linux-gnu-${GCC})
 	add_library(tdnpgl_ARM64 SHARED ${SOURCE_LIB})
-	#I686
+	#x86
 	set(CMAKE_CXX_COMPILER i686-linux-gnu-${GPP})
 	set(CMAKE_C_COMPILER i686-linux-gnu-${${GCC}})
-	add_library(tdnpgl_i686 SHARED ${SOURCE_LIB})
+	add_library(tdnpgl_x86 SHARED ${SOURCE_LIB})
 	#ARM
 	set(CMAKE_CXX_COMPILER arm-none-eabi-${GPP})
 	set(CMAKE_C_COMPILER arm-none-eabi-${GCC})

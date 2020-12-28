@@ -18,4 +18,4 @@ Second way
 ----------
 * Download TDNPGL CLI from github repository
 * Install .NET Cli
-* Type ``tdnpgl create [Game Name]`` in directory for game sources
+* Type ``tdnpgl -create [Game Name]`` in directory for game sources

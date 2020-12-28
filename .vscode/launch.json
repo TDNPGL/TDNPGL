@@ -98,7 +98,7 @@
             "options": [
                 "x86",
                 "ARM64",
-                "i686",
+                "x64",
                 "ARM",
                 "clang",
                 "all",
