@@ -60,7 +60,7 @@ namespace TDNPGL.Core.Gameplay
             foreach (GameObject @object in objects)
             {
                 @object.Parent = this;
-                @object.OnCreate();
+                @object.OnStart();
             }
 
             Updater.Start();

@@ -63,20 +63,9 @@
             "id": "build_arg1",
             "description": "First argument for build.py",
             "options": [
-                "-wsl",
+                "--wsl",
                 "-h",
                 "--help",
-                ""
-            ],
-            "default": ""
-        },
-        {
-            "type": "pickString",
-            "id": "build_arg2",
-            "description": "Second argument for build.py",
-            "options": [
-                "true",
-                "false",
                 ""
             ],
             "default": ""

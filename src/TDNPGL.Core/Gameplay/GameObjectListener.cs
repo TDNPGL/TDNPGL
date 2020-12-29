@@ -8,7 +8,7 @@ namespace TDNPGL.Core.Gameplay
     {
         public IParentable Parent { get; set; }
 
-        public abstract void OnCreate();
+        public abstract void OnStart();
         public abstract void OnFirstTick();
         public abstract void OnMouseReleased(int button, SKPoint point);
         public abstract void OnMouseReleasedOver(int button, SKPoint point);

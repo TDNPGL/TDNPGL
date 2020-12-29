@@ -233,13 +233,13 @@ namespace TDNPGL.Core.Gameplay
                 listener.OnTick());
             }
         }
-        public virtual void OnCreate()
+        public virtual void OnStart()
         {
             LoadListeners();
             foreach (CSharpGameObjectListener listener in Listeners)
             {
                 ThreadPool.QueueUserWorkItem((object state) =>
-                listener.OnCreate());
+                listener.OnStart());
             }
             Loaded = true;
         }

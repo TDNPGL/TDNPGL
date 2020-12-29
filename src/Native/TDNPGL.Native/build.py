@@ -29,13 +29,13 @@ def linuxBuild():
 #Defines
 prfx=""
 parser = argparse.ArgumentParser(description='TDNPGL.Native build script')
-parser.add_argument("-wsl", help="Allow compile using WSL(boolean)",default="false", type=str)
+parser.add_argument("--wsl", help="Allow compile using WSL(boolean)",action='store_const',const=True)
 parser.add_argument("-target", help="Sets build target",default="tdnpgl", type=str)
 args = parser.parse_args()
 os_pl=platform.system()
 is_linux=os_pl=="Linux"
 
-wsl_mode=args.wsl=="true"
+wsl_mode=args.wsl
 target=str(args.target)
 
 make_target=target

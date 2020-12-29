@@ -4,7 +4,7 @@ namespace TDNPGL.Core.Gameplay.Interfaces
     public interface IUpdateable : IParentable
     {
         public void OnTick();
-        public void OnCreate();
+        public void OnStart();
         public void OnFirstTick();
         public void OnMouseReleasedOver(int button, SkiaSharp.SKPoint point);
         public void OnMouseReleased(int button,SkiaSharp.SKPoint point);

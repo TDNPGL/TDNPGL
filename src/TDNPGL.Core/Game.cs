@@ -76,11 +76,11 @@ namespace TDNPGL.Core
             size = new SKSize((float)width, (float)height);
             return size;
         }
-        public static Game Create(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger)
+        public static Game Init(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger)
             => new Game(provider,assetsAssembly,gameName,enableCustomLogger);
 
-        public static Game Create<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
-            => Create(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
+        public static Game Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+            => Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
         #region User interact
         void IUpdateable.OnKeyDown(ConsoleKeyInfo key)
         {
@@ -138,7 +138,7 @@ namespace TDNPGL.Core
             return current;
         }
         public void OnTick(){}
-        public void OnCreate(){}
+        public void OnStart(){}
         public void OnFirstTick(){}
         public void OnMouseReleasedOver(int button, SKPoint point){}
         #endregion

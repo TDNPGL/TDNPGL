@@ -11,7 +11,7 @@ namespace TDNPGL.Core.Gameplay
             Parent = @object;
         }
 
-        public override void OnCreate() { }
+        public override void OnStart() { }
         public override void OnFirstTick() { }
         public override void OnTick(){ }
         public override void OnMouseReleased(int button,SkiaSharp.SKPoint point){ }
