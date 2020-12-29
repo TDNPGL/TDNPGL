@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\TDNPGL.Core\TDNPGL.Core.csproj" />
-    <ProjectReference Include="..\..\TDNPGL.GlobalDepencies\TDNPGL.GlobalDepencies.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

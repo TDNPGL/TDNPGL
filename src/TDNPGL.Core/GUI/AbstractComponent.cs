@@ -1,7 +1,8 @@
 using SkiaSharp;
 using System.ComponentModel;
 
-namespace TDNPGL.Core.GUI{
+namespace TDNPGL.Core.GUI
+{
     public abstract class AbstractComponent : Component{
         public SKPoint Location;
         public SKSize Size;

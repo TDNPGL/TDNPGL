@@ -6,7 +6,8 @@ from colorama import init
 init()
 from colorama import Fore,Style
 print(Style.BRIGHT+Fore.GREEN+"Packing all projects"+Fore.RESET)
-os.mkdir("packed")
+if not os.path.exists("packed"):
+	os.mkdir("packed")
 os.system("dotnet pack > ./packed/packingOutput.txt")
 for root, dirs, files in os.walk("."):
 	for file in files:

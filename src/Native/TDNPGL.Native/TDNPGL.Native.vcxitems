@@ -47,6 +47,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_eglut.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_manager_glfw.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)game-window\src\window_with_linux_gamepad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)linux-include.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tdnpgl.h" />
   </ItemGroup>
 </Project>

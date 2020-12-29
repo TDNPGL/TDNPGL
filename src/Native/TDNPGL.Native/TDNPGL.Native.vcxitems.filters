@@ -92,5 +92,6 @@
       <Filter>game-window\src</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)tdnpgl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)linux-include.h" />
   </ItemGroup>
 </Project>
