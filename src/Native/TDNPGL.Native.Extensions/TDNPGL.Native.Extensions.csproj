@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
     <Product>TDNPGL.Native</Product>
     <Description>TDNPGL native extensions writted by C# and C++</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -11,7 +11,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>D:\ZatritProjects\TDNPGL\src\Native\TDNPGL.Native.Extensions\TDNPGL.Native.Extensions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

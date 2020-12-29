@@ -6,6 +6,12 @@ namespace TDNPGL.Native.Extensions
 {
     public static class Extensions
     {
+        /// <summary>
+        /// Call method from native file(libtdnpgl.so or tdnpgl.dll)
+        /// </summary>
+        /// <param name="aabb"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public static bool IsPointOverNative(this AABB aabb, Vec2f point)
         {
             switch (Environment.OSVersion.Platform)

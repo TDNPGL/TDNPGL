@@ -41,7 +41,7 @@ namespace TDNPGL.Tests.Native
         [Test]
         public void AABBManagedWithTrue()
         {
-            bool result = aabb.IsPointOverNative((Vec2f)new SKPoint(0, 0));
+            bool result = aabb.IsPointOver((Vec2f)new SKPoint(0, 0));
             bool expected = true;
 
             Assert.AreEqual(result, expected);
