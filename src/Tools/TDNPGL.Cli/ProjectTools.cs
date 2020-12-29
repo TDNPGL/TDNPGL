@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Resources;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
 

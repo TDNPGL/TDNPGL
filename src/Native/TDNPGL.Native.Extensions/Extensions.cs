@@ -12,8 +12,7 @@ namespace TDNPGL.Native.Extensions
             {
                 //Win
                 case PlatformID.Win32S:
-                    return
-                        NativeWin32.IsPointOverNative(aabb, point);
+                    return NativeManager.IsPointOverNative<NativeWin32>(aabb, point);
                 case PlatformID.WinCE:
                     goto case PlatformID.Win32S;
                 case PlatformID.Win32Windows:
@@ -27,11 +26,11 @@ namespace TDNPGL.Native.Extensions
                     switch (processArchitecture)
                     {
                         case Architecture.Arm64:
-                            return NativeLinuxARM64.IsPointOverNative(aabb, point);
+                            return NativeManager.IsPointOverNative<NativeLinuxARM64>(aabb, point);
                         case Architecture.X64:
-                            return NativeLinuxAMD64.IsPointOverNative(aabb, point);
+                            return NativeManager.IsPointOverNative<NativeLinuxAMD64>(aabb, point);
                         case Architecture.X86:
-                            return NativeLinuxX86.IsPointOverNative(aabb, point);
+                            return NativeManager.IsPointOverNative<NativeLinuxX86>(aabb, point);
                         default:
                             throw new PlatformNotSupportedException();
                     }

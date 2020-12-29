@@ -3,18 +3,19 @@
 #define EXPORT extern "C" __declspec(dllexport)
 #define PLATFORM "Windows"
 #include <string>
-EXPORT int NewGameWindow(std::string const& title){
+EXPORT int NewGameWindow(std::string title){
 	return 0;
 }
 #elif defined(__GNUC__) || defined(__unix__ )
 //  GCC
-#include <window_glfw.h>
-#include <game_window.h>
+#include "linux-include.h"
 #define EXPORT extern "C"
 #define PLATFORM "Unix"
-EXPORT int NewGameWindow(std::string const& title) {
-	GLFWGameWindow* window=new GLFWGameWindow(title,800,600,GraphicsApi::OPENGL);
-	window->show();
+EXPORT int NewGameWindow(std::string title) {
+	GLFWGameWindow* wnd=new GLFWGameWindow(title,800,600,GraphicsApi::OPENGL);
+	wnd->show();
+	GLFWGameWindow::DrawCallback draw([]{ std::cout << "Draw callback"; });
+	wnd->setDrawCallback(draw);
 	return 0;
 }
 #else
