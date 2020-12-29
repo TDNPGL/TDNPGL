@@ -11,3 +11,4 @@ src/TestResults
 .vscode/.ropeproject
 src/packed
 build
+docs/source/_build
