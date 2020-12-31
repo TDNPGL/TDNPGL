@@ -68,7 +68,7 @@ namespace TDNPGL.Core.Gameplay
         public void AddObject(GameObject @object)
         {
             objects.Add(@object);
-            @object.LevelID = objects.Count - 1;
+            @object.InLevelID = Guid.NewGuid();
         }
         public GameObject GetObject(int index) => objects[index];
         public void RemoveObject(int index) => objects.RemoveAt(index);
@@ -77,7 +77,7 @@ namespace TDNPGL.Core.Gameplay
         {
             for (int i = 0; i < objects.Count; i++)
             {
-                objects[i].LevelID = i;
+                objects[i].InLevelID = Guid.NewGuid();
             }
         }
 

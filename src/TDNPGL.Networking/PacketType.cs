@@ -7,7 +7,7 @@ namespace TDNPGL.Networking
     public enum PacketType
     {
         /// <summary>
-        /// Just none
+        /// Just nothing
         /// </summary>
         None = 0,
         /// <summary>

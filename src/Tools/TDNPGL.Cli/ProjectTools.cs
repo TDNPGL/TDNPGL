@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
+using TDNPGL.Core.Gameplay.Assets;
 
 namespace TDNPGL.Cli
 {
@@ -43,18 +45,35 @@ namespace TDNPGL.Cli
         private static void CreateResourcesForProject(string name)
         {
             string resourcesDirectory = name + fsSlash + "Resources"+fsSlash;
-            string file = resourcesDirectory+"lvl_main.json";
+            string resxFile = resourcesDirectory + "Resources.resx";
+
+            string lvl_mainFile = resourcesDirectory+"lvl_main.json";
             Level lvl_main = Level.Empty;
             lvl_main.Name = "lvl_main";
 
-            string res="\n  <ItemGroup>\n\t<Resource Include=\"Resources\\**\\*.json\" />\n  </ItemGroup>";
+            string assets_entryFile = resourcesDirectory+"assets_entry.json";
+            EntryPoint assets_entry = new EntryPoint(){
+                Name=name,
+                Namespace=name+".Assets",
+                AutoLoadLevel="lvl_main"};
+            string res="\n  <ItemGroup>\n\t<EmbeddedResource Update=\""+ resxFile + "\" />\n  </ItemGroup>";
             string projFile=name+fsSlash+name+".csproj";
             string[] projContent=File.ReadAllLines(projFile);
             projContent[projContent.Length-2]+=(res);
             File.WriteAllLines(projFile,projContent);
 
+            FileStream stream = new FileStream(resxFile,FileMode.OpenOrCreate);
+            ResXResourceWriter resx = new ResXResourceWriter(stream);
+
+            var lvl_mainRef = CreateRef(lvl_mainFile);
+            resx.AddResource("lvl_main",lvl_mainRef);
+            var assets_entryRef = CreateRef(assets_entryFile);
+            resx.AddResource("assets_entry",assets_entryRef);
+
             string emptyLevelJson = lvl_main.ToJSON();
-            File.WriteAllText(file,emptyLevelJson);
+            File.WriteAllText(lvl_mainFile,emptyLevelJson);
+            string assetsEntryJson = assets_entry.ToJSON();
+            File.WriteAllText(assets_entryFile,assetsEntryJson);
         }
         private static Process RunCliWithArgs(string workingDir,params string[] args)
         {
@@ -71,5 +90,7 @@ namespace TDNPGL.Cli
         internal static void ShowRunCliForMessage(this CLI cli,string target){
             cli.WriteWithColor("Running dotnet cli for "+target+"...\n", ConsoleColor.Yellow);
         }
+        internal static ResXFileRef CreateRef(string file)
+            => new ResXFileRef(file, typeof(System.String).FullName);
     }
 }

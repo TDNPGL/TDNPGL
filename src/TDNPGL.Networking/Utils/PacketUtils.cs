@@ -28,6 +28,8 @@ namespace TDNPGL.Networking.Utils
                         writer.Write((bool)item);
                     else if (type == typeof(double))
                         writer.Write((double)item);
+                        else if (type == typeof(Guid))
+                        writer.Write(((Guid)item).ToString());
 
                     else if (type == typeof(sbyte))
                         writer.Write((sbyte)item);
@@ -87,6 +89,8 @@ namespace TDNPGL.Networking.Utils
                     value = reader.ReadBoolean();
                 else if (type == typeof(double))
                     value = reader.ReadDouble();
+                else if (type == typeof(Guid))
+                    value = Guid.Parse(reader.ReadString());
                 #region Decimals
                 #region Signed
                 else if (type == typeof(sbyte))

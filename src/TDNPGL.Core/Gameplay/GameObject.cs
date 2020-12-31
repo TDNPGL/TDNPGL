@@ -68,8 +68,8 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         public SKBitmap SpriteBitmap => this.Sprite.Frames[SpriteIndex];
 
-        [JsonProperty("anim_offset")]
-        public int UpdateOffset;
+        [JsonProperty("animate_delay")]
+        public int UpdateDelay;
         [JsonProperty("z_layer")]
         public int ZLayer = 0;
 
@@ -87,7 +87,7 @@ namespace TDNPGL.Core.Gameplay
                     if (SpriteIndex == Sprite.Frames.Length - 1) SpriteIndex = 0;
                     else SpriteIndex++;
                     #endregion
-                    Task.Delay(this.UpdateOffset).Wait();
+                    Task.Delay(this.UpdateDelay).Wait();
                 }
             }
             );
@@ -107,7 +107,7 @@ namespace TDNPGL.Core.Gameplay
         [JsonIgnore]
         public bool Loaded { get; private set; } = false;
         [JsonIgnore]
-        public int LevelID { get; internal set; }
+        public Guid InLevelID { get; internal set; }
         private AABB aABB = new AABB();
         [JsonProperty("aabb")]
         public AABB AABB
@@ -304,6 +304,7 @@ namespace TDNPGL.Core.Gameplay
         }
         #endregion
         #region Networking
+        [JsonProperty("multiplayer")]
         public bool UseInMultiplayer = true;
         #endregion
     }
