@@ -52,7 +52,7 @@
 
     <PackAsTool>true</PackAsTool>
 
-    <PackageId>tdnpgl-cli</PackageId>
+    <PackageId>TDNPGL.Cli</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">

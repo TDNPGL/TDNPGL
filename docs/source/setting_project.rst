@@ -20,8 +20,23 @@ Second way
 * Install .NET Cli
 * Type ``tdnpgl -create [Game Name]`` in directory for game sources
 
+In-game files
+-------------
+After creation of project, 
+you can see 
+ * Directory [Game Name].Assets
+ *  [Game Name].sln
+
+[Game Name].Assets contains 
+ * obj directory
+ * Resources directory
+ * [Game Name].Assets.csproj
+ * Class1.cs
+
+Resources is an directory with every game resources
+
 .. 	toctree::
 	:maxdepth: 2
 	:caption: Contents:
    
-	level_structure.rst
+   level_structure.rst
