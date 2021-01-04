@@ -16,5 +16,4 @@ The game also has a client that launches it through TDNPGL.Core using assets
 	:caption: Contents:
    
 	setting_project.rst
-	level_structure.rst
 
