@@ -122,6 +122,6 @@
     <value>..\Resources\AsciiArt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="HelpMessages" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\helpmessages.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>..\Resources\HelpMessages.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

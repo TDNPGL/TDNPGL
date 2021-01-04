@@ -4,7 +4,7 @@
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     <PackageReference Include="System.Resources.Writer" Version="4.3.0" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
-    <PackageReference Include="System.Windows.Forms"/>
+    <PackageReference Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,16 +39,22 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <AssemblyName>tdnpgl</AssemblyName>
     <ApplicationIcon>TDNPGL.ico</ApplicationIcon>
-    <Product>tdnpgl-cli</Product>
+    
+    <Product>TDNPGL.Cli</Product>
     <Description>CLI for TDNPGL project</Description>
     <StartupObject>TDNPGL.Cli.Program</StartupObject>
-    <AutoGenerateBindingRedirects></AutoGenerateBindingRedirects>
+    
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/zatrit/TDNPGL</PackageProjectUrl>
     <PackageIcon>2DNPGL_HD.png</PackageIcon>
+    <ToolCommandName>tdnpgl</ToolCommandName>
+
+    <PackAsTool>true</PackAsTool>
+
+    <PackageId>tdnpgl-cli</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">

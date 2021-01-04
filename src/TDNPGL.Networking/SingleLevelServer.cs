@@ -17,7 +17,7 @@ using TDNPGL.Networking.Utils;
 
 namespace TDNPGL.Networking
 {
-    public class SingleLevelServer : NetworkObject, IHost
+    public class SingleLevelServer : NetworkLevelHandler, IHost
     {
         public event ClientPing Ping = (IChannel channel, byte[] packet) => 1;
         public event ClientConnect Connect;

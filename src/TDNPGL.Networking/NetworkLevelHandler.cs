@@ -8,7 +8,7 @@ using TDNPGL.Networking.Utils;
 
 namespace TDNPGL.Networking
 {
-    public abstract class NetworkObject : SimpleChannelUpstreamHandler
+    public abstract class NetworkLevelHandler : SimpleChannelUpstreamHandler
     {
         protected Level Level { get; set; }
         protected IChannelFuture channelFuture { get; set; }
@@ -28,11 +28,11 @@ namespace TDNPGL.Networking
             else
                 throw new InvalidOperationException("Objects array not contains given object");
         }
-        public NetworkObject(Level level)
+        public NetworkLevelHandler(Level level)
         {
             this.Level = level;
         }
-        public NetworkObject()
+        public NetworkLevelHandler()
         {
             this.Level = Level.Empty;
         }
