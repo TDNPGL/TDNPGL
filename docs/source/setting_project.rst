@@ -19,3 +19,9 @@ Second way
 * Download TDNPGL CLI from github repository
 * Install .NET Cli
 * Type ``tdnpgl -create [Game Name]`` in directory for game sources
+
+.. 	toctree::
+	:maxdepth: 2
+	:caption: Contents:
+   
+	level_structure.rst
