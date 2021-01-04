@@ -13,3 +13,8 @@ What need to add or fix:
 **1.** Documentation
 **2.** Physics and rename
 **3.** Sounds
+
+How to install CLI
+==============
+CLI hosting on [NuGet](https://www.nuget.org/).
+For install it, type `dotnet tool install --global TDNPGL.Cli`
