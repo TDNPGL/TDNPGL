@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Resources;
+using System.Resources.NetStandard;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;
@@ -26,8 +26,8 @@ namespace TDNPGL.Cli
             cli.ShowRunCliForMessage("add TDNPGL.Core to project");
             Console.WriteLine("DotNet CLI output: ");
 
-            Process addNuget = RunCliWithArgs(name, "add", "package", "TDNPGL.Core");
-            addNuget.WaitForExit();
+            RunCliWithArgs(name, "add", "package", "TDNPGL.Core").WaitForExit();
+            RunCliWithArgs(name, "add", "package", "System.Resources.Extensions").WaitForExit();
 
             CreateResourcesForProject(name);
         }
@@ -69,6 +69,9 @@ namespace TDNPGL.Cli
             resx.AddResource("lvl_main",lvl_mainRef);
             var assets_entryRef = CreateRef(assets_entryFile);
             resx.AddResource("assets_entry",assets_entryRef);
+
+            resx.Close();
+            resx.Dispose();
 
             string emptyLevelJson = lvl_main.ToJSON();
             File.WriteAllText(lvl_mainFile,emptyLevelJson);
