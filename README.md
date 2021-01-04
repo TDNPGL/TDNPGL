@@ -5,7 +5,7 @@ TDNPGL
 
 *Two-dimensional non-physics game library*,
 
-![](https://github.com/zatrit/TDNPGL/raw/master/Icons/2DNPGL_HD.png)
+![](https://github.com/zatrit/TDNPGL/raw/master/icons/2DNPGL_HD.png)
 
 What need to add or fix:
 =============
