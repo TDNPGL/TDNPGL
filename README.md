@@ -1,7 +1,7 @@
 TDNPGL
 =============
 [![NuGet](https://img.shields.io/nuget/v/TDNPGL.Core.svg?style=flat)](https://www.nuget.org/packages/TDNPGL.Core/)
-[![Documentation]](https://readthedocs.org/projects/tdnpgl/badge/?version=latest&style=plastic)
+[![Documentation](https://readthedocs.org/projects/tdnpgl/badge/?version=latest&style=flat)](https://tdnpgl.readthedocs.io/en/stable/index.html)
 
 *Two-dimensional non-physics game library*,
 
