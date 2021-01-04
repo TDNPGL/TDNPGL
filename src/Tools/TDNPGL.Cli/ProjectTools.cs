@@ -23,12 +23,12 @@ namespace TDNPGL.Cli
             Process create = RunCliWithArgs(name,"new", "classlib","--force", "--framework","netstandard2.1");
             create.WaitForExit();
 
-            cli.ShowRunCliForMessage("add TDNPGL.Core to project");
+            cli.ShowRunCliForMessage("add references to project");
             Console.WriteLine("DotNet CLI output: ");
 
             RunCliWithArgs(name, "add", "package", "TDNPGL.Core").WaitForExit();
             RunCliWithArgs(name, "add", "package", "System.Resources.Extensions").WaitForExit();
-            RunCliWithArgs(name, "add", "package", "System.Resources.NetStandard").WaitForExit();
+            RunCliWithArgs(name, "add", "package", "ResXResourceReader.NetStandard").WaitForExit();
 
             CreateResourcesForProject(name,gameName);
         }
