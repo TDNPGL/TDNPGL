@@ -31,7 +31,7 @@ namespace TDNPGL.Cli
                         this.WriteWithColor(gameName,ConsoleColor.Green);
                         Console.WriteLine();
                         string assetsName=gameName+".Assets";
-                        this.CreateNewProject(assetsName);
+                        this.CreateNewProject(assetsName, gameName);
                         this.CreateSolution(gameName,assetsName+fsSlash+assetsName+".csproj");
                         break;
                     default:

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using TDNPGL.Cli.Properties;
 
 namespace TDNPGL.Cli
@@ -22,6 +23,9 @@ namespace TDNPGL.Cli
             cli.WriteLink("\nGithub repo", githubRepo);
             cli.WriteLink("Nuget package", nugetPackage);
             cli.WriteLink("Documentation", documentation);
+
+            Version version = Assembly.GetEntryAssembly().GetName().Version;
+            cli.WriteLink("Version", version.ToString()+version.Build);
         }
         internal static void ShowAboutHelpMessage(this CLI cli, string firstString)
         {

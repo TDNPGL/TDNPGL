@@ -12,7 +12,7 @@ namespace TDNPGL.Cli
     public static class ProjectTools
     {
         private static string fsSlash=>Os.FileSystemSlash;
-        public static void CreateNewProject(this CLI cli,string name)
+        public static void CreateNewProject(this CLI cli,string name,string gameName)
         {
             cli.ShowRunCliForMessage("create project");
             Console.WriteLine("DotNet CLI output: ");
@@ -20,7 +20,7 @@ namespace TDNPGL.Cli
             Directory.CreateDirectory(name);
             Directory.CreateDirectory(name+fsSlash+"Resources");
 
-            Process create = RunCliWithArgs(name,"new", "classlib","--force");
+            Process create = RunCliWithArgs(name,"new", "classlib","--force", "--framework","netstandard2.1");
             create.WaitForExit();
 
             cli.ShowRunCliForMessage("add TDNPGL.Core to project");
@@ -28,8 +28,9 @@ namespace TDNPGL.Cli
 
             RunCliWithArgs(name, "add", "package", "TDNPGL.Core").WaitForExit();
             RunCliWithArgs(name, "add", "package", "System.Resources.Extensions").WaitForExit();
+            RunCliWithArgs(name, "add", "package", "System.Resources.NetStandard").WaitForExit();
 
-            CreateResourcesForProject(name);
+            CreateResourcesForProject(name,gameName);
         }
         public static void CreateSolution(this CLI cli,string name,params string[] projects)
         {
@@ -42,7 +43,7 @@ namespace TDNPGL.Cli
                 RunCliWithArgs(".", "sln","add", x).WaitForExit();
             });
         }
-        private static void CreateResourcesForProject(string name)
+        private static void CreateResourcesForProject(string name,string gameName)
         {
             string resourcesDirectory = name + fsSlash + "Resources"+fsSlash;
             string resxFile = resourcesDirectory + "Resources.resx";
@@ -53,8 +54,8 @@ namespace TDNPGL.Cli
 
             string assets_entryFile = resourcesDirectory+"assets_entry.json";
             EntryPoint assets_entry = new EntryPoint(){
-                Name=name,
-                Namespace=name+".Assets",
+                Name=gameName,
+                Namespace=name,
                 AutoLoadLevel="lvl_main"};
             string res="\n  <ItemGroup>\n\t<EmbeddedResource Update=\""+ resxFile + "\" />\n  </ItemGroup>";
             string projFile=name+fsSlash+name+".csproj";
