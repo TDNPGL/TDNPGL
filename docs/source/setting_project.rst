@@ -38,5 +38,5 @@ Resources is an directory with every game resources
 .. 	toctree::
 	:maxdepth: 2
 	:caption: Contents:
-   
+
    level_structure.rst
