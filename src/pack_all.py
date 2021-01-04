@@ -1,21 +1,18 @@
 #!/usr/bin/python
 import os
 import re
+import shutil
 from colorama import init
 init()
 from colorama import Fore,Style
-regex = 'PackageReference Include="([^"]*)"'
-print(Style.BRIGHT)
+print(Style.BRIGHT+Fore.GREEN+"Packing all projects"+Fore.RESET)
+if not os.path.exists("packed"):
+	os.mkdir("packed")
+os.system("dotnet pack > ./packed/packingOutput.txt")
 for root, dirs, files in os.walk("."):
 	for file in files:
-		if file.endswith(".csproj"):
-			fileName=os.path.join(root, file)
-			print(Fore.GREEN+"Updating "+fileName)
-			with open(fileName) as f: 
-				s = f.read()
-			packages = re.findall(regex,s)
-			for package in packages:
-				print(Style.BRIGHT)
-				print(Fore.YELLOW+"Updating "+package+" in "+file+Style.RESET_ALL)
-				os.system("dotnet add "+fileName+" package "+package)
+		pkg = os.path.join(root, file)
+		if file.endswith(".nupkg") and not pkg.startswith(".\packed") and not pkg.startswith("./packed"):
+			print(Fore.YELLOW+"Moving "+pkg)
+			shutil.move(pkg, os.path.join("packed", file))
 print(Style.RESET_ALL)
