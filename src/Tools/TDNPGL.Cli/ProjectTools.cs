@@ -2,7 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Resources.NetStandard;
+using System.Resources;
+using System.Resources;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;
@@ -12,7 +13,7 @@ namespace TDNPGL.Cli
     public static class ProjectTools
     {
         private static string fsSlash=>Os.FileSystemSlash;
-        public static void CreateNewProject(this CLI cli,string name,string gameName)
+        public static void CreateNewProject(this CLI cli,string name,string gameName,string lang)
         {
             cli.ShowRunCliForMessage("create project");
             Console.WriteLine("DotNet CLI output: ");
@@ -20,7 +21,7 @@ namespace TDNPGL.Cli
             Directory.CreateDirectory(name);
             Directory.CreateDirectory(name+fsSlash+"Resources");
 
-            Process create = RunCliWithArgs(name,"new", "classlib","--force", "--framework","netstandard2.1");
+            Process create = RunCliWithArgs(name,"new", "classlib","--force", "--framework","netstandard2.1","-lang",lang);
             create.WaitForExit();
 
             cli.ShowRunCliForMessage("add references to project");
@@ -30,7 +31,7 @@ namespace TDNPGL.Cli
             RunCliWithArgs(name, "add", "package", "System.Resources.Extensions").WaitForExit();
             RunCliWithArgs(name, "add", "package", "ResXResourceReader.NetStandard").WaitForExit();
 
-            CreateResourcesForProject(name,gameName);
+            CreateResourcesForProject(name,gameName,lang);
         }
         public static void CreateSolution(this CLI cli,string name,params string[] projects)
         {
@@ -43,7 +44,7 @@ namespace TDNPGL.Cli
                 RunCliWithArgs(".", "sln","add", x).WaitForExit();
             });
         }
-        private static void CreateResourcesForProject(string name,string gameName)
+        private static void CreateResourcesForProject(string name,string gameName,string lang)
         {
             string resourcesDirectory = name + fsSlash + "Resources"+fsSlash;
             string resxFile = resourcesDirectory + "Resources.resx";
@@ -58,7 +59,7 @@ namespace TDNPGL.Cli
                 Namespace=name,
                 AutoLoadLevel="lvl_main"};
             string res="\n  <ItemGroup>\n\t<EmbeddedResource Update=\""+ resxFile + "\" />\n  </ItemGroup>";
-            string projFile=name+fsSlash+name+".csproj";
+            string projFile=name+fsSlash+name+"."+GetProjectExtension(null,lang);
             string[] projContent=File.ReadAllLines(projFile);
             projContent[projContent.Length-2]+=(res);
             File.WriteAllLines(projFile,projContent);
@@ -96,5 +97,19 @@ namespace TDNPGL.Cli
         }
         internal static ResXFileRef CreateRef(string file)
             => new ResXFileRef(file, typeof(System.String).FullName);
+        internal static string GetProjectExtension(this CLI cli,string lang)
+        {
+            switch (lang.ToLower())
+            {
+                case "c#":
+                    return "csproj";
+                case "f#":
+                    return "fsproj";
+                case "vb":
+                    return "vbproj";
+                default:
+                    goto case "c#";
+            }
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace TDNPGL.Cli
             cli.WriteLink("Documentation", documentation);
 
             Version version = Assembly.GetEntryAssembly().GetName().Version;
-            cli.WriteLink("Version", version.ToString()+version.Build);
+            cli.WriteLink("Version", version.ToString()+version.MinorRevision);
         }
         internal static void ShowAboutHelpMessage(this CLI cli, string firstString)
         {

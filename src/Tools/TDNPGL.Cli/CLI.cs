@@ -31,8 +31,17 @@ namespace TDNPGL.Cli
                         this.WriteWithColor(gameName,ConsoleColor.Green);
                         Console.WriteLine();
                         string assetsName=gameName+".Assets";
-                        this.CreateNewProject(assetsName, gameName);
-                        this.CreateSolution(gameName,assetsName+fsSlash+assetsName+".csproj");
+                        string lang = "C#";
+                        for(int i = 0; i < args.Length; i++)
+                        {
+                            string a = args[i];
+                            if (a == "-lang"&&args.Length==i+2)
+                            {
+                                lang = args[i + 1];
+                            }
+                        }
+                        this.CreateNewProject(assetsName, gameName,lang);
+                        this.CreateSolution(gameName,assetsName+fsSlash+assetsName+"."+this.GetProjectExtension(lang));
                         break;
                     default:
                         this.ShowAboutHelpMessage("Unknown command \'" + command + "\'.");
