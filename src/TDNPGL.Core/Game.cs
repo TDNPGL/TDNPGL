@@ -13,42 +13,31 @@ namespace TDNPGL.Core
 {
     public class Game : IUpdateable
     {
-        private static Game current;
+        internal GameProvider provider;
         public EntryPoint CurrentEntry;
         public Level CurrentLevel { get; protected set; }
-        public GraphicsOutput GraphicsOutput{get;protected set;}
+        public GraphicsOutput GraphicsOutput { get; protected set; }
 
-        private Game(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger) { 
-            this.GraphicsOutput=new GraphicsOutput(this);
+        private Game(GameProvider provider, Assembly assetsAssembly, string gameName, bool enableCustomLogger) : this(
+            provider
+            ,AssetLoader.GetEntry(assetsAssembly)
+            ,gameName
+            ,enableCustomLogger) { }
+
+        private Game(GameProvider provider, EntryPoint entry, string gameName, bool enableCustomLogger)
+        {
+            this.provider = provider;
+
+            CurrentPlatform = Environment.OSVersion.Platform;
+
+            this.GraphicsOutput = new GraphicsOutput(this);
             if (enableCustomLogger)
                 Logging.SetCustomLogger();
             GameName = gameName;
 
-            Console.WriteLine("Game initialized!");
+            AssetsAssembly = entry.CurrentAssembly;
 
-            AssetsAssembly = assetsAssembly;
-
-            CurrentPlatform = Environment.OSVersion.Platform;
-
-            CurrentEntry = AssetLoader.GetEntry(AssetsAssembly);
-            Sprite.LoadSprites();
-            CurrentEntry.RunMainLevel();
-
-            Logging.MessageAction("LAUNCH", "Waiting objects loading...", ConsoleColor.Green, ConsoleColor.Gray);
-
-            while (true)
-            {
-                if (CurrentLevel.IsObjectsLoaded()) 
-                    break;
-                Thread.Sleep(10);
-            }
-
-            GraphicsOutput.AddOutputGameRenderer(provider.Renderer);
-            Logging.MessageAction("LAUNCH", "{0} is running platform",ConsoleColor.Green,ConsoleColor.Gray,Environment.OSVersion.ToString());
-            Logging.MessageAction("LAUNCH", "{0} is game-renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
-            GraphicsOutput.BeginRender();
-
-            current=this;
+            CurrentEntry = entry;
         }
 
         public string GameName{ get; set; } = "Unnamed";
@@ -64,7 +53,31 @@ namespace TDNPGL.Core
             CurrentLevel.ReloadObjectsIDs();
             Logging.MessageAction("LEVEL", "Level setted: {0}", ConsoleColor.Green, ConsoleColor.Gray,CurrentLevel.Name);
         }
+        public void Run()
+        {
+            GraphicsOutput.AddOutputGameRenderer(provider.Renderer);
 
+            Sprite.LoadSprites();
+            CurrentEntry.RunMainLevel();
+
+            Logging.MessageAction("RUN", "Loading objects...", ConsoleColor.Green, ConsoleColor.Gray);
+
+            while (true)
+            {
+                if (CurrentLevel.IsObjectsLoaded())
+                    break;
+                Thread.Sleep(10);
+            }
+
+            GraphicsOutput.AddOutputGameRenderer(this.provider.Renderer);
+            Logging.MessageAction("RUN", "{0} is running platform", ConsoleColor.Green, ConsoleColor.Gray, Environment.OSVersion.ToString());
+            Logging.MessageAction("RUN", "{0} is game renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
+            GraphicsOutput.BeginRender();
+
+            current = this;
+        }
+        #region Static
+        private static Game current;
         public static SKSize GetCurrentDisplaySize()
         {
             SKSize size;
@@ -76,12 +89,24 @@ namespace TDNPGL.Core
             size = new SKSize((float)width, (float)height);
             return size;
         }
-        public static Game Init(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger)
+        public static Game GetInstance()
+        {
+            return current;
+        }
+        #region Create
+        public static Game Create(GameProvider provider,Assembly assetsAssembly,string gameName,bool enableCustomLogger)
             => new Game(provider,assetsAssembly,gameName,enableCustomLogger);
-
-        public static Game Init<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
-            => Init(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
-        #region User interact
+        public static Game Create(GameProvider provider, EntryPoint entry, string gameName, bool enableCustomLogger)
+            => new Game(provider, entry, gameName, enableCustomLogger);
+        public static Game Create<EntryType>(GameProvider provider, string GameName, bool EnableCustomLogger) where EntryType : EntryPoint
+            => Create(provider, Assembly.GetAssembly(typeof(EntryType)), GameName, EnableCustomLogger);
+        #endregion Create
+        #endregion Static
+        #region Events
+        public void OnTick() { }
+        public void OnStart() { }
+        public void OnFirstTick() { }
+        public void OnMouseReleasedOver(int button, SKPoint point) { }
         void IUpdateable.OnKeyDown(ConsoleKeyInfo key)
         {
             try
@@ -96,13 +121,17 @@ namespace TDNPGL.Core
                 Exceptions.Call(ex);
             }
         }
-        public void OnMouseReleased(int button,SKPoint point)
+        public void OnMouseReleased(int button, SKPoint point)
         {
-            try{
-                foreach(GameObject obj in CurrentLevel.Objects){
-                    obj.OnMouseReleased(button,point);
+            try
+            {
+                foreach (GameObject obj in CurrentLevel.Objects)
+                {
+                    obj.OnMouseReleased(button, point);
                 }
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 Exceptions.Call(ex);
             }
         }
@@ -126,7 +155,7 @@ namespace TDNPGL.Core
             {
                 foreach (GameObject obj in CurrentLevel.Objects)
                 {
-                    obj.OnMouseDown(button,point);
+                    obj.OnMouseDown(button, point);
                 }
             }
             catch (Exception ex)
@@ -134,15 +163,6 @@ namespace TDNPGL.Core
                 Exceptions.Call(ex);
             }
         }
-        public static Game GetInstance(){
-            return current;
-        }
-        public void OnTick(){}
-        public void OnStart(){}
-        public void OnFirstTick(){}
-        public void OnMouseReleasedOver(int button, SKPoint point){}
-        #endregion
-        #region Events
         #endregion
     }
 }

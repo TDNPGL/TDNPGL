@@ -35,7 +35,7 @@ namespace TDNPGL.Views.Forms
             this.Touch+=TouchEvent;
         }
         public Game CreateGame(Assembly assembly, string GameName){
-            Game g=TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly, GameName, true);
+            Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
             this.game=g;
             return g;
         }
@@ -47,7 +47,7 @@ namespace TDNPGL.Views.Forms
             game.OnMouseReleased(((int)args.MouseButton)-1,args.Location);
         }
 
-        public void DrawBitmap(SKBitmap bitmap)
+        public void RenderBitmap(SKBitmap bitmap)
         {
             CurrentGameBitmap = bitmap;
             InvalidateSurface();

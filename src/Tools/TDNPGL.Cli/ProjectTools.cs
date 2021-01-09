@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Resources;
+using System.Resources.NetStandard;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Gameplay.Assets;

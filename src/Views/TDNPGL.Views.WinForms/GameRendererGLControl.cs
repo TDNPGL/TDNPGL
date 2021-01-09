@@ -35,7 +35,7 @@ namespace TDNPGL.Views.WinForms
         private SKBitmap currentGameBitmap = new SKBitmap();
         #endregion
         public Game CreateGame(Assembly assembly, string GameName){
-            Game g=TDNPGL.Core.Game.Init(new GameProvider(this,this), assembly, GameName, true);
+            Game g=TDNPGL.Core.Game.Create(new GameProvider(this,this), assembly, GameName, true);
             this.game=g;
             return g;
         }
@@ -101,7 +101,7 @@ namespace TDNPGL.Views.WinForms
             }
         }
 
-        public void DrawBitmap(SKBitmap bitmap)
+        public void RenderBitmap(SKBitmap bitmap)
         {
             if (!Rendering)
             {
@@ -121,7 +121,7 @@ namespace TDNPGL.Views.WinForms
 
         public void PlaySound(SoundAsset asset, bool sync = false)
         {
-            SoundPlayer.Stream = asset.AsStream();
+            SoundPlayer.Stream = asset;
             SoundPlayer.Play();
         }
     }

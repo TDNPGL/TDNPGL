@@ -4,16 +4,10 @@ using System.Runtime.InteropServices;
 
 namespace TDNPGL.Core.Sound
 {
-    public class SoundAsset
+    public class SoundAsset : MemoryStream
     {
-        internal byte[] buffer;
-        public SoundAsset(byte[] buffer)
+        public SoundAsset(byte[] buffer) : base(buffer)
         {
-            this.buffer = buffer;
-        }
-        public Stream AsStream()
-        {
-            return new MemoryStream(buffer);
         }
     }
 }

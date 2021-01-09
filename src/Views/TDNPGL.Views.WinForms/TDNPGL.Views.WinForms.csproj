@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net472;net5.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <Product>TDNPGL.Views.WinForms</Product>
-   <Description>Windows Forms library of TDNPGL</Description>
-   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-   <PackageIcon>2DNPGL_HD.png</PackageIcon>
-   <PackageProjectUrl>https://github.com/zatrit/TDNPGL</PackageProjectUrl>
+    <Description>Windows Forms library of TDNPGL</Description>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>2DNPGL_HD.png</PackageIcon>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PackageProjectUrl>https://github.com/zatrit/TDNPGL</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -80,7 +80,7 @@ namespace TDNPGL.Core.Graphics
                         {
                             SKBitmap bitmap = MainLevelRenderer.Render(Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height),Canvas);
                             
-                            renderer.DrawBitmap(bitmap);
+                            renderer.RenderBitmap(bitmap);
                             if (GC.GetTotalMemory(true) / 1024 / 1024 > 40)
                                 GC.Collect();
                         }

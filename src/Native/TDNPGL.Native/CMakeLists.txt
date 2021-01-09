@@ -16,7 +16,6 @@ set(SOURCE_LIB tdnpgl.cpp tdnpgl.h)
 message("-- Building TDNPGL")
 
 add_library(tdnpgl SHARED ${SOURCE_LIB})
-include_directories(tdnpgl "game-window/include" "game-window/src")
 
 #Unix
 if(UNIX)

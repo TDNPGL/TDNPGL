@@ -16,7 +16,7 @@ namespace TDNPGL.Core.Gameplay.Assets
         [JsonProperty("namespace")] 
         public string Namespace;
         [JsonIgnore]
-        public Assembly currentAssembly => Assembly.GetAssembly(GetType());
+        public Assembly CurrentAssembly => Assembly.GetAssembly(GetType());
         [JsonProperty("auto_load_level")]
         public string AutoLoadLevel;
         [JsonIgnore]
