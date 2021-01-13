@@ -19,8 +19,7 @@ namespace TDNPGL.Core
             Stream stream = assembly.GetManifestResourceStream(res);
             ResourceSet set = new ResourceSet(stream);
             locales = (string)set.GetObject(resourceName); 
-            Locales = JsonConvert.DeserializeObject<
-                Dictionary<string, Dictionary<string, string>>>(locales);
+            Locales = locales.FromJSON <Dictionary< string, Dictionary<string, string> >> ();
         }
         public void SetLanguage(string lang)
         {

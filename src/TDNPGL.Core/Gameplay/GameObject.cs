@@ -13,6 +13,7 @@ using System.Threading;
 using TDNPGL.Core.Math;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TDNPGL.Core.Debug;
 
 namespace TDNPGL.Core.Gameplay
 {
@@ -24,7 +25,7 @@ namespace TDNPGL.Core.Gameplay
         protected bool firstTick = true;
         #endregion
         #region Delegate
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged=new PropertyChangedEventHandler(delegate { });
         public GameObjectEventHandler Tick;
         #endregion
         #region Animation
@@ -151,8 +152,9 @@ namespace TDNPGL.Core.Gameplay
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                Logging.WriteError(ex);
             }
         }
         internal void Render(SKCanvas canvas)

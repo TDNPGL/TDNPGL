@@ -9,8 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace TDNPGL.Cli.Properties {
-    using System;
     using Newtonsoft.Json;
+    using System;
+    using TDNPGL.Core;
 
 
     /// <summary>
@@ -96,9 +97,7 @@ namespace TDNPGL.Cli.Properties {
         /// </summary>
         internal static HelpMessage[] HelpMessages {
             get {
-                return 
-                    JsonConvert
-                        .DeserializeObject<HelpMessage[]>(ResourceManager.GetString("HelpMessages", resourceCulture));
+                return ResourceManager.GetString("HelpMessages", resourceCulture).FromJSON<HelpMessage[]>();
             }
         }
     }

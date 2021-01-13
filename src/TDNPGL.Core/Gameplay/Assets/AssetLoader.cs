@@ -73,7 +73,7 @@ namespace TDNPGL.Core.Gameplay.Assets
                         else if (typeof(T) == typeof(Level))
                         {
                             string level = Encoding.UTF8.GetString(obj as byte[]);
-                            Level lvl = JsonConvert.DeserializeObject<Level>(level);
+                            Level lvl = level.FromJSON<Level>();
                             if (lvl.ContentType == "level")
                                 Asset = lvl;
                             else add = false;
@@ -84,14 +84,14 @@ namespace TDNPGL.Core.Gameplay.Assets
                         }
                         else if (typeof(T) == typeof(SpriteManifest))
                         {
-                            ContentFile file = JsonConvert.DeserializeObject<SpriteManifest>(obj as string);
+                            ContentFile file = (obj as string).FromJSON<SpriteManifest>();
                             if (file.ContentType == "sprite")
                                 Asset = file;
                             else add = false;
                         }
                         else if (typeof(T) == typeof(ContentFile))
                         {
-                            Asset = JsonConvert.DeserializeObject<ContentFile>(obj as string);
+                            Asset = (obj as string).FromJSON<ContentFile>();
                         }
                         else throw new ArgumentException("Unsupported asset type!");
                         if(add)
@@ -132,13 +132,13 @@ namespace TDNPGL.Core.Gameplay.Assets
                     case 2:
                         return obj;
                     case 3:
-                        return JsonConvert.DeserializeObject<Level>(obj as string) as object;
+                        return (obj as string).FromJSON<Level>();
                     case 4:
-                        return JsonConvert.DeserializeObject<EntryPoint>(obj as string);
+                        return (obj as string).FromJSON<EntryPoint>();
                     case 5:
-                        return JsonConvert.DeserializeObject<ContentFile>(obj as string);
+                        return (obj as string).FromJSON<ContentFile>();
                     case 6:
-                        return JsonConvert.DeserializeObject<SpriteManifest>(obj as string);
+                        return (obj as string).FromJSON<SpriteManifest>();
                     default:
                         throw new ArgumentException();
                 }

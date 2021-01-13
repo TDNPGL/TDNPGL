@@ -11,11 +11,15 @@ namespace TDNPGL.Core.Debug
 
         public static void SetConsoleColor(ConsoleColor color) =>
             Console.ForegroundColor = color;
-        public static void WriteError(Exception ex)
+        public static void WriteError(Exception ex,bool initIfNot=true,bool forceNoThrow=false)
         {
+            if (initIfNot)
+                SetCustomLogger();
             SetConsoleColor(ConsoleColor.Red);
             DefaultWriter.WriteLine("\n"+ex);
             Console.ResetColor();
+            if (!Core.Exceptions.NoThrowExceptions && !forceNoThrow)
+                throw ex;
         }
         public static void MessageAction(string from, string msg,ConsoleColor HeaderColor=ConsoleColor.Green, ConsoleColor MsgColor = ConsoleColor.Gray,params object[] MsgParams)
         {

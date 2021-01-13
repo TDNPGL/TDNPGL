@@ -117,7 +117,7 @@ namespace TDNPGL.Networking.Utils
                     try
                     {
                         string json = reader.ReadString();
-                        value = new object().FromJSON(json);
+                        value = json.FromJSON<object>();
                     }
                     catch (Exception ex)
                     {

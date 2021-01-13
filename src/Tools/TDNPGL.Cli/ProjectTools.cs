@@ -2,8 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Resources;
-using System.Resources;
 using System.Resources.NetStandard;
 using TDNPGL.Core;
 using TDNPGL.Core.Gameplay;
@@ -13,14 +11,13 @@ namespace TDNPGL.Cli
 {
     public static class ProjectTools
     {
-        private static string fsSlash=>Os.FileSystemSlash;
         public static void CreateNewProject(this CLI cli,string name,string gameName,string lang)
         {
             cli.ShowRunCliForMessage("create project");
             Console.WriteLine("DotNet CLI output: ");
 
             Directory.CreateDirectory(name);
-            Directory.CreateDirectory(name+fsSlash+"Resources");
+            Directory.CreateDirectory(name+"\\Resources");
 
             Process create = RunCliWithArgs(name,"new", "classlib","--force", "--framework","netstandard2.1","-lang",lang);
             create.WaitForExit();
@@ -47,34 +44,40 @@ namespace TDNPGL.Cli
         }
         private static void CreateResourcesForProject(string name,string gameName,string lang)
         {
-            string resourcesDirectory = name + fsSlash + "Resources"+fsSlash;
-            string resxFile = resourcesDirectory + "Resources.resx";
+            string resourcesDirectory = name + "\\Resources\\";
+            string resDir2 = "Resources\\";
+            //string resxFile = resourcesDirectory + "Resources.resx";
 
             string lvl_mainFile = resourcesDirectory+"lvl_main.json";
+            string lvl_mainFile2 = resDir2 + "lvl_main.json";
             Level lvl_main = Level.Empty;
             lvl_main.Name = "lvl_main";
 
             string assets_entryFile = resourcesDirectory+"assets_entry.json";
+            string assets_entryFile2 = resDir2 + "assets_entry.json";
             EntryPoint assets_entry = new EntryPoint(){
                 Name=gameName,
                 Namespace=name,
                 AutoLoadLevel="lvl_main"};
-            string res="\n  <ItemGroup>\n\t<EmbeddedResource Update=\""+ resxFile + "\" />\n  </ItemGroup>";
-            string projFile=name+fsSlash+name+"."+GetProjectExtension(null,lang);
+
+            string frmat= "\n\t\t<LogicalName>{0}</LogicalName>\n\t</EmbeddedResource>";
+
+            string res = " <ItemGroup>\n\t<EmbeddedResource Include = \"" + lvl_mainFile2+ "\">"+String.Format(frmat, "lvl_main")+"\n\t<EmbeddedResource Include = \"" + assets_entryFile2+ "\">"+ String.Format(frmat,"assets_entry") + "\n  </ItemGroup> ";
+            string projFile=name+"\\"+name+"."+GetProjectExtension(null,lang);
             string[] projContent=File.ReadAllLines(projFile);
-            projContent[projContent.Length-2]+=(res);
+            projContent[projContent.Length-2]+=(res)+"\n";
             File.WriteAllLines(projFile,projContent);
 
-            FileStream stream = new FileStream(resxFile,FileMode.OpenOrCreate);
-            ResXResourceWriter resx = new ResXResourceWriter(stream);
+            //FileStream stream = new FileStream(resxFile,FileMode.OpenOrCreate);
+            //ResXResourceWriter resx = new ResXResourceWriter(stream);
+            //var lvl_mainRef = CreateRef(lvl_mainFile);
+            //resx.AddResource("lvl_main",lvl_mainRef);
+            //var assets_entryRef = CreateRef(assets_entryFile);
+            //resx.AddResource("assets_entry",assets_entryRef);
 
-            var lvl_mainRef = CreateRef(lvl_mainFile);
-            resx.AddResource("lvl_main",lvl_mainRef);
-            var assets_entryRef = CreateRef(assets_entryFile);
-            resx.AddResource("assets_entry",assets_entryRef);
-
-            resx.Close();
-            resx.Dispose();
+            //resx.Generate();
+            //resx.Close();
+            //resx.Dispose();
 
             string emptyLevelJson = lvl_main.ToJSON();
             File.WriteAllText(lvl_mainFile,emptyLevelJson);

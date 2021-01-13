@@ -24,7 +24,6 @@ namespace TDNPGL.Cli
                         this.ShowHelpMessage(args.Length > 1 ? args[1] : "");
                         break;
                     case "-create":
-                        string fsSlash=Os.FileSystemSlash;
                         string gameName = args.Length <= 1 
                             ? Path.GetFileNameWithoutExtension(Directory.GetCurrentDirectory()) : args[1];
                         Console.Write("Creating project named ");
@@ -41,7 +40,7 @@ namespace TDNPGL.Cli
                             }
                         }
                         this.CreateNewProject(assetsName, gameName,lang);
-                        this.CreateSolution(gameName,assetsName+fsSlash+assetsName+"."+this.GetProjectExtension(lang));
+                        this.CreateSolution(gameName,assetsName+"\\"+assetsName+"."+this.GetProjectExtension(lang));
                         break;
                     default:
                         this.ShowAboutHelpMessage("Unknown command \'" + command + "\'.");

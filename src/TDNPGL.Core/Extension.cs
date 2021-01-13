@@ -7,9 +7,9 @@ namespace TDNPGL.Core
 {
     public static class Extension
     {
-        public static object FromJSON(this object source,string json)
+        public static T FromJSON<T>(this string source)
         {
-            return JsonConvert.DeserializeObject<System.Object>(json);
+            return JsonConvert.DeserializeObject<T>(source);
         }
         public static string ToJSON(this object source)
         {

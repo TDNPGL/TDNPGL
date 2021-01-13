@@ -7,7 +7,7 @@ namespace TDNPGL.Core.Gameplay
     {
         private Thread ObjectUpdateThread;
         public Level Level { get; private set; }
-        public Game game{get;private set;}
+        private Game game{get;set;}
 
         public void Start()
         {

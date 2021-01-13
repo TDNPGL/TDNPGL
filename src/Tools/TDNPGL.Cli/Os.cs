@@ -11,6 +11,5 @@ namespace TDNPGL.Cli
         public static bool IsLinux => RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
         public static bool IsFreeBSD => RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD);
         public static bool IsOSX => RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-        public static string FileSystemSlash => IsWindows ? "\\" : "/";
     }
 }

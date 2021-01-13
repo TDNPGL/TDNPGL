@@ -16,6 +16,7 @@ namespace TDNPGL.Core
             }
         }
         #endregion
+        public static bool NoThrowExceptions = true;
         public static event ExceptionEventHandler ExceptionHandler=
             new ExceptionEventHandler(delegate (ExceptionEventArgs args) {
                 Debug.Logging.WriteError(args.Exception);

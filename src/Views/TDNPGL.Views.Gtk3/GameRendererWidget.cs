@@ -12,12 +12,15 @@ using TDNPGL.Core.Sound;
 using TDNPGL.Core.Gameplay;
 using TDNPGL.Core.Math;
 using TDNPGL.Core.Gameplay.Interfaces;
+using OpenTK.Audio.OpenAL;
+using System.Runtime.InteropServices;
 
 namespace TDNPGL.Views.Gtk3
 {
     public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
         #region Fields
+        private bool isInitialized = false;
         public Game game{get;set;}
 
         public SKDrawingArea DrawingArea = new SKDrawingArea();
@@ -39,11 +42,14 @@ namespace TDNPGL.Views.Gtk3
                 currentGameBitmap = value;
             }
         }
-        #endregion
+
         private readonly BaseLevelRenderer renderer = new BaseLevelRenderer();
         public ILevelRenderer LevelRenderer => renderer;
 
         private SKBitmap currentGameBitmap = new SKBitmap();
+        private ALDevice device;
+        private ALContext context;
+        #endregion
 
         public void RenderBitmap(SKBitmap bitmap)
         {
@@ -91,8 +97,57 @@ namespace TDNPGL.Views.Gtk3
 
         public void PlaySound(SoundAsset asset, bool sync)
         {
-            if (sync)
-                throw new InvalidOperationException();
+            if (!isInitialized)
+                InitSound();
+            unsafe
+            {
+                if (sync)
+                    throw new InvalidOperationException();
+
+                ALC.MakeContextCurrent(context);
+
+                //Process
+                int buffers=0, source=0;
+                AL.GenBuffers(1, ref buffers);
+                AL.GenSources(1, ref source);
+
+                int sampleFreq = 44100;
+
+                byte[] buffer = asset.AsStream().GetBuffer();
+
+                IntPtr unmanagedPointer = Marshal.AllocHGlobal(buffer.Length);
+                Marshal.Copy(buffer, 0, unmanagedPointer, buffer.Length);
+
+                AL.BufferData(buffers, ALFormat.Mono16, unmanagedPointer, buffer.Length, sampleFreq);
+                AL.Source(source, ALSourcei.Buffer, buffers);
+                AL.Source(source, ALSourceb.Looping, true);
+
+                AL.SourcePlay(source);
+
+                ///Dispose
+                if (context != ALContext.Null)
+                {
+                    ALC.MakeContextCurrent(ALContext.Null);
+                    ALC.DestroyContext(context);
+                }
+                context = ALContext.Null;
+
+                if (device != IntPtr.Zero)
+                {
+                    ALC.CloseDevice(device);
+                }
+                device = ALDevice.Null;
+                Marshal.FreeHGlobal(unmanagedPointer);
+            }
+        }
+        private void InitSound()
+        {
+            isInitialized = true;
+            device = ALC.OpenDevice(null);
+            unsafe
+            {
+                context = ALC.CreateContext(device, (int*)null);
+            }
         }
     }
 }
