@@ -32,11 +32,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDNPGL.GlobalDependencies", "TDNPGL.GlobalDependencies\TDNPGL.GlobalDependencies.csproj", "{BD5655E8-FE27-4A35-B18E-ABBBCBA9E89B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDNPGL.Views.UWP", "Views\TDNPGL.Views.UWP\TDNPGL.Views.UWP.csproj", "{48724AC6-FF92-4BA8-B6A9-AFC0D94DAC6C}"
-<<<<<<< HEAD
-=======
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDNPGL.Tests.Core", "Tests\TDNPGL.Tests.Core\TDNPGL.Tests.Core.csproj", "{35003335-7011-4966-8E46-4B274934EBC6}"
->>>>>>> e1cb6bf (Updated CLI, Added more tests, updated debugging in core)
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,8 +459,6 @@ Global
 		{48724AC6-FF92-4BA8-B6A9-AFC0D94DAC6C}.RelWithDebInfo|x64.Build.0 = Release|x64
 		{48724AC6-FF92-4BA8-B6A9-AFC0D94DAC6C}.RelWithDebInfo|x86.ActiveCfg = Release|x86
 		{48724AC6-FF92-4BA8-B6A9-AFC0D94DAC6C}.RelWithDebInfo|x86.Build.0 = Release|x86
-<<<<<<< HEAD
-=======
 		{35003335-7011-4966-8E46-4B274934EBC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{35003335-7011-4966-8E46-4B274934EBC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35003335-7011-4966-8E46-4B274934EBC6}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -504,7 +499,6 @@ Global
 		{35003335-7011-4966-8E46-4B274934EBC6}.RelWithDebInfo|x64.Build.0 = Release|Any CPU
 		{35003335-7011-4966-8E46-4B274934EBC6}.RelWithDebInfo|x86.ActiveCfg = Release|Any CPU
 		{35003335-7011-4966-8E46-4B274934EBC6}.RelWithDebInfo|x86.Build.0 = Release|Any CPU
->>>>>>> e1cb6bf (Updated CLI, Added more tests, updated debugging in core)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -518,10 +512,7 @@ Global
 		{FFFCC654-9287-47EF-8636-604FF97A2F1B} = {383223C5-4D8E-48A3-9DC1-BD04E5205F27}
 		{CFF9581F-6A5A-450C-A99A-321E2435D6B3} = {A0827581-349C-4626-B093-02766FF31311}
 		{48724AC6-FF92-4BA8-B6A9-AFC0D94DAC6C} = {2AD8DB73-20E9-4CFE-84E0-84FA05B7599F}
-<<<<<<< HEAD
-=======
 		{35003335-7011-4966-8E46-4B274934EBC6} = {D27C240F-81AD-4486-BDCD-9C29B2921BC4}
->>>>>>> e1cb6bf (Updated CLI, Added more tests, updated debugging in core)
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D00DBBF6-12C6-4191-9B99-6354BA833819}
