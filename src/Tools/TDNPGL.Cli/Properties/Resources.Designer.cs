@@ -8,18 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using TDNPGL.Core;
+
 namespace TDNPGL.Cli.Properties {
-<<<<<<< HEAD
-    using Newtonsoft.Json;
-    using System;
-    using TDNPGL.Core;
-
-
-=======
-    using System;
-    
-    
->>>>>>> Updated CLI, Added more tests, updated debugging in core
     /// <summary>
     ///   Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
     /// </summary>
@@ -101,13 +92,9 @@ namespace TDNPGL.Cli.Properties {
         ///  }
         ///].
         /// </summary>
-        internal static string HelpMessages {
+        internal static HelpMessage[] HelpMessages {
             get {
-<<<<<<< HEAD
                 return ResourceManager.GetString("HelpMessages", resourceCulture).FromJSON<HelpMessage[]>();
-=======
-                return ResourceManager.GetString("HelpMessages", resourceCulture);
->>>>>>> Updated CLI, Added more tests, updated debugging in core
             }
         }
     }

@@ -121,7 +121,7 @@ namespace TDNPGL.Views.WinForms
 
         public void PlaySound(SoundAsset asset, bool sync = false)
         {
-            SoundPlayer.Stream = asset;
+            SoundPlayer.Stream = asset.AsStream();
             SoundPlayer.Play();
         }
     }

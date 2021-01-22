@@ -27,7 +27,7 @@ namespace TDNPGL.Views.UWP
         {
         }
 
-        public void DrawBitmap(SkiaSharp.SKBitmap bitmap)
+        public void RenderBitmap(SkiaSharp.SKBitmap bitmap)
         {
         }
 
