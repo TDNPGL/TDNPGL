@@ -12,7 +12,6 @@ os.system("dotnet msbuild /property:Configuration=Release")
 s=open("../../Directory.Build.props",'r').read()
 
 regex = '<Version>([^"]*)</Version>'
-packages = re.findall(regex,s)
 
 ver = re.findall(regex,s)
 
@@ -23,6 +22,15 @@ mkdir("./bin/tdnpgl-deb/usr/bin")
 mkdir("./bin/tdnpgl-deb/usr/lib")
 mkdir("./bin/tdnpgl-deb/usr/lib/tdnpgl")
 mkdir("./bin/tdnpgl-deb/DEBIAN")
+if not os.path.exists("bin/tdnpgl-deb/usr/lib/tdnpgl"):
+	os.mkdir("./bin")
+    os.mkdir("./bin/tdnpgl-deb")
+    os.mkdir("./bin/tdnpgl-deb/usr")
+    os.mkdir("./bin/tdnpgl-deb/usr/bin")
+    os.mkdir("./bin/tdnpgl-deb/usr/lib")
+    os.mkdir("./bin/tdnpgl-deb/usr/lib/tdnpgl")
+    os.mkdir("./bin/tdnpgl-deb/DEBIAN")
+>>>>>>> Updated CLI, Added more tests, updated debugging in core:src/Tools/TDNPGL.Cli/create_dpkg.py
 
 is_win=sys.platform=="win32"
 if(is_win):
