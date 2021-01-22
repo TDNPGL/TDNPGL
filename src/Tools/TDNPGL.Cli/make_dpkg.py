@@ -3,21 +3,26 @@ import os
 import sys
 import re
 
+def mkdir(dir):
+    if not os.path.isdir(dir):
+        os.mkdir(dir)
+
 os.system("dotnet msbuild /property:Configuration=Release")
 
-regex = 'PackageReference Include="([^"]*)"'
+s=open("../../Directory.Build.props",'r').read()
+
+regex = '<Version>([^"]*)</Version>'
 packages = re.findall(regex,s)
 
 ver = re.findall(regex,s)
 
-if not os.path.exists("bin/tdnpgl-deb/usr/lib/tdnpgl"):
-	os.mkdir("./bin")
-    os.mkdir("./bin/tdnpgl-deb")
-    os.mkdir("./bin/tdnpgl-deb/usr")
-    os.mkdir("./bin/tdnpgl-deb/usr/bin")
-    os.mkdir("./bin/tdnpgl-deb/usr/lib")
-    os.mkdir("./bin/tdnpgl-deb/usr/lib/tdnpgl")
-    os.mkdir("./bin/tdnpgl-deb/DEBIAN")
+mkdir("./bin")
+mkdir("./bin/tdnpgl-deb")
+mkdir("./bin/tdnpgl-deb/usr")
+mkdir("./bin/tdnpgl-deb/usr/bin")
+mkdir("./bin/tdnpgl-deb/usr/lib")
+mkdir("./bin/tdnpgl-deb/usr/lib/tdnpgl")
+mkdir("./bin/tdnpgl-deb/DEBIAN")
 
 is_win=sys.platform=="win32"
 if(is_win):
@@ -32,7 +37,7 @@ else:
 os.system(cpcmd+" "+release_path+" "+out_path+" -r -f")
 
 f = open("./bin/tdnpgl-deb/DEBIAN/control","w")
-f.write("Package: tdnpgl\nVersion: "+ver+"\nArchitecture: all\nEssential: no\nSection: web\nPriority: optional\nDepends: dotnet-sdk-3.1\nMaintainer: zatrit\nInstalled-Size: 10240\nDescription: SDK for TDNPGL\n")
+f.write("Package: tdnpgl\nVersion: "+ver[0]+"\nArchitecture: all\nEssential: no\nSection: web\nPriority: optional\nDepends: dotnet-sdk-3.1\nMaintainer: zatrit\nInstalled-Size: 10240\nDescription: SDK for TDNPGL\n")
 f.close()
 
 f2 = open("./bin/tdnpgl-deb/usr/bin/tdnpgl","w")
