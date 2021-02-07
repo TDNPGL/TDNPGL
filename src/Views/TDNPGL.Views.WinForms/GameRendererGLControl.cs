@@ -25,9 +25,9 @@ namespace TDNPGL.Views.WinForms
         #region Fields
         public Game game{get;set;}
         public SoundPlayer SoundPlayer = new SoundPlayer();
-        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
-        public double width => Width;
-        public double height => Height;
+        public double PixelSize => ScreenCalculations.OptimalPixelSize(RenderWidth, RenderHeight);
+        public double RenderWidth => Width;
+        public double RenderHeight => Height;
 
         public bool Rendering = true;
 
@@ -87,7 +87,7 @@ namespace TDNPGL.Views.WinForms
             try
             {
                 e.Surface.Canvas.Clear(SKColors.Black);
-                e.Surface.Canvas.DrawBitmap(CurrentGameBitmap, new SKRect(0, 0, (float)width, (float)height));
+                e.Surface.Canvas.DrawBitmap(CurrentGameBitmap, new SKRect(0, 0, (float)RenderWidth, (float)RenderHeight));
             }
             catch (Exception ex)
             {
@@ -96,8 +96,12 @@ namespace TDNPGL.Views.WinForms
                     Logging.MessageAction("GAMECONTROL", ex.Message + " on rendering game on canvas!", ConsoleColor.Red);
                     return;
                 }
-                Logging.WriteError(ex);
                 CurrentGameBitmap.Dispose();
+#if DEBUG
+                throw;
+#else
+                Logging.WriteError(ex);
+#endif
             }
         }
 

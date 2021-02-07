@@ -66,9 +66,13 @@ namespace TDNPGL.Networking
                 }
                 catch (Exception ex)
                 {
-                    Exceptions.Call(ex);
                     DynamicByteBuf buf1 = PacketUtils.GetByteBuf(PacketType.Error, ex.Message);
                     Channels.Write(channel, buf1);
+#if DEBUG
+                    throw;
+#else
+                    Exceptions.Call(ex);
+#endif
                 }
             }
         }

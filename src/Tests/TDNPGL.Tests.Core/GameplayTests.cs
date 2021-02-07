@@ -27,7 +27,7 @@ namespace TDNPGL.Tests.Core
         {
             Level lvl=CreateTestLevel();
             var renderer = new BaseLevelRenderer();
-            var bitmap=renderer.Render(lvl, new SkiaSharp.SKSize(800, 600));
+            var bitmap=renderer.Render(lvl, new BaseGameRenderer(800,600));
             Assert.Pass();
         }
         private Level CreateTestLevel()

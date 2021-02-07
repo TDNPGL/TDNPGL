@@ -14,21 +14,22 @@ using TDNPGL.Core.Math;
 using TDNPGL.Core.Gameplay.Interfaces;
 using OpenTK.Audio.OpenAL;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace TDNPGL.Views.Gtk3
 {
     public class GameRendererWidget : Widget, IGameRenderer, ISoundProvider, IGameInitializer
     {
         #region Fields
-        private bool isInitialized = false;
+        private bool soundInitialized = false;
         public Game game{get;set;}
 
         public SKDrawingArea DrawingArea = new SKDrawingArea();
 
-        public double PixelSize => ScreenCalculations.CalculatePixelSize(width, height);
+        public double PixelSize => ScreenCalculations.OptimalPixelSize(RenderWidth, RenderHeight);
 
-        public double width => this.WidthRequest;
-        public double height => this.HeightRequest;
+        public double RenderWidth => this.WidthRequest;
+        public double RenderHeight => this.HeightRequest;
 
         public SKBitmap CurrentGameBitmap
         {
@@ -55,7 +56,7 @@ namespace TDNPGL.Views.Gtk3
         {
             CurrentGameBitmap = bitmap;
 
-            DrawingArea.QueueDrawArea(0, 0, (int)width, (int)height);
+            DrawingArea.QueueDrawArea(0, 0, (int)RenderWidth, (int)RenderHeight);
         }
         public GameRendererWidget()
         {
@@ -74,7 +75,7 @@ namespace TDNPGL.Views.Gtk3
             try
             {
                 e.Surface.Canvas.Clear(SKColors.Black);
-                e.Surface.Canvas.DrawBitmap(CurrentGameBitmap, new SKRect(0, 0, (float)width, (float)height));
+                e.Surface.Canvas.DrawBitmap(CurrentGameBitmap, new SKRect(0, 0, (float)RenderWidth, (float)RenderHeight));
             }
             catch (Exception ex)
             {
@@ -83,8 +84,12 @@ namespace TDNPGL.Views.Gtk3
                     Logging.MessageAction("GAMEWIDGET", ex.Message + " on rendering game on canvas!", ConsoleColor.Red);
                     return;
                 }
-                Logging.WriteError(ex);
                 CurrentGameBitmap.Dispose();
+#if DEBUG
+                throw;
+#else
+                Logging.WriteError(ex);
+#endif
             }
         }
 
@@ -97,57 +102,65 @@ namespace TDNPGL.Views.Gtk3
 
         public void PlaySound(SoundAsset asset, bool sync)
         {
-            if (!isInitialized)
+            if (!soundInitialized)
                 InitSound();
             unsafe
             {
+                void p()
+                {
+                    ALC.MakeContextCurrent(context);
+
+                    //Process
+                    int buffers = 0, source = 0;
+                    AL.GenBuffers(1, ref buffers);
+                    AL.GenSources(1, ref source);
+
+                    int sampleFreq = 44100;
+
+                    byte[] buffer = asset.AsStream().GetBuffer();
+
+                    IntPtr unmanagedPointer = Marshal.AllocHGlobal(buffer.Length);
+                    Marshal.Copy(buffer, 0, unmanagedPointer, buffer.Length);
+
+                    AL.BufferData(buffers, ALFormat.Mono16, unmanagedPointer, buffer.Length, sampleFreq);
+                    AL.Source(source, ALSourcei.Buffer, buffers);
+                    AL.Source(source, ALSourceb.Looping, true);
+
+                    AL.SourcePlay(source);
+
+                    Marshal.FreeHGlobal(unmanagedPointer);
+                }
                 if (sync)
-                    throw new InvalidOperationException();
-
-                ALC.MakeContextCurrent(context);
-
-                //Process
-                int buffers=0, source=0;
-                AL.GenBuffers(1, ref buffers);
-                AL.GenSources(1, ref source);
-
-                int sampleFreq = 44100;
-
-                byte[] buffer = asset.AsStream().GetBuffer();
-
-                IntPtr unmanagedPointer = Marshal.AllocHGlobal(buffer.Length);
-                Marshal.Copy(buffer, 0, unmanagedPointer, buffer.Length);
-
-                AL.BufferData(buffers, ALFormat.Mono16, unmanagedPointer, buffer.Length, sampleFreq);
-                AL.Source(source, ALSourcei.Buffer, buffers);
-                AL.Source(source, ALSourceb.Looping, true);
-
-                AL.SourcePlay(source);
-
-                ///Dispose
-                if (context != ALContext.Null)
-                {
-                    ALC.MakeContextCurrent(ALContext.Null);
-                    ALC.DestroyContext(context);
-                }
-                context = ALContext.Null;
-
-                if (device != IntPtr.Zero)
-                {
-                    ALC.CloseDevice(device);
-                }
-                device = ALDevice.Null;
-                Marshal.FreeHGlobal(unmanagedPointer);
+                    p();
+                else
+                    new Task(p).Start();
             }
         }
         private void InitSound()
         {
-            isInitialized = true;
+            soundInitialized = true;
             device = ALC.OpenDevice(null);
             unsafe
             {
                 context = ALC.CreateContext(device, (int*)null);
             }
+        }
+        public void Dispose()
+        {
+            base.Dispose();
+
+            if (context != ALContext.Null)
+            {
+                ALC.MakeContextCurrent(ALContext.Null);
+                ALC.DestroyContext(context);
+            }
+            context = ALContext.Null;
+
+            if (device != IntPtr.Zero)
+            {
+                ALC.CloseDevice(device);
+            }
+            device = ALDevice.Null;
         }
     }
 }

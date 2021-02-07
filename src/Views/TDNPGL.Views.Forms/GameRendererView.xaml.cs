@@ -21,13 +21,13 @@ namespace TDNPGL.Views.Forms
     {
         #region Fields
         public Game game{get;set;}
-        public double width => CanvasSize.Width;
-        public double height => CanvasSize.Height;
+        public double RenderWidth => CanvasSize.Width;
+        public double RenderHeight => CanvasSize.Height;
         public SKBitmap CurrentGameBitmap { get; set; }
         private BaseLevelRenderer renderer = new BaseLevelRenderer();
         public ILevelRenderer LevelRenderer => renderer;
 
-        public double PixelSize => ScreenCalculations.CalculatePixelSize(width,height);
+        public double PixelSize => ScreenCalculations.OptimalPixelSize(RenderWidth,RenderHeight);
         #endregion
         public GameRendererView()
         {

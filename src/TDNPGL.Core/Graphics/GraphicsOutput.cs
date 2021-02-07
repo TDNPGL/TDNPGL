@@ -27,7 +27,7 @@ namespace TDNPGL.Core.Graphics
         /// <summary>
         /// All graphics outputs
         /// </summary>
-        private static List<IGameRenderer> Renderers = new List<IGameRenderer>();
+        private List<IGameRenderer> Renderers = new List<IGameRenderer>();
         /// <summary>
         /// Add new renderer
         /// </summary>
@@ -59,9 +59,9 @@ namespace TDNPGL.Core.Graphics
                 Exceptions.Call(ex);
             }
         }
-        public static IGameRenderer GetMainRenderer()
+        public IEnumerable<IGameRenderer> GetGameRenderers()
         {
-            return Renderers[0];
+            return Renderers;
         }
         public void PauseRender(int pauseTime)
         {
@@ -78,7 +78,7 @@ namespace TDNPGL.Core.Graphics
                     foreach (IGameRenderer renderer in Renderers)
                         try
                         {
-                            SKBitmap bitmap = MainLevelRenderer.Render(Game.CurrentLevel, new SKSize((float)renderer.width, (float)renderer.height),Canvas);
+                            SKBitmap bitmap = MainLevelRenderer.Render(Game.CurrentLevel,renderer,Canvas);
                             
                             renderer.RenderBitmap(bitmap);
                             if (GC.GetTotalMemory(true) / 1024 / 1024 > 40)

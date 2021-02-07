@@ -1,5 +1,6 @@
 ﻿using SkiaSharp;
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using TDNPGL.Core.Debug;
@@ -71,21 +72,21 @@ namespace TDNPGL.Core
 
             GraphicsOutput.AddOutputGameRenderer(this.provider.Renderer);
             Logging.MessageAction("RUN", "{0} is running platform", ConsoleColor.Green, ConsoleColor.Gray, Environment.OSVersion.ToString());
-            Logging.MessageAction("RUN", "{0} is game renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetCurrentDisplaySize());
+            Logging.MessageAction("RUN", "{0} is game renderer size", ConsoleColor.Green, ConsoleColor.Gray, GetGameRendererSize(0));
             GraphicsOutput.BeginRender();
 
             current = this;
         }
         #region Static
         private static Game current;
-        public static SKSize GetCurrentDisplaySize()
+        public SKSize GetGameRendererSize(int id)
         {
             SKSize size;
 
-            IGameRenderer renderer = GraphicsOutput.GetMainRenderer();
+            IGameRenderer renderer = GraphicsOutput.GetGameRenderers().ToArray()[id];
 
-            double height=renderer.height;
-            double width= renderer.width;
+            double height=renderer.RenderHeight;
+            double width= renderer.RenderWidth;
             size = new SKSize((float)width, (float)height);
             return size;
         }

@@ -14,6 +14,7 @@ using TDNPGL.Core.Math;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TDNPGL.Core.Debug;
+using TDNPGL.Core.Graphics.Renderers;
 
 namespace TDNPGL.Core.Gameplay
 {
@@ -157,10 +158,10 @@ namespace TDNPGL.Core.Gameplay
                 Logging.WriteError(ex);
             }
         }
-        internal void Render(SKCanvas canvas)
+        internal void Render(SKCanvas canvas,IGameRenderer renderer)
         {
             SKRect rect = Rect;
-            double pixelSize = GraphicsOutput.GetMainRenderer().PixelSize;
+            double pixelSize = renderer.PixelSize;
 
             IParentable parent = Parent;
             while (!(parent is Level))

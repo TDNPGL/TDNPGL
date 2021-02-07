@@ -5,6 +5,6 @@ namespace TDNPGL.Core.Graphics.Renderers
 {
     public interface ILevelRenderer
     {
-        public SKBitmap Render(Level level, SKSize ScreenSize, GUI.GUICanvas gcanvas = null);
+        public SKBitmap Render(Level level, IGameRenderer renderer, GUI.GUICanvas gcanvas = null);
     }
 }

@@ -1,34 +1,35 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace TDNPGL.Core.Gameplay
 {
     public class GameObjectUpdater
     {
-        private Thread ObjectUpdateThread;
+        private Task ObjectUpdateTask;
+
         public Level Level { get; private set; }
         private Game game{get;set;}
 
         public void Start()
         {
-            ObjectUpdateThread = new Thread(UpdateTHR);
-            ObjectUpdateThread.Name = "GameObjectUpdateThread_"+Level.Name;
-            ObjectUpdateThread.Start();
+            ObjectUpdateTask = new Task(UpdateTHR);
+            ObjectUpdateTask.Start();
         }
         public void Stop()
         {
             try
             {
-                ObjectUpdateThread.Abort();
+                ObjectUpdateTask.Dispose();
             }
             catch (Exception ex)
             {
+#if DEBUG
+                throw;
+#else
                 Exceptions.Call(ex);
+#endif
             }
-        }
-        internal static void PressKey(ConsoleKeyInfo keyInfo)
-        {
-
         }
         private void UpdateTHR()
         {

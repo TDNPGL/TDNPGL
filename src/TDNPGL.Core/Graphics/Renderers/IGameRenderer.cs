@@ -7,8 +7,8 @@ namespace TDNPGL.Core.Graphics.Renderers
     {
         void RenderBitmap(SKBitmap bitmap);
 
-        double width { get;}
-        double height { get; }
+        double RenderWidth { get;}
+        double RenderHeight { get; }
         double PixelSize { get; }
         ILevelRenderer LevelRenderer { get; }
     }

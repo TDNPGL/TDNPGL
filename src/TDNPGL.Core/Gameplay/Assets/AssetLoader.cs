@@ -42,7 +42,11 @@ namespace TDNPGL.Core.Gameplay.Assets
             catch(Exception ex)
             {
                 entry = null;
+#if DEBUG
+                throw;
+#else
                 Logging.WriteError(ex);
+#endif
             }
             return entry;
         }
@@ -99,7 +103,11 @@ namespace TDNPGL.Core.Gameplay.Assets
                     }
                     catch (Exception ex)
                     {
+#if DEBUG
+                        throw;
+#else
                         Logging.WriteError(ex);
+#endif
                     }
             }
             Console.ResetColor();
