@@ -1,9 +1,6 @@
 [submodule "src/Native/TDNPGL.Native/vcpkg"]
 	path = src/Native/TDNPGL.Native/vcpkg
 	url = https://github.com/microsoft/vcpkg
-[submodule "src/Native/TDNPGL.Native/src/Native/TDNPGL.Native/game-window"]
-	path = src/Native/TDNPGL.Native/src/Native/TDNPGL.Native/game-window
-	url = https://github.com/minecraft-linux/game-window
 [submodule "src/Native/TDNPGL.Native/game-window"]
 	path = src/Native/TDNPGL.Native/game-window
 	url = https://github.com/minecraft-linux/game-window
