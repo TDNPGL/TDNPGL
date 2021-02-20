@@ -7,8 +7,10 @@ src/TDNPGL.Networking/obj
 src/packages
 src/Native/TDNPGL.Native/build/
 src/TestResults
-.vscode/settings.json
-.vscode/.ropeproject
+
+.vscode/*
+!.vscode/launch.json
+
 src/packed
 build
 docs/source/_build

@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 from shutil import copyfile
 import os
+import sys
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 def cp(frm,to):
 	try:
@@ -11,7 +14,10 @@ def mkdir(direc):
   if not os.path.isdir(direc):
     os.mkdir(direc)
 
-os.system("python3 ../TDNPGL.Native/build.py")
+os.chdir("../TDNPGL.Native")
+os.system(sys.executable+" ../TDNPGL.Native/build.py")
+
+os.chdir("../TDNPGL.Native.Extensions")
 
 mkdir("x64")
 mkdir("x86")
