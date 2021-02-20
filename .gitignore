@@ -14,3 +14,7 @@ src/TestResults
 src/packed
 build
 docs/source/_build
+
+*.exe
+*.dll
+*.so
